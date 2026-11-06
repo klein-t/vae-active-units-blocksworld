@@ -1,0 +1,41 @@
+{
+  "run_id": "analysis_001",
+  "results_sha256": "57652193fa276358e26354bcc7d567239ba2f80dd04870e6813febdf35e7a967",
+  "status": "pass",
+  "method": "Separate script: generative enumeration of tower arrangements (no constraint checker), per-position set lookups over the raw thesis arrays for legality/coverage/parity/entropy, recomputation of conditional entropies, total correlation and affine dimensions from the retained frequency table and legal-state array; negative controls: column-permuted legal states under the retained checker copy, and zero total correlation for an independent pair.",
+  "limitations": "Same author and session wrote run and audit (not independent replication). The I3D dimension estimates are exploratory and not re-derived here.",
+  "checks": {
+    "count": true,
+    "set": true,
+    "data": true,
+    "coverage": true,
+    "parity": true,
+    "entropy": true,
+    "total_correlation": true,
+    "table": true,
+    "linear": true,
+    "negative_controls": true
+  },
+  "evidence": [
+    {
+      "path": "audit_recompute.json",
+      "bytes": 884,
+      "sha256": "6b93f05d7af1f42c2886ecccbdb7e35480a6ad9d4cabf7a6922e1604bef8f601"
+    },
+    {
+      "path": "legal_states_866.npy",
+      "bytes": 31304,
+      "sha256": "e1173a49582f5ebccefbfa65d997ee2fa6933fa8d08f01a3e1b216cb9a8a88ca"
+    },
+    {
+      "path": "results.json",
+      "bytes": 8560,
+      "sha256": "57652193fa276358e26354bcc7d567239ba2f80dd04870e6813febdf35e7a967"
+    },
+    {
+      "path": "state_frequency_table.csv",
+      "bytes": 80783,
+      "sha256": "02b0c55ec7033c101704145bef8aa9d2ee4f25245df7122c6d0faf93a06cdd9e"
+    }
+  ]
+}

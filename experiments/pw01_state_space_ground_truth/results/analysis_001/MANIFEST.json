@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "audit_recompute.json",
+      "bytes": 884,
+      "sha256": "6b93f05d7af1f42c2886ecccbdb7e35480a6ad9d4cabf7a6922e1604bef8f601"
+    },
+    {
+      "path": "blocksworld_legality.py",
+      "bytes": 6910,
+      "sha256": "bf8f949c433dfbac82d8eaf4ba9bf1a107e52aa762232d5a84b6789a917e49bb"
+    },
+    {
+      "path": "dimension_candidates.json",
+      "bytes": 10688,
+      "sha256": "07f38203c4029c6d63562c4b4945250e98389f7b121879af8bcd11f485f655b1"
+    },
+    {
+      "path": "legal_states_866.npy",
+      "bytes": 31304,
+      "sha256": "e1173a49582f5ebccefbfa65d997ee2fa6933fa8d08f01a3e1b216cb9a8a88ca"
+    },
+    {
+      "path": "results.json",
+      "bytes": 8560,
+      "sha256": "57652193fa276358e26354bcc7d567239ba2f80dd04870e6813febdf35e7a967"
+    },
+    {
+      "path": "run_stdout.log",
+      "bytes": 267,
+      "sha256": "cb1954459b9c25791e4a330a6eef41b243a007bdb97a2ada7f324f9ed1b766e4"
+    },
+    {
+      "path": "state_frequency_table.csv",
+      "bytes": 80783,
+      "sha256": "02b0c55ec7033c101704145bef8aa9d2ee4f25245df7122c6d0faf93a06cdd9e"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "experiment_id": "pw01_state_space_ground_truth",
+  "run_id": "analysis_001",
+  "note": "Candidate \"true dimension\" targets frozen before any VAE count (P1). hand_empty_free=False marks candidates that do not count hand_empty (fixed by step parity) as a free factor.",
+  "candidates": {
+    "bits_log2_legal": {
+      "value": 9.758223214726724,
+      "hand_empty_free": true,
+      "definition": "log2 of the number of legal states (866): bits to index a uniform legal state"
+    },
+    "bits_min_binary_code": {
+      "value": 10,
+      "hand_empty_free": true,
+      "definition": "ceil(log2 866): fewest binary latents that can index every legal state"
+    },
+    "bits_entropy_empirical": {
+      "value": 9.345781901121171,
+      "hand_empty_free": true,
+      "definition": "Shannon entropy of the state distribution over all valid positions of thesis train+test"
+    },
+    "bits_log2_arm_empty": {
+      "value": 8.968666793195208,
+      "hand_empty_free": false,
+      "definition": "log2 501: bits to index a legal state given hand empty (even step index)"
+    },
+    "bits_log2_holding": {
+      "value": 8.51175265376738,
+      "hand_empty_free": false,
+      "definition": "log2 365: bits to index a legal state given a held block (odd step index)"
+    },
+    "bits_min_binary_code_given_parity": {
+      "value": 9,
+      "hand_empty_free": false,
+      "definition": "max over parity classes of ceil(log2 #states in class) = 9"
+    },
+    "bits_entropy_given_parity": {
+      "value": 8.345856936256194,
+      "hand_empty_free": false,
+      "definition": "H(state | step parity) on the data = p_even H_even + p_odd H_odd"
+    },
+    "bits_entropy_even_k": {
+      "value": 8.473270230984308,
+      "hand_empty_free": false,
+      "definition": "H(state) at even step index k (arm empty)"
+    },
+    "bits_entropy_odd_k": {
+      "value": 8.215817892955755,
+      "hand_empty_free": false,
+      "definition": "H(state) at odd step index k (holding)"
+    },
+    "factors_per_block_categorical": {
+      "value": 5,
+      "hand_empty_free": false,
+      "definition": "Number of per-block 6-valued position variables; hand_empty is a function of them (not a free factor). Variables are dependent (total correlation > 0)."
+    },
+    "factor_bits_per_block_categorical": {
+      "value": 12.92481250360578,
+      "hand_empty_free": false,
+      "definition": "5 log2 6: capacity of the per-block product space (7776 cells, 11.1% legal)"
+    },
+    "factor_bits_per_block_categorical_arm_empty": {
+      "value": 11.60964047443681,
+      "hand_empty_free": false,
+      "definition": "5 log2 5: per-block product space given hand empty (3125 cells, 16.0% legal)"
+    },
+    "binary_facts_total": {
+      "value": 36,
+      "hand_empty_free": true,
+      "definition": "Number of binary facts in the encoding"
+    },
+    "binary_facts_excluding_hand_empty": {
+      "value": 35,
+      "hand_empty_free": false,
+      "definition": "Facts other than hand_empty"
+    },
+    "rank_state_matrix": {
+      "value": 26,
+      "hand_empty_free": true,
+      "definition": "Rank of the 866 x 36 legal-state matrix"
+    },
+    "affine_dim_legal_states": {
+      "value": 25,
+      "hand_empty_free": true,
+      "definition": "Dimension of the affine hull of the 866 legal states in R^36 (linear-PCA count of nonzero-variance directions)"
+    },
+    "affine_dim_without_hand_empty_column": {
+      "value": 25,
+      "hand_empty_free": false,
+      "definition": "Affine hull dimension after dropping the hand_empty column (it is affinely 1 - sum holding)"
+    },
+    "affine_dim_arm_empty": {
+      "value": 20,
+      "hand_empty_free": false,
+      "definition": "Affine hull dimension of the 501 arm-empty states (even steps)"
+    },
+    "affine_dim_holding": {
+      "value": 24,
+      "hand_empty_free": false,
+      "definition": "Affine hull dimension of the 365 holding states (odd steps)"
+    },
+    "i3d_hypercube_range": {
+      "value": [
+        11.87000000000001,
+        21.250000000000018
+      ],
+      "hand_empty_free": true,
+      "definition": "Exploratory: range over radii (r, 2r), r=3..8, of the binomial discrete-ID estimate with Hamming-hypercube ball volumes on the 866 legal states (uniform). Scale-dependent; see i3d section."
+    }
+  },
+  "linear": {
+    "rank_all": 26,
+    "affine_dim_all": 25,
+    "rank_all_without_hand_empty_column": 26,
+    "affine_dim_all_without_hand_empty_column": 25,
+    "affine_dim_arm_empty": 20,
+    "affine_dim_holding": 24,
+    "rank_arm_empty": 21,
+    "rank_holding": 25,
+    "nonconstant_facts_all": 36,
+    "nonconstant_facts_arm_empty": 30,
+    "nonconstant_facts_holding": 35
+  },
+  "i3d": {
+    "radii": [
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        8,
+        16
+      ]
+    ],
+    "legal_states": {
+      "lattice": [
+        {
+          "r": 3,
+          "R": 6,
+          "k_total": 5346,
+          "n_total": 43336,
+          "p_hat": 0.12336163928373639,
+          "d_hat": 3.5800000000000023,
+          "ratio_at_d_hat": 0.12329598826910027
+        },
+        {
+          "r": 4,
+          "R": 8,
+          "k_total": 9916,
+          "n_total": 134356,
+          "p_hat": 0.07380392390365893,
+          "d_hat": 4.330000000000003,
+          "ratio_at_d_hat": 0.07365529935823943
+        },
+        {
+          "r": 5,
+          "R": 10,
+          "k_total": 19116,
+          "n_total": 338836,
+          "p_hat": 0.05641667355298729,
+          "d_hat": 4.640000000000003,
+          "ratio_at_d_hat": 0.05650576344848411
+        },
+        {
+          "r": 6,
+          "R": 12,
+          "k_total": 43336,
+          "n_total": 591436,
+          "p_hat": 0.07327250962065211,
+          "d_hat": 4.0900000000000025,
+          "ratio_at_d_hat": 0.07335708630400259
+        },
+        {
+          "r": 7,
+          "R": 14,
+          "k_total": 77656,
+          "n_total": 733876,
+          "p_hat": 0.1058162414358829,
+          "d_hat": 3.450000000000002,
+          "ratio_at_d_hat": 0.10561700725715886
+        },
+        {
+          "r": 8,
+          "R": 16,
+          "k_total": 134356,
+          "n_total": 749956,
+          "p_hat": 0.17915184357482306,
+          "d_hat": 2.6000000000000014,
+          "ratio_at_d_hat": 0.17956638123057092
+        }
+      ],
+      "hypercube": [
+        {
+          "r": 3,
+          "R": 6,
+          "k_total": 5346,
+          "n_total": 43336,
+          "p_hat": 0.12336163928373639,
+          "d_hat": 11.87000000000001,
+          "ratio_at_d_hat": 0.12328148052023943
+        },
+        {
+          "r": 4,
+          "R": 8,
+          "k_total": 9916,
+          "n_total": 134356,
+          "p_hat": 0.07380392390365893,
+          "d_hat": 15.500000000000012,
+          "ratio_at_d_hat": 0.07379326055556444
+        },
+        {
+          "r": 5,
+          "R": 10,
+          "k_total": 19116,
+          "n_total": 338836,
+          "p_hat": 0.05641667355298729,
+          "d_hat": 18.390000000000015,
+          "ratio_at_d_hat": 0.05633510277526959
+        },
+        {
+          "r": 6,
+          "R": 12,
+          "k_total": 43336,
+          "n_total": 591436,
+          "p_hat": 0.07327250962065211,
+          "d_hat": 19.690000000000015,
+          "ratio_at_d_hat": 0.07324303914633509
+        },
+        {
+          "r": 7,
+          "R": 14,
+          "k_total": 77656,
+          "n_total": 733876,
+          "p_hat": 0.1058162414358829,
+          "d_hat": 20.770000000000017,
+          "ratio_at_d_hat": 0.10585498753915905
+        },
+        {
+          "r": 8,
+          "R": 16,
+          "k_total": 134356,
+          "n_total": 749956,
+          "p_hat": 0.17915184357482306,
+          "d_hat": 21.250000000000018,
+          "ratio_at_d_hat": 0.17928981441079028
+        }
+      ]
+    },
+    "positive_controls": {
+      "full_hypercube_d8": {
+        "lattice": [
+          {
+            "r": 1,
+            "R": 2,
+            "k_total": 2304,
+            "n_total": 9472,
+            "p_hat": 0.24324324324324326,
+            "d_hat": 3.5500000000000025,
+            "ratio_at_d_hat": 0.24320672571685922
+          },
+          {
+            "r": 2,
+            "R": 4,
+            "k_total": 9472,
+            "n_total": 41728,
+            "p_hat": 0.22699386503067484,
+            "d_hat": 2.6600000000000015,
+            "ratio_at_d_hat": 0.227080475393015
+          }
+        ],
+        "hypercube": [
+          {
+            "r": 1,
+            "R": 2,
+            "k_total": 2304,
+            "n_total": 9472,
+            "p_hat": 0.24324324324324326,
+            "d_hat": 8.000000000000007,
+            "ratio_at_d_hat": 0.24324324324324306
+          },
+          {
+            "r": 2,
+            "R": 4,
+            "k_total": 9472,
+            "n_total": 41728,
+            "p_hat": 0.22699386503067484,
+            "d_hat": 8.000000000000007,
+            "ratio_at_d_hat": 0.2269938650306744
+          }
+        ]
+      },
+      "full_hypercube_d10": {
+        "lattice": [
+          {
+            "r": 1,
+            "R": 2,
+            "k_total": 11264,
+            "n_total": 57344,
+            "p_hat": 0.19642857142857142,
+            "d_hat": 4.540000000000003,
+            "ratio_at_d_hat": 0.19647897207191745
+          },
+          {
+            "r": 2,
+            "R": 4,
+            "k_total": 57344,
+            "n_total": 395264,
+            "p_hat": 0.14507772020725387,
+            "d_hat": 3.6800000000000024,
+            "ratio_at_d_hat": 0.14486949354540574
+          }
+        ],
+        "hypercube": [
+          {
+            "r": 1,
+            "R": 2,
+            "k_total": 11264,
+            "n_total": 57344,
+            "p_hat": 0.19642857142857142,
+            "d_hat": 10.000000000000007,
+            "ratio_at_d_hat": 0.19642857142857129
+          },
+          {
+            "r": 2,
+            "R": 4,
+            "k_total": 57344,
+            "n_total": 395264,
+            "p_hat": 0.14507772020725387,
+            "d_hat": 10.000000000000007,
+            "ratio_at_d_hat": 0.14507772020725368
+          }
+        ]
+      }
+    },
+    "hamming_distance_spectrum_pairs": {
+      "3": 2240,
+      "4": 2285,
+      "5": 4600,
+      "6": 12110,
+      "7": 17160,
+      "8": 28350,
+      "9": 45360,
+      "10": 56880,
+      "11": 64560,
+      "12": 61740,
+      "13": 45960,
+      "14": 25260,
+      "15": 7560,
+      "16": 480
+    },
+    "caveat": "Own re-implementation of the Macocco et al. (2207.09688) binomial estimator, not checked against DADApy; full hypercubes are the positive control for the hypercube volume model."
+  }
+}

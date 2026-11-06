@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw04a_sample_legality_amended",
+  "run_id": "pilot_001",
+  "kind": "pilot",
+  "freeze_sha256": "cbc0fae0c474b4d5ef77d35776473855e2d31f9c12a0e09c45a0899b90dd0f88",
+  "pilot_run": null,
+  "started_at": "2026-10-21T19:58:14.726268+00:00"
+}

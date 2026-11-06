@@ -1,0 +1,87 @@
+{
+  "experiment_id": "pw05_unit_anatomy",
+  "claim": "P2/P3/P4, post hoc and descriptive: rate vs H(X) and aggregate-posterior mismatch bound (Q1), ELBO terms by cell (Q2), unit-to-block MI and per-unit fact detection (Q3), linear-VAE eigenvalue prediction on b_lin (Q4), zero-rate break-even beta* (Q5), legality anatomy of prior and aggregate-posterior samples (Q6), Asperti & Trentin active-unit count (Q7); answers two examiner-style reviews",
+  "hypothesis": "None (descriptive). Confirmation data of the inputs were already opened by pw02a/pw03a full_001 and the pw04a descriptive pass; Q1-Q7 are pre-declared quantities, not pass/fail tests. Required criteria record only that each quantity was computed for every planned run.",
+  "required_criteria": [
+    "q1_computed",
+    "q2_computed",
+    "q3_computed",
+    "q4_computed",
+    "q5_computed",
+    "q6_computed",
+    "q7_computed"
+  ],
+  "gates": [
+    "task",
+    "numerical",
+    "competence"
+  ],
+  "sampling": {
+    "unit": "independent VAE training seed of the pw02a sweep (no new training): 5 seeds per Blocksworld beta-VAE cell, 3 per code10/prod5/b_lin cell",
+    "seeds": "inherited from pw02a full_001 (1-5 / 1-3)",
+    "justification": "Pure analysis of retained artifacts; every planned run is analysed, no subsampling. MC distortion: 128 draws per state (SE reported). Samples: 20,000 per model from the pw04a descriptive pass."
+  },
+  "uncertainty": "Per-seed values and per-cell median and range over seeds; MC standard error for the distortion; no p-values, no criteria on effect sizes. beta* and the eigenvalue rule are heuristics, labelled as such.",
+  "splits": {
+    "development": "smoke test only on pw02a/pw03a/pw04a pilot_001 artifacts (seed 101, val weights), scratch output",
+    "confirmation": "pw02a full_001 confirmation operands (thesis test-file weights); already opened by earlier runs, so post hoc"
+  },
+  "selection_rule": "No selection: every planned run of PROTOCOL.md is analysed; binning, MC draws, thresholds fixed in PROTOCOL.md.",
+  "stopping_rule": "Missing input/key/run or hash mismatch, or a failed numerical check = technical_stop; a planned run without pw02a competence = competence_stop; no retries under this freeze.",
+  "controls": [
+    "code10 and prod5 (known H(X)) for Q1/Q2/Q5",
+    "data states under the eval weights through the Q6 funnel (positive)",
+    "prod5 models in Q6 (no cross-block constraints in training)",
+    "permuted block labels for Q3 MI (negative)",
+    "uniform random bits through the funnel in the audit (negative)",
+    "pw03a f1_conf and block_mi reproduced (positive controls for the prod5 recomputation and the MI code)"
+  ],
+  "compute": {
+    "device": "cpu",
+    "precision": "float32 models, float64 sums",
+    "threads": 1,
+    "parallel_workers": 8,
+    "estimate_cpu_minutes": 20,
+    "cap_cpu_hours": 2
+  },
+  "pilot_required": false,
+  "external_inputs": {
+    "experiments/pw02a_active_units_amended/results/full_001/MANIFEST.json": "14364f15e23622555a41668f8cc569d56c7b58e12e2b0f352bc5a3544b4085b9",
+    "experiments/pw02a_active_units_amended/results/full_001/results.json": "1de8105db98b56f044479cb32981d537b74a0d94b3f948758cf9280406b33476",
+    "experiments/pw03a_fact_alignment_amended/results/full_001/MANIFEST.json": "604738563a7ed05f3001578b1ece00e7e04a88d3120431e68d56749db30eca9e",
+    "experiments/pw03a_fact_alignment_amended/results/full_001/results.json": "4812006edc2561167b536dcae930b182028f52e7c1c6cd5124fc32380774dae1",
+    "experiments/pw04a_sample_legality_amended/descriptive/results/pw02a_full_001/results.json": "bb80f19f15d9b6855f3fc495a8dd8794b85f39fe08e2812b528224f2ac3890d2",
+    "experiments/pw04a_sample_legality_amended/analyze_legality.py": "d7c073e6daa3a877d1527c4ec2142d3c7c0b91cf8a56d76f6a309b341ebb889c"
+  },
+  "files": [
+    "experiments/pw05_unit_anatomy/PROTOCOL.md",
+    "experiments/pw05_unit_anatomy/analyze_anatomy.py",
+    "experiments/pw05_unit_anatomy/audit.py",
+    "experiments/pw05_unit_anatomy/input_hashes.json",
+    "src/pwlib/__init__.py",
+    "src/pwlib/blocksworld.py",
+    "src/pwlib/data.py",
+    "src/pwlib/legality.py",
+    "src/pwlib/metrics.py",
+    "src/pwlib/models.py",
+    "src/pwlib/training.py",
+    "src/pwlib/sweep.py",
+    "src/pwlib/runio.py",
+    "pyproject.toml",
+    "uv.lock"
+  ],
+  "storage": {
+    "expected_bytes": 15000000,
+    "max_bytes": 200000000,
+    "retain": [
+      "results.json (all per-run and per-unit quantities)",
+      "audit_recompute.json",
+      "MANIFEST.json, AUDIT.json, CLAIM_UPDATES.json"
+    ],
+    "regenerate": []
+  },
+  "pre_freeze_changes": [
+    "2026-10-27: Q7 (Asperti & Trentin count) added after the registration commit 01eb241 on request; an informal audit scratch count had been seen",
+    "2026-10-27: Q3 pair tag same_support added after the development smoke test"
+  ]
+}

@@ -1,0 +1,1412 @@
+{
+ "note": "Frozen shared training sweep for pw02-pw04 (trained once, in pw02). Deterministic baselines (PCA) are not cells. Pre-freeze change 2026-10-14: per-cell seeds; width-128 activation sources at three transformer seeds (w128 = d4_w128_s1, w128s2, w128s3).",
+ "architectures": {
+  "A1": {
+   "hidden": [
+    64
+   ],
+   "activation": "relu",
+   "note": "encoder hidden widths; decoder mirrors"
+  },
+  "A2": {
+   "hidden": [
+    256,
+    256
+   ],
+   "activation": "relu",
+   "note": "encoder hidden widths; decoder mirrors"
+  },
+  "A3": {
+   "hidden": [
+    256,
+    256,
+    256,
+    256
+   ],
+   "activation": "relu",
+   "note": "encoder hidden widths; decoder mirrors"
+  },
+  "A4": {
+   "hidden": [
+    1024,
+    1024
+   ],
+   "activation": "relu",
+   "note": "encoder hidden widths; decoder mirrors"
+  }
+ },
+ "training": {
+  "optimizer": "adam",
+  "steps": 30000,
+  "batch_size": 512,
+  "lr_schedule": "constant",
+  "kl_warmup": null,
+  "kl_warmup_contingency": {
+   "schedule": "linear",
+   "fraction": 0.1,
+   "trigger": "pilot_001: any A3 (4x256) cell on raw-state-type data (bw-gauss_vae-A3-b1-lr0.0003, code10-gauss_vae-A3-b1-lr0.0003, prod5-gauss_vae-A3-b1-lr0.0003) fails the per-run competence gate",
+   "effect": "kl_warmup is set to {schedule: linear, fraction: 0.1} for ALL cells and architectures (beta rises linearly from 0 to its target over the first 3,000 of 30,000 steps); applied by train_sweep.py --apply-kl-warmup-contingency pilot_001, which re-checks the trigger from the pilot run files; a re-pilot pilot_002 (seed 101, same 23 pilot cells, development data only) runs with it first and the full run cites pilot_002",
+   "note": "pre-registered before freeze (2026-10-21), decided before any real outcome; default off (kl_warmup null). See PROTOCOL.md section 10."
+  },
+  "grad_clip_norm": 10.0,
+  "logvar_clamp": [
+   -12.0,
+   6.0
+  ],
+  "log_gamma_floor": -9.0,
+  "eval_every_steps": 1000
+ },
+ "families": {
+  "gauss_vae": "beta-VAE: N(0,I) prior, diagonal Gaussian posterior; decoder Bernoulli (bw, code10, prod5, indep) or Gaussian with scalar variance gamma (b_*; gamma learned as log-parameter init 0 with floor, or fixed 1)",
+  "tc_vae": "beta-TCVAE (Chen et al. 2018), minibatch-weighted sampling estimator, alpha=1 (index-code MI), gamma_kl=1 (dimension-wise KL), beta = weight on total correlation; total correlation reported in nats by MWS with the Chen constants and by MSS (docs/METRICS_SPEC.md section 4)",
+  "cat_vae": "16 categorical latents x 6 classes, Gumbel-softmax relaxed samples (Jang et al. recipe): tau = max(0.5, exp(-3e-5 t)) with t updated every 1,000 steps, analytic KL to the uniform categorical weighted by beta; evaluation uses posterior probabilities and hard argmax codes",
+  "topk_sae": "Top-k SAE (Gao et al. 2024 recipe): pre-bias = train mean, unit-norm decoder columns renormalised each step, encoder initialised as decoder transpose, AuxK loss (k_aux = latent/2, coefficient 1/32) on latents dead for >= 1000 steps; MSE loss",
+  "plain_ae": "deterministic autoencoder, same MLP and latent size as the gauss_vae reference, no KL term; Bernoulli/BCE (bw) or MSE (b_*)"
+ },
+ "seeds": {
+  "pilot": [
+   101
+  ],
+  "confirmation_core": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "confirmation_other": [
+   1,
+   2,
+   3
+  ],
+  "note": "Per-cell confirmation seeds are listed in each cell (key seeds): 5 for the 24 raw-state bw-gauss_vae cells (core of H2.2/H2.3, pw03 H3.2 comparators, pw04 H4.1/H4.2), 3 for every other cell (controls, secondary families, activation substrates)."
+ },
+ "pilot_cells": [
+  "bw-gauss_vae-A2-b0.25-lr0.0003",
+  "bw-gauss_vae-A2-b0.25-lr0.003",
+  "bw-gauss_vae-A2-b1-lr0.0003",
+  "bw-gauss_vae-A2-b1-lr0.003",
+  "bw-gauss_vae-A2-b4-lr0.0003",
+  "bw-gauss_vae-A2-b4-lr0.003",
+  "bw-gauss_vae-A1-b1-lr0.0003",
+  "bw-gauss_vae-A3-b1-lr0.0003",
+  "bw-gauss_vae-A4-b1-lr0.0003",
+  "code10-gauss_vae-A2-b1-lr0.0003",
+  "prod5-gauss_vae-A2-b1-lr0.0003",
+  "code10-gauss_vae-A3-b1-lr0.0003",
+  "prod5-gauss_vae-A3-b1-lr0.0003",
+  "indep-gauss_vae-A2-b1-lr0.0003",
+  "bw-tc_vae-A2-b6-lr0.0003",
+  "bw-cat_vae-A2-b1-lr0.0003",
+  "bw-topk_sae-k5-lr0.0003",
+  "bw-plain_ae-A2-lr0.0003",
+  "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+  "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+  "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+  "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+  "b_raw_w128-topk_sae-k5-lr0.0003"
+ ],
+ "cells": [
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 0.25,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b0.25-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 0.25,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b0.25-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 1.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b1-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 4.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b4-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 4.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A1-b4-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 0.25,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b0.25-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 0.25,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b0.25-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 4.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b4-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 4.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A2-b4-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 0.25,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b0.25-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 0.25,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b0.25-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 1.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b1-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 4.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b4-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 4.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A3-b4-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 0.25,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b0.25-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 0.25,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b0.25-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 1.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b1-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 4.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b4-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 4.0,
+   "lr": 0.003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw02:H2.3",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-gauss_vae-A4-b4-lr0.003",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "substrate": "code10",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "code10-gauss_vae-A1-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "code10",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "code10-gauss_vae-A2-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "code10",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "code10-gauss_vae-A3-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "code10",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "code10-gauss_vae-A4-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "prod5",
+   "family": "gauss_vae",
+   "arch": "A1",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "prod5-gauss_vae-A1-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "prod5",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "prod5-gauss_vae-A2-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "prod5",
+   "family": "gauss_vae",
+   "arch": "A3",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "prod5-gauss_vae-A3-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "prod5",
+   "family": "gauss_vae",
+   "arch": "A4",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:H2.2",
+    "pw04:controls"
+   ],
+   "cell_id": "prod5-gauss_vae-A4-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "indep",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:negative_control",
+    "pw04:controls"
+   ],
+   "cell_id": "indep-gauss_vae-A2-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "tc_vae",
+   "arch": "A2",
+   "beta": 2.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-tc_vae-A2-b2-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "tc_vae",
+   "arch": "A2",
+   "beta": 6.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-tc_vae-A2-b6-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "cat_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": "16x6",
+   "uses": [
+    "pw02:secondary",
+    "pw03",
+    "pw04"
+   ],
+   "cell_id": "bw-cat_vae-A2-b1-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "topk_sae",
+   "k": 5,
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "bw-topk_sae-k5-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "topk_sae",
+   "k": 10,
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "bw-topk_sae-k10-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "bw",
+   "family": "plain_ae",
+   "arch": "A2",
+   "lr": 0.0003,
+   "latent": 32,
+   "uses": [
+    "pw02:au_metric_control",
+    "pw03"
+   ],
+   "cell_id": "bw-plain_ae-A2-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w64",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w64-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w64",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w64-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w64",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w64-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w64",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w64-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w256",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w256-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w256",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w256-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w256",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w256-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w256",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w256-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128s2",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128s2-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128s2",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128s2-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128s2",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128s2-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128s2",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128s2-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128s3",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128s3-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128s3",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128s3-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128s3",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128s3-gauss_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_lin_w128s3",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "fixed",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:H2.4",
+    "pw03"
+   ],
+   "cell_id": "b_lin_w128s3-gauss_vae-A2-b1-gfixed-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 0.25,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:secondary"
+   ],
+   "cell_id": "b_raw_w128-gauss_vae-A2-b0.25-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 4.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw02:secondary"
+   ],
+   "cell_id": "b_raw_w128-gauss_vae-A2-b4-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "tc_vae",
+   "arch": "A2",
+   "beta": 6.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-tc_vae-A2-b6-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "cat_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "gamma": "learned",
+   "lr": 0.0003,
+   "latent": "16x6",
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-cat_vae-A2-b1-glearned-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "topk_sae",
+   "k": 5,
+   "lr": 0.0003,
+   "latent": 256,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-topk_sae-k5-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "topk_sae",
+   "k": 10,
+   "lr": 0.0003,
+   "latent": 256,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-topk_sae-k10-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "substrate": "b_raw_w128",
+   "family": "plain_ae",
+   "arch": "A2",
+   "lr": 0.0003,
+   "latent": 64,
+   "uses": [
+    "pw03"
+   ],
+   "cell_id": "b_raw_w128-plain_ae-A2-lr0.0003",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "sources": {
+  "w64": "d4_w64_s1",
+  "w128": "d4_w128_s1",
+  "w128s2": "d4_w128_s2",
+  "w128s3": "d4_w128_s3",
+  "w256": "d4_w256_s1"
+ }
+}

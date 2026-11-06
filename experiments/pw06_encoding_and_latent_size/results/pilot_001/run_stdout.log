@@ -1,0 +1,5 @@
+4 runs, 4 workers
+[1/4] e10a-plain_ae-A2-lr0.0003_s101 ok 64s
+[2/4] bw-gauss_vae-A2-b1-lr0.0003_s101 ok 93s
+[3/4] code10c2-gauss_vae-A2-b1-lr0.0003_s101 ok 97s
+[4/4] bw-gauss_vae-A2-b1-lr0.0003-L64_s101 ok 111s

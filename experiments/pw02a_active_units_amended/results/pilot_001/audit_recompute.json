@@ -1,0 +1,12 @@
+{
+ "n_au_checked": 16,
+ "mismatches": [],
+ "criteria_recomputed": {},
+ "checks": {
+  "au_counts_match": true,
+  "competence_match": true,
+  "criteria_match": true,
+  "negative_constant_mu": true,
+  "negative_duplicate_units": true
+ }
+}

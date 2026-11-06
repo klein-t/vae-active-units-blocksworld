@@ -1,0 +1,32 @@
+{
+ "run_id": "pilot_001",
+ "results_sha256": "97c2c6d1c88aa11104a55f4bb5db68f76dd6909ec3211f6a53696a96ab5d109d",
+ "status": "pass",
+ "method": "Separate script: explicit-loop weighted AU recount from retained posterior means, competence recomputed from stored reconstruction/probe bits, required criteria re-derived from the recounted AU; negative controls (constant mean -> 0 units; duplicated unit counted per copy).",
+ "limitations": "Same author and session wrote the run, analysis and audit (not independent replication); indep-control competence and TC diagnostics not recomputed.",
+ "checks": {
+  "au_counts_match": true,
+  "competence_match": true,
+  "criteria_match": true,
+  "negative_constant_mu": true,
+  "negative_duplicate_units": true
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 236,
+   "sha256": "4585391dbb72cd0f997d9276dd08f3ea21e6858ea42de25a1cdf34deb4fde42f"
+  },
+  {
+   "path": "results.json",
+   "bytes": 6164,
+   "sha256": "97c2c6d1c88aa11104a55f4bb5db68f76dd6909ec3211f6a53696a96ab5d109d"
+  },
+  {
+   "path": "au_table.json",
+   "bytes": 19521,
+   "sha256": "278a161ad3e9d76e3174c1489ca3aa42c92fd0fa0a2b4d3bf2ca589889d299c9"
+  }
+ ],
+ "reason": "Stopped run: audit limited to recomputation of available operands."
+}

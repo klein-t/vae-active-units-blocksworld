@@ -1,0 +1,15 @@
+{
+ "cov30_recomputed": {
+  "bw-topk_sae-k5-lr0.0003_s101": 0.8333333333333334,
+  "bw-gauss_vae-A2-b1-lr0.0003_s101": 0.8333333333333334
+ },
+ "mismatches": [],
+ "h32_recomputed": null,
+ "negative_permuted_oracle_cov30": 0.0,
+ "checks": {
+  "cov30_match": true,
+  "criterion_match": true,
+  "full_search_reproduced": true,
+  "negative_permuted_oracle": true
+ }
+}

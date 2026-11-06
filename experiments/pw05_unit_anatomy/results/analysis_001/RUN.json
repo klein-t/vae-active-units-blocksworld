@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw05_unit_anatomy",
+  "run_id": "analysis_001",
+  "kind": "analysis",
+  "freeze_sha256": "3e1e0c1a0d51d2125ec03eb2c0a9f78b70fff85340550d56dffc7209d4903f24",
+  "pilot_run": null,
+  "started_at": "2026-10-27T12:53:30.181060+00:00"
+}

@@ -1,0 +1,62 @@
+{
+ "experiment_id": "pw06_encoding_and_latent_size",
+ "run_id": "full_001",
+ "auditor": "separately written recount, independent of run_pw06.py / analyze_pw06.py",
+ "date": "2026-10-27T15:14:10+00:00",
+ "script": "experiments/pw06_encoding_and_latent_size/audit_recount.py",
+ "results_sha256": "bea4b5df6af7616632e54a2f9a1c34400c88e0c452f626f986095af4b8a731e9",
+ "status": "pass",
+ "method": "Separately written recount (no import or reading of analyze_pw06.py, run_pw06.py or pwlib active-unit/convergence code). All MANIFEST hashes and the DESIGN.md freeze verified first. Test-split weights rebuilt from pw01 count_test (code10 uniform); encodings E30/E10a/E10b/code10 re-derived from DESIGN.md. Per run: explicit-loop weighted variance of the stored posterior mean (Burda, >0.01; also 0.001/0.05/0.1; plain AE covariance count); own encoder forward pass vs stored mu/logvar; own decoder(mu) vs stored reconstruction bits; exact/bitwise reconstruction; numerical check; convergence from the logged curve; analytic rate; own 128-draw Monte Carlo distortion (independent RNG, compared within 6 SE). Gates and P1-P3, S1, S2 re-derived from DESIGN.md decision rules, all runs and converged-only.",
+ "limitations": "Distortion and -ELBO are Monte Carlo and agree only within tolerance (independent draws); same machine and library stack as the run; no independent retraining.",
+ "n_runs": 78,
+ "n_checks": 1847,
+ "n_mismatches": 0,
+ "mismatches": [],
+ "checks": {
+  "manifest_hashes": true,
+  "design_freeze": true,
+  "counts_match": true,
+  "reconstruction_match": true,
+  "convergence_match": true,
+  "gates_match": true,
+  "verdicts_match": true
+ },
+ "recount": {
+  "gates": {
+   "pipeline": true,
+   "capacity_p1": true
+  },
+  "verdicts_all_runs": {
+   "P1": false,
+   "P2": true,
+   "P3": true,
+   "S1": true,
+   "S2": true
+  },
+  "verdicts_converged_only": {
+   "P1": false,
+   "P2": true,
+   "P3": true,
+   "S1": true,
+   "S2": true
+  },
+  "outcome": "mixed"
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 138874,
+   "sha256": "44d835abf27db13e80f0540839629354b7a1e2cf7c20a7a7038280310f365ead"
+  },
+  {
+   "path": "results.json",
+   "bytes": 143978,
+   "sha256": "bea4b5df6af7616632e54a2f9a1c34400c88e0c452f626f986095af4b8a731e9"
+  },
+  {
+   "path": "MANIFEST.json",
+   "bytes": 39963,
+   "sha256": "0edca99ea31158c19c12f1f541746d37666a3dfc190e6daae81c2983b37fd608"
+  }
+ ]
+}

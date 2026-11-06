@@ -1,0 +1,25 @@
+{
+ "run_id": "full_001",
+ "results_sha256": "4812006edc2561167b536dcae930b182028f52e7c1c6cd5124fc32380774dae1",
+ "status": "pass",
+ "method": "Separate script: sklearn f1_score recount of Cov30 for the H3.2 cells from stored signs/thresholds, brute-force threshold search reproducing stored development F1 for one SAE run, H3.2 re-derived; negative control: label-permuted fact oracle.",
+ "limitations": "Same author and session (not independent replication); MIG, DCI and the activation substrate are not recomputed.",
+ "checks": {
+  "cov30_match": true,
+  "criterion_match": true,
+  "full_search_reproduced": true,
+  "negative_permuted_oracle": true
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 815,
+   "sha256": "53e1dd4745e3f84407758f44b5a444db69a079f3eeea393d0c02df27ff5861e1"
+  },
+  {
+   "path": "results.json",
+   "bytes": 268767,
+   "sha256": "4812006edc2561167b536dcae930b182028f52e7c1c6cd5124fc32380774dae1"
+  }
+ ]
+}

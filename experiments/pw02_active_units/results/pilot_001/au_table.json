@@ -1,0 +1,882 @@
+[
+ {
+  "run": "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101",
+  "cell_id": "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "b_lin_w128",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 161.2504780292511,
+  "log_gamma": 0.0,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 5.066494003564495e-05,
+   "tc": {
+    "tc_mws_chen": 754.3401513178763,
+    "tc_mss": 3.5253774984965434,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 149890
+   },
+   "probe_bitwise": 0.9999999999999998,
+   "probe_exact": 0.9999999999999998,
+   "r2": 0.999039375673159
+  },
+  "au": 12,
+  "latent": 64,
+  "censored": false,
+  "au_robust": {
+   "0.001": 12,
+   "0.05": 12,
+   "0.1": 12
+  },
+  "polarization": 1626.8773381788494,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 754.3401513178763,
+   "tc_mss": 3.5253774984965434,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 149890
+  }
+ },
+ {
+  "run": "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101",
+  "cell_id": "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "b_lin_w128",
+  "status": "ok",
+  "competence": true,
+  "converged": false,
+  "wall_seconds": 165.23443508148193,
+  "log_gamma": -7.799490928649902,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.0006920267583698973,
+   "tc": {
+    "tc_mws_chen": 766.3166210400151,
+    "tc_mss": 15.50142475570706,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 149890
+   },
+   "probe_bitwise": 0.9999999999999998,
+   "probe_exact": 0.9999999999999998,
+   "r2": 0.9999565065999908
+  },
+  "au": 12,
+  "latent": 64,
+  "censored": false,
+  "au_robust": {
+   "0.001": 53,
+   "0.05": 12,
+   "0.1": 12
+  },
+  "polarization": 255.81036931650576,
+  "asperti_not_converged": 4,
+  "tc": {
+   "tc_mws_chen": 766.3166210400151,
+   "tc_mss": 15.50142475570706,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 149890
+  }
+ },
+ {
+  "run": "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101",
+  "cell_id": "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "b_raw_w128",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 171.30254292488098,
+  "log_gamma": 0.0,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 3.5780035305910274e-05,
+   "tc": {
+    "tc_mws_chen": 755.8623519562709,
+    "tc_mss": 5.045537898885113,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 149890
+   },
+   "probe_bitwise": 0.9995822639289913,
+   "probe_exact": 0.9917789541225537,
+   "r2": 0.9284042859597561
+  },
+  "au": 15,
+  "latent": 64,
+  "censored": false,
+  "au_robust": {
+   "0.001": 15,
+   "0.05": 15,
+   "0.1": 15
+  },
+  "polarization": 871.2582554983816,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 755.8623519562709,
+   "tc_mss": 5.045537898885113,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 149890
+  }
+ },
+ {
+  "run": "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101",
+  "cell_id": "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "b_raw_w128",
+  "status": "ok",
+  "competence": true,
+  "converged": false,
+  "wall_seconds": 172.10186004638672,
+  "log_gamma": -3.183216094970703,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 4.976805697506215e-05,
+   "tc": {
+    "tc_mws_chen": 775.5821340310478,
+    "tc_mss": 24.76182783959296,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 149890
+   },
+   "probe_bitwise": 0.9993572434320748,
+   "probe_exact": 0.9830766762913056,
+   "r2": 0.9615905259505597
+  },
+  "au": 15,
+  "latent": 64,
+  "censored": false,
+  "au_robust": {
+   "0.001": 15,
+   "0.05": 15,
+   "0.1": 15
+  },
+  "polarization": 5489.581891950828,
+  "asperti_not_converged": 1,
+  "tc": {
+   "tc_mws_chen": 775.5821340310478,
+   "tc_mss": 24.76182783959296,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 149890
+  }
+ },
+ {
+  "run": "b_raw_w128-topk_sae-k5-lr0.0003_s101",
+  "cell_id": "b_raw_w128-topk_sae-k5-lr0.0003",
+  "seed": 101,
+  "family": "topk_sae",
+  "substrate": "b_raw_w128",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 126.40927314758301,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "probe_bitwise": 0.9985184294014899,
+   "probe_exact": 0.9678777670837342,
+   "r2": 0.9294078300539516
+  },
+  "alive": 193,
+  "latent": 256
+ },
+ {
+  "run": "bw-cat_vae-A2-b1-lr0.0003_s101",
+  "cell_id": "bw-cat_vae-A2-b1-lr0.0003",
+  "seed": 101,
+  "family": "cat_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": false,
+  "converged": false,
+  "wall_seconds": 151.79424405097961,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.0003149190672807626,
+   "bitwise": 0.9593675488427829,
+   "exact": 0.3960160975669607
+  },
+  "au_categorical": 12,
+  "n_vars": 16
+ },
+ {
+  "run": "bw-gauss_vae-A1-b1-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A1-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 28.596823930740356,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 2.9528043975774857e-05,
+   "tc": {
+    "tc_mws_chen": 417.51597032524955,
+    "tc_mss": 2.4710493355325784,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.999827715953196,
+   "exact": 0.9937977743150559
+  },
+  "au": 15,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 20,
+   "0.05": 14,
+   "0.1": 14
+  },
+  "polarization": 1.6528567642361127,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 417.51597032524955,
+   "tc_mss": 2.4710493355325784,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b0.25-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A2-b0.25-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 123.06951189041138,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 8.073073456556889e-05,
+   "tc": {
+    "tc_mws_chen": 420.21040609490797,
+    "tc_mss": 5.162206398108435,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au": 16,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 16,
+   "0.05": 16,
+   "0.1": 16
+  },
+  "polarization": 1219.1235297952705,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 420.21040609490797,
+   "tc_mss": 5.162206398108435,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b0.25-lr0.003_s101",
+  "cell_id": "bw-gauss_vae-A2-b0.25-lr0.003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 121.59234499931335,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.0002260177575399434,
+   "tc": {
+    "tc_mws_chen": 419.55897040512673,
+    "tc_mss": 4.510756527576892,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au": 8,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 8,
+   "0.05": 8,
+   "0.1": 8
+  },
+  "polarization": 1212.2198025311877,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 419.55897040512673,
+   "tc_mss": 4.510756527576892,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b1-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A2-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 124.81944704055786,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 2.150433900983675e-05,
+   "tc": {
+    "tc_mws_chen": 417.3239780699963,
+    "tc_mss": 2.2786363942586085,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au": 10,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 10,
+   "0.05": 10,
+   "0.1": 10
+  },
+  "polarization": 2771.287459807258,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 417.3239780699963,
+   "tc_mss": 2.2786363942586085,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b1-lr0.003_s101",
+  "cell_id": "bw-gauss_vae-A2-b1-lr0.003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 121.49802112579346,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 2.2641058668918193e-05,
+   "tc": {
+    "tc_mws_chen": 417.15481233705435,
+    "tc_mss": 2.107965289445084,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.9996402654571679,
+   "exact": 0.9889574616885268
+  },
+  "au": 4,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 4,
+   "0.05": 4,
+   "0.1": 4
+  },
+  "polarization": 3651.0883086403364,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 417.15481233705435,
+   "tc_mss": 2.107965289445084,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b4-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A2-b4-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 124.34168028831482,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 5.778037098924515e-08,
+   "tc": {
+    "tc_mws_chen": 415.0432309667879,
+    "tc_mss": -0.00011812629310036481,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.7813459831744435,
+   "exact": 0.0
+  },
+  "au": 0,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 0,
+   "0.05": 0,
+   "0.1": 0
+  },
+  "polarization": null,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 415.0432309667879,
+   "tc_mss": -0.00011812629310036481,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A2-b4-lr0.003_s101",
+  "cell_id": "bw-gauss_vae-A2-b4-lr0.003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 122.68399286270142,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.0,
+   "tc": {
+    "tc_mws_chen": 415.0432309067853,
+    "tc_mss": -0.00011818601380645527,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.7808429342069207,
+   "exact": 0.0
+  },
+  "au": 0,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 0,
+   "0.05": 0,
+   "0.1": 0
+  },
+  "polarization": null,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 415.0432309067853,
+   "tc_mss": -0.00011818601380645527,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A3-b1-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A3-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 231.1464500427246,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 8.421700514119215e-06,
+   "tc": {
+    "tc_mws_chen": 415.0435108610334,
+    "tc_mss": 0.00016087078134368119,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.9023146046430466,
+   "exact": 0.10079997055323117
+  },
+  "au": 1,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 1,
+   "0.05": 1,
+   "0.1": 1
+  },
+  "polarization": 21206.842536381544,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 415.0435108610334,
+   "tc_mss": 0.00016087078134368119,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-gauss_vae-A4-b1-lr0.0003_s101",
+  "cell_id": "bw-gauss_vae-A4-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 591.7770147323608,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 6.716062151964319e-05,
+   "tc": {
+    "tc_mws_chen": 417.4947088789532,
+    "tc_mss": 2.447807825252071,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au": 14,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 14,
+   "0.05": 13,
+   "0.1": 13
+  },
+  "polarization": 31.46633630175939,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 417.4947088789532,
+   "tc_mss": 2.447807825252071,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-plain_ae-A2-lr0.0003_s101",
+  "cell_id": "bw-plain_ae-A2-lr0.0003",
+  "seed": 101,
+  "family": "plain_ae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": false,
+  "wall_seconds": 71.21262311935425,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au_covariance": 32,
+  "latent": 32
+ },
+ {
+  "run": "bw-tc_vae-A2-b6-lr0.0003_s101",
+  "cell_id": "bw-tc_vae-A2-b6-lr0.0003",
+  "seed": 101,
+  "family": "tc_vae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 1338.8153409957886,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.00012162591333575215,
+   "tc": {
+    "tc_mws_chen": 415.2344491047686,
+    "tc_mss": 0.19073232997407175,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 652451
+   },
+   "bitwise": 0.9678759268574981,
+   "exact": 0.38353802927499603
+  },
+  "au": 5,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 5,
+   "0.05": 5,
+   "0.1": 5
+  },
+  "polarization": 1254.8483178168306,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 415.2344491047686,
+   "tc_mss": 0.19073232997407175,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 652451
+  }
+ },
+ {
+  "run": "bw-topk_sae-k5-lr0.0003_s101",
+  "cell_id": "bw-topk_sae-k5-lr0.0003",
+  "seed": 101,
+  "family": "topk_sae",
+  "substrate": "bw",
+  "status": "ok",
+  "competence": true,
+  "converged": false,
+  "wall_seconds": 49.105387926101685,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "alive": 31,
+  "latent": 64
+ },
+ {
+  "run": "code10-gauss_vae-A2-b1-lr0.0003_s101",
+  "cell_id": "code10-gauss_vae-A2-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "code10",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 121.51626706123352,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 6.32796436548233e-05,
+   "tc": {
+    "tc_mws_chen": 217.6619351186977,
+    "tc_mss": 2.7858878192430883,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 1024
+   },
+   "bitwise": 1.0,
+   "exact": 1.0
+  },
+  "au": 10,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 10,
+   "0.05": 10,
+   "0.1": 10
+  },
+  "polarization": 3068.8606686507924,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 217.6619351186977,
+   "tc_mss": 2.7858878192430883,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 1024
+  }
+ },
+ {
+  "run": "code10-gauss_vae-A3-b1-lr0.0003_s101",
+  "cell_id": "code10-gauss_vae-A3-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "code10",
+  "status": "ok",
+  "competence": false,
+  "converged": false,
+  "wall_seconds": 231.937331199646,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 2.366391709074378e-05,
+   "tc": {
+    "tc_mws_chen": 215.7237792157887,
+    "tc_mss": 0.8478551628908015,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 1024
+   },
+   "bitwise": 0.9705403645833333,
+   "exact": 0.599609375
+  },
+  "au": 2,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 2,
+   "0.05": 2,
+   "0.1": 2
+  },
+  "polarization": 15766.187146807813,
+  "asperti_not_converged": 1,
+  "tc": {
+   "tc_mws_chen": 215.7237792157887,
+   "tc_mss": 0.8478551628908015,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 1024
+  }
+ },
+ {
+  "run": "indep-gauss_vae-A2-b1-lr0.0003_s101",
+  "cell_id": "indep-gauss_vae-A2-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "indep",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 123.2627820968628,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 0.00011999225616455117,
+   "tc": {
+    "tc_mws_chen": 307.00781954625097,
+    "tc_mss": -0.0004069751333184747,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 20000
+   },
+   "bitwise": 0.7802458333333333,
+   "exact": 0.0
+  },
+  "au": 0,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 5,
+   "0.05": 0,
+   "0.1": 0
+  },
+  "polarization": null,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 307.00781954625097,
+   "tc_mss": -0.0004069751333184747,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 20000
+  }
+ },
+ {
+  "run": "prod5-gauss_vae-A2-b1-lr0.0003_s101",
+  "cell_id": "prod5-gauss_vae-A2-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "prod5",
+  "status": "ok",
+  "competence": true,
+  "converged": true,
+  "wall_seconds": 121.52163195610046,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 3.682135953088851e-05,
+   "tc": {
+    "tc_mws_chen": 279.6740375383207,
+    "tc_mss": 1.9486256066225818,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 7776
+   },
+   "bitwise": 1.0000000000000004,
+   "exact": 1.0000000000000004
+  },
+  "au": 18,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 18,
+   "0.05": 18,
+   "0.1": 18
+  },
+  "polarization": 1595.1728736384691,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 279.6740375383207,
+   "tc_mss": 1.9486256066225818,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 7776
+  }
+ },
+ {
+  "run": "prod5-gauss_vae-A3-b1-lr0.0003_s101",
+  "cell_id": "prod5-gauss_vae-A3-b1-lr0.0003",
+  "seed": 101,
+  "family": "gauss_vae",
+  "substrate": "prod5",
+  "status": "ok",
+  "competence": false,
+  "converged": true,
+  "wall_seconds": 233.93405604362488,
+  "log_gamma": null,
+  "log_gamma_at_floor": false,
+  "competence_metrics": {
+   "min_unit_kl": 5.318967188582013e-06,
+   "tc": {
+    "tc_mws_chen": 277.7225322031846,
+    "tc_mss": -0.00028890484751657383,
+    "batch": 512,
+    "batches": 8,
+    "n_train_points": 7776
+   },
+   "bitwise": 0.9156128543667122,
+   "exact": 0.0
+  },
+  "au": 1,
+  "latent": 32,
+  "censored": false,
+  "au_robust": {
+   "0.001": 1,
+   "0.05": 1,
+   "0.1": 1
+  },
+  "polarization": 29747.894158730993,
+  "asperti_not_converged": 0,
+  "tc": {
+   "tc_mws_chen": 277.7225322031846,
+   "tc_mss": -0.00028890484751657383,
+   "batch": 512,
+   "batches": 8,
+   "n_train_points": 7776
+  }
+ }
+]

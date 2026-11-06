@@ -1,0 +1,27 @@
+{
+ "run_id": "pilot_001",
+ "results_sha256": "f8ef358db770d799f0a935fe7abdd974b03fcfe6a65902aaa4e12dd0c2fb32df",
+ "status": "pass",
+ "method": "Separate script: set-membership recount of mode-decoded prior legality per model, B2 by summation over legal states, H4.1 and the H4.2 point estimate re-derived; negative controls (uniform random bits; column-permuted legal states).",
+ "limitations": "Same author and session (not independent replication); bootstrap interval, violation taxonomy and activation-substrate rates not recomputed.",
+ "checks": {
+  "rates_match": true,
+  "b2_match": true,
+  "criteria_match": true,
+  "negative_random": true,
+  "negative_column_permuted": true
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 604,
+   "sha256": "75f1cc5ac59730e31322c8c4709a4bfa8d2499bf1b69be363c83dde64f01303a"
+  },
+  {
+   "path": "results.json",
+   "bytes": 26091,
+   "sha256": "f8ef358db770d799f0a935fe7abdd974b03fcfe6a65902aaa4e12dd0c2fb32df"
+  }
+ ],
+ "reason": "Stopped run: audit of available arrays only."
+}

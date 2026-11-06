@@ -1,0 +1,217 @@
+{
+  "experiment_id": "pw02a_active_units_amended",
+  "status": "frozen",
+  "claim": "P2 (pilot-triggered amendment of pw02): active latent units of overcomplete VAEs vs pre-fixed target counts, A3 removed, 60k steps, KL warm-up on all cells, amended convergence check; owns the amended shared sweep reused by pw03a and pw04a",
+  "hypothesis": "As pw02 with A3 removed. H2.2: every competence-gated beta=1 Bernoulli VAE on raw states (A1, A2, A4 x 2 lr x 5 seeds) has AU < 25, and the information account (seed median within 2 units of code10 and > 2 units below prod5) is the verdict in all 3 architectures (>= 3, unchanged count). H2.3: at beta=1, AU varies across the 6 arch x lr cells by >= 3 units and more than across seeds. H2.4: unchanged (b_lin learned vs fixed gamma, >= 2 units at each of 5 sources).",
+  "required_criteria": [
+    "h22_information_account",
+    "h23_architecture_dependence",
+    "h24_learned_gamma_more_units"
+  ],
+  "secondary_criteria": [
+    "h23_beta_monotone",
+    "h24_b_lin_closer_to_affine_than_raw_states",
+    "h24_b_raw_more_than_b_lin",
+    "h24_width_trend",
+    "h24_au_vs_pca99_and_probe_dim",
+    "threshold_robustness_and_polarization",
+    "plain_ae_au_metric_control",
+    "h24_transformer_seed_spread_w128"
+  ],
+  "targets": {
+    "source": "experiments/pw01_state_space_ground_truth/results/analysis_001/dimension_candidates.json (sha256 07f38203c4029c6d63562c4b4945250e98389f7b121879af8bcd11f485f655b1; fail loudly on a missing key)",
+    "K_bits": "bits_log2_legal (9.758) / bits_min_binary_code (10)",
+    "K_H": "bits_entropy_empirical (9.346)",
+    "K_blk": "factors_per_block_categorical (5)",
+    "K_aff": "affine_dim_legal_states (25)",
+    "K_facts": "binary_facts_total (36)",
+    "K_pca99_w": "definition frozen in PROTOCOL.md section 2; value computed before any VAE is trained",
+    "K_probe_w": "definition frozen in PROTOCOL.md section 2; value computed before any VAE is trained",
+    "controls": {
+      "code10": {
+        "bits": 10,
+        "factors": 10,
+        "affine_dim": 10,
+        "states": 1024
+      },
+      "prod5": {
+        "bits": 12.925,
+        "factors": 5,
+        "affine_dim": 25,
+        "states": 7776
+      }
+    },
+    "K_I3D_exploratory": "i3d_hypercube_range (11.9-21.3, scale-dependent, unvalidated re-implementation): reported for comparison only, in no criterion"
+  },
+  "gates": [
+    "task",
+    "numerical",
+    "competence"
+  ],
+  "gate_thresholds": {
+    "source_probe_val_bitwise_min": 0.99,
+    "source_probe_val_exact_min": 0.8,
+    "raw_state_recon_exact_min": 0.95,
+    "raw_state_recon_bitwise_min": 0.99,
+    "activation_probe_on_recon_bitwise_min": 0.98,
+    "activation_recon_r2_min": 0.9,
+    "seeds_passing_per_required_cell_min": "majority of the cell planned seeds: >= 3 of 5 (core cells) or >= 2 of 3 (other cells)",
+    "convergence_rel_change_last_20pct_max": 0.02,
+    "convergence_abs_change_plain_ae_sae_max_nats_per_sample": 0.001,
+    "convergence_learned_gamma": "reconstruction gate at 80% and 100% of steps and identical active-unit set"
+  },
+  "metric": {
+    "au_primary": "Var_x(E_q[z_j|x]) > 0.01 (Burda et al. 1509.00519)",
+    "au_robustness_thresholds": [
+      0.001,
+      0.05,
+      0.1
+    ],
+    "diagnostics": [
+      "per-unit mean KL",
+      "Var(mu_j) + E[sigma_j^2] (Asperti Eq. 13); unit flagged not-converged if |sum - 1| > 0.1",
+      "reconstruction gain per unit (Asperti)",
+      "polarization ratio >= 10",
+      "log-A_u histogram data (A_u per unit retained)",
+      "total correlation of the aggregate posterior in nats: MWS with Chen constants and MSS (docs/METRICS_SPEC.md section 4)"
+    ],
+    "comparison_tolerance_units": 2
+  },
+  "sampling": {
+    "unit": "independent VAE/SAE training seed (init, minibatch order, reparameterization noise; run RNG seed derived from sha256(cell_id|seed))",
+    "seeds_core": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "seeds_other": [
+      1,
+      2,
+      3
+    ],
+    "pilot_seeds": [
+      101
+    ],
+    "per_cell": "sweep_grid.json lists the confirmation seeds of every cell",
+    "justification": "5 seeds for the 18 raw-state (A1/A2/A4) bw-gauss_vae cells (core of H2.2/H2.3 and the comparators of pw03 H3.2 and pw04 H4.1/H4.2); 3 for controls, secondary families and activation cells (budget). Claims use a fixed 2-unit tolerance plus non-overlap of seed ranges. Transformer sources are fixed substrates; width 128 is replicated over three exp46 seeds (s1-s3), widths 64/256 use s1 only."
+  },
+  "uncertainty": "All per-seed counts reported; seed medians and ranges per cell (passing seeds only for required cells); differences claimed only beyond 2 units with non-overlapping seed ranges. With 5 seeds the within-cell range is a stricter yardstick for H2.3 than with 3 (expected range of 5 vs 3 normal draws: 2.33 vs 1.69 sd). Complete separation of 5 vs 5 seeds has exact one-sided permutation p = 1/252, 5 vs 3 p = 1/56, 3 vs 3 p = 1/20 (reported, not used as criteria). Descriptive two-way variance decomposition (arch, lr; residual = seed). No p-value criteria.",
+  "splits": {
+    "development": "thesis blocksworld_train file split by sequence with seed 0 into train (12,803) and val (3,201); (b) subsamples 3,000 train and 500 val sequences",
+    "confirmation": "thesis blocksworld_test file (4,001 sequences; (b) uses a fixed 300-sequence subsample), sealed until the full run; on raw states the support is identical across splits, so independent seeds 1-5 / 1-3 (vs pilot seed 101) are the effective confirmation unit"
+  },
+  "selection_rule": "No selection: every cell's final checkpoint at step 60,000 is analyzed; no early stopping, no best-seed choice, thresholds fixed in advance.",
+  "stopping_rule": "Per-run crash/NaN: one same-seed re-run, logged; second failure = technical stop for that run. Experiment-level competence_stop if any cell entering a required criterion has fewer than a majority of its planned seeds passing competence. One re-pilot under this amendment (pilot_001, seed 101, 20 cells, development data); any gate or convergence-check failure not covered by this amendment stops the experiment; no further amendments.",
+  "controls": [
+    "code10 data (10 independent bits, redundantly coded): positive control with known count",
+    "prod5 data (5 independent 6-valued one-hot blocks): same per-block coding and affine dim as Blocksworld, no legality constraints",
+    "indep data (independent bits with Blocksworld marginals): no-structure negative control",
+    "plain autoencoder: AU-metric control (no KL term)",
+    "PCA counts on every substrate: linear baseline",
+    "fixed-gamma Gaussian decoder vs learned gamma on (b), 5 source checkpoints",
+    "b_lin (state-explained activations) vs b_raw: non-state content control"
+  ],
+  "grid": "experiments/pw02a_active_units_amended/sweep_grid.json (58 cells, 210 confirmation runs: 18 cells x 5 seeds + 40 cells x 3 seeds; 20 pilot cells at seed 101)",
+  "external_inputs": {
+    "note": "Read-only inputs from the earlier thesis work, referenced by path ($PW_BLOCKSWORLD_DATA, $PW_TRANSFORMER_CHECKPOINTS) and sha256 (recorded again in the run manifest).",
+    "$PW_BLOCKSWORLD_DATA/blocksworld_train_X.npy": "6a8d71fd22fde8a25e146619f0f5a09f45dc55cea4483377719cf5dd53a05716",
+    "$PW_BLOCKSWORLD_DATA/blocksworld_train_Y.npy": "34421f110850147fd91f12b4795388b235125563d25cbf0a467c756594591093",
+    "$PW_BLOCKSWORLD_DATA/blocksworld_test_X.npy": "21a223dcf19ba8add03c7e18ab738541dbf3d4a901e1154d8d040e899cf93845",
+    "$PW_BLOCKSWORLD_DATA/blocksworld_test_Y.npy": "54aac4bc4800b08f6acf0bdf7f8d3dcb5e05ba25967105857811c44808401512",
+    "$PW_BLOCKSWORLD_DATA/blocksworld_metadata.json": "7e379d480dbb57dfd4ac284c35156224d37d6e9c10c85abf28cc0d8295488a93",
+    "$PW_TRANSFORMER_CHECKPOINTS/d4_w64_s1.pt": "3055085c8c1d39517179bfb5673ada432b8fecce7e0df621a9135218645a6bb7",
+    "$PW_TRANSFORMER_CHECKPOINTS/d4_w128_s1.pt": "1faa746fb27a567c26936c4cbd12de53d6cf24f1e6bf09204d6d8033f8f9b705",
+    "$PW_TRANSFORMER_CHECKPOINTS/d4_w128_s2.pt": "ec1e73af9938764cc76ced602cb4750727192dc088c2013b9982df51da3da3ed",
+    "$PW_TRANSFORMER_CHECKPOINTS/d4_w128_s3.pt": "3b0f7929acf973a621fafb55c6ff9eb60204632747d6ad8f7881e25e860edfbb",
+    "$PW_TRANSFORMER_CHECKPOINTS/d4_w256_s1.pt": "5e92c005d2887a3a647478b77f9019f0e720a949e449021f4d9aea323afafc25",
+    "experiments/pw01_state_space_ground_truth/results/analysis_001/dimension_candidates.json": "47e279fce29e1ac3ef84533cfeef33cf4486ce7a3edecf3d53370fe99b82803f",
+    "experiments/pw01_state_space_ground_truth/results/analysis_001/legal_states_866.npy": "e1173a49582f5ebccefbfa65d997ee2fa6933fa8d08f01a3e1b216cb9a8a88ca"
+  },
+  "compute": {
+    "device": "cpu",
+    "precision": "float32",
+    "threads": 1,
+    "parallel_workers": 8,
+    "estimate_cpu_hours": 31,
+    "estimate_wall_hours": "4-5",
+    "pilot_estimate_cpu_hours": 1.5,
+    "pilot_estimate_wall_minutes": 40,
+    "cap_cpu_hours": 45,
+    "cap_wall_hours": 8,
+    "basis": "pw02 measurements (pilot_002 0.84 CPU-h for 23 cells at 30k; full-sweep estimate 17 CPU-h at 30k, A3 share 1.3 CPU-h), doubled for 60k steps"
+  },
+  "pilot_required": true,
+  "files": [
+    "experiments/pw02a_active_units_amended/PROTOCOL.md",
+    "experiments/pw02a_active_units_amended/sweep_grid.json",
+    "experiments/pw02a_active_units_amended/extract_activations.py",
+    "experiments/pw02a_active_units_amended/train_sweep.py",
+    "experiments/pw02a_active_units_amended/analyze_active_units.py",
+    "experiments/pw02a_active_units_amended/audit.py",
+    "src/pwlib/__init__.py",
+    "src/pwlib/blocksworld.py",
+    "src/pwlib/data.py",
+    "src/pwlib/models.py",
+    "src/pwlib/training.py",
+    "src/pwlib/metrics.py",
+    "src/pwlib/activations.py",
+    "src/pwlib/sweep.py",
+    "src/pwlib/runio.py",
+    "pyproject.toml",
+    "uv.lock",
+    "experiments/pw02_active_units/PROTOCOL.md",
+    "tests/test_amendment_pw02a.py"
+  ],
+  "storage": {
+    "expected_bytes": 2800000000,
+    "max_bytes": 6000000000,
+    "retain": [
+      "all final checkpoints (results/<run>/models, gitignored)",
+      "per-example evaluation operands: posterior means/log-variances, class probabilities, codes, per-unit KL and reconstruction gain, weights; raw-state reconstruction bits; activation reconstructions as probe-read bits (results/<run>/raw, gitignored)",
+      "current-state probe weights per source (used by pw02 gates and the pw04 activation-substrate analysis), b_lin least-squares maps, standardization statistics",
+      "targets_b.json, split index files, control-dataset definitions",
+      "training curves and per-run logs",
+      "results.json, MANIFEST.json, AUDIT.json"
+    ],
+    "regenerate": [
+      {
+        "artifacts": "cached standardized exp46 activations (results/<run>/raw/activations_*)",
+        "inputs": "the five exp46 checkpoints and thesis data files (sha256 above) + split index files",
+        "command": "uv run python experiments/pw02a_active_units_amended/extract_activations.py --run-id <run>",
+        "validation": "sha256 of regenerated arrays equals the manifest entry (deterministic CPU forward pass)",
+        "expiry": "may be deleted after pw03a and pw04a full analyses are complete and audited"
+      }
+    ]
+  },
+  "pre_freeze_changes": [
+    "2026-10-14: seeds 5/3 per cell, width-128 transformer seeds s1-s3, H2.1 merged into H2.2, metric conventions, implementation details, pilot cells 19 -> 23, compute measured (README items 1-10)",
+    "2026-10-21: pre-registered A3 KL warm-up contingency (README item 11; PROTOCOL.md section 10; sweep_grid.json training.kl_warmup_contingency; default off). Decided before any real outcome; disclosed as a pilot-triggered amendment if it fires."
+  ],
+  "contingencies": {
+    "a3_kl_warmup": {
+      "trigger": "pilot_001: any of bw-gauss_vae-A3-b1-lr0.0003, code10-gauss_vae-A3-b1-lr0.0003, prod5-gauss_vae-A3-b1-lr0.0003 fails the per-run competence gate",
+      "effect": "kl_warmup = {schedule: linear, fraction: 0.1} for ALL cells (KL-side penalty x min(1, t/3000)); pilot_002 re-pilots it; full run cites pilot_002",
+      "implementation": "sweep_grid.json training.kl_warmup (default null) + kl_warmup_contingency; train_sweep.py --apply-kl-warmup-contingency pilot_001 (re-checks the trigger)",
+      "on_failure": "pilot_002 gate failure = stop and report"
+    }
+  },
+  "amends": {
+    "experiment": "pw02_active_units",
+    "freeze_sha256": "a155908143a6800ba434c432707f7e83430bc3808a32e684f0d7f77a90b14342",
+    "trigger": "pw02 pilot_001 and pilot_002 competence_stop (A3) and pilot convergence-check failure",
+    "pilot_triggered": true,
+    "decided_before_confirmation_opened": true,
+    "decided_after_seeing": "pw02 pilot evidence on development data, seed 101 (gates, competence, convergence, pilot AU values)"
+  },
+  "amendment_changes": [
+    "A3 (4x256) removed: 8 cells / 36 runs not trained; reported descriptively from pw02 pilots",
+    "linear KL warm-up (beta 0 -> target over the first 10% of steps) for every cell, kept because the pw02 contingency fired",
+    "60,000 steps for every cell (was 30,000)",
+    "convergence check: plain objectives 2% relative; plain AE and top-k SAE also |delta| < 1e-3 nats/sample; learned-gamma cells: reconstruction gate passes at 80% and 100% and the active-unit set is identical at both (80% snapshot evaluated per run)",
+    "secondary families (beta-TCVAE, categorical VAE, beta=4) unchanged; dependent comparisons untested if they fail competence",
+    "threshold adaptations (fraction kept, rounded up): H2.2 information verdict in >= 3 = all 3 architectures; H2.3 over 6 cells; beta-monotone secondary 6 of 6",
+    "stop rule: one re-pilot (pilot_001); any uncovered gate/convergence failure stops; no further amendments"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "paths": [],
+  "reason": "Pre-registered re-pilot with the A3 KL warm-up contingency (seed 101, development data) ended in competence_stop: no hypothesis tested, no claim changed. Per the pre-registered rule a pilot_002 gate failure stops pw02 before the full run; pw03 and pw04 are blocked (they need a completed, gated pw02 run)."
+}

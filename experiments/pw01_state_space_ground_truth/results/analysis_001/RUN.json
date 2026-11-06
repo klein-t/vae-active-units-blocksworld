@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw01_state_space_ground_truth",
+  "run_id": "analysis_001",
+  "kind": "analysis",
+  "freeze_sha256": "45e2b4784bbe4feef4d2079aa0dca80383ecb4eadf31b6f0a175f703e40d88f8",
+  "pilot_run": null,
+  "started_at": "2026-10-14T12:51:37.161583+00:00"
+}

@@ -1,0 +1,118 @@
+{
+  "experiment_id": "pw03a_fact_alignment_amended",
+  "status": "frozen",
+  "claim": "P3: per-fact / per-block alignment of active latents across beta-VAE, beta-TCVAE, categorical (Gumbel-softmax) VAE and top-k SAE, scored against the exactly known 36 facts and 5 per-block categorical variables (amendment: analyzes the pw02a amended sweep)",
+  "hypothesis": "H3.2 (required): a k=5 top-k SAE, whose inductive bias matches the exact 5-sparse affine structure of legal states, covers >= 80% of the 30 position facts at best-latent F1 >= 0.9 in every gated seed and its seed minimum exceeds the seed maximum Cov30 of every Gaussian-latent comparator cell at the reference setting (beta-VAE beta 1 and 4, beta-TCVAE beta_TC 2 and 6; A2, lr 3e-4); pw03a: a comparator with zero gated seeds makes H3.2 untested unless a measured part fails. Former H3.1 (Gaussian beta-VAE units mostly not single-fact detectors, MonoFrac < 0.5) is demoted to a descriptive secondary analysis.",
+  "required_criteria": [
+    "h32_topk_sae_covers_position_facts"
+  ],
+  "secondary_criteria": [
+    "h31_vae_latents_not_monosemantic_descriptive",
+    "h33_categorical_vs_gaussian_block_mig",
+    "h33_tcvae_vs_vae_block_mig",
+    "h34_activation_substrate_alignment"
+  ],
+  "metrics": {
+    "M1": "best-latent F1 per (code, fact): classifier s*code > t, sign s in {+,-} and t chosen on development rows over every distinct split of the sorted development values (adapted coverage rule for signed latents, docs/METRICS_SPEC.md section 7), F1 scored on confirmation; Cov30, MonoFrac, Hungarian O2O at F1 >= 0.9; SAE arms also report Karvonen et al. coverage (t x f_max, t in {0, 0.1, ..., 1.0}, global t and per-fact t)",
+    "M2": "MIG, disentanglement_lib convention: posterior mean (codes), 20 equal-width bins over each code range, plug-in MI in nats, empirical H(v); over 5 block variables (block-MIG) and 36 facts (fact-MIG, constant facts excluded); on raw states the plug-in is the exact weighted expectation over the 866 states",
+    "M3": "DCI, disentanglement_lib convention: sklearn GradientBoostingClassifier defaults with random_state=0, one per block variable (classes), importance = feature_importances_; D weighted by code importance, C dlib-weighted and plain average; informativeness as test accuracy and balanced accuracy; raw states: fit on the 866 states with development weights, test with confirmation weights; activations (b_raw_w128 cells only): 10,000 development / 5,000 confirmation positions"
+  },
+  "identifiability": "30 position facts (on_table, on, holding) = one-hot indicators of 5 per-block 6-valued variables are the required one-to-one targets; clear(X) and hand_empty are affine functions of them and are scored but excluded from required coverage; up to 5 position facts may be legitimately represented by absence (bias absorption)",
+  "gates": [
+    "task",
+    "numerical",
+    "competence"
+  ],
+  "gate_thresholds": {
+    "fact_oracle_cov30_min": 0.95,
+    "block_oracle_block_mig_min": 0.5,
+    "random_init_null_cov30_max": 0.2,
+    "f1_sklearn_max_abs_diff": 1e-09
+  },
+  "sampling": {
+    "unit": "independent training seed of the pw02 sweep (no new training)",
+    "seeds": "pw02 per-cell seeds: 5 for bw-gauss_vae cells, 3 otherwise",
+    "pilot_seeds": [
+      101
+    ],
+    "justification": "Inherits the pw02 sweep seeds; comparisons by complete seed separation (exact one-sided p = 1/56 for 3 vs 5 seeds, 1/20 for 3 vs 3); random-init null encoders use seeds 1-3."
+  },
+  "uncertainty": "Per-seed metric values with min/median/max; label-permutation null per model (100 permutations on raw states, 20 on activations) for Cov30, MonoFrac and MIG; DCI null with 10 permutations for the controls and the reference cells only (cost); results reported as excess over the null 95th percentile; no pooled p-values.",
+  "splits": {
+    "development": "pw02 val-split state weights (raw states) / pw02 val activation subsample (b): signs, thresholds, DCI fits; pilot fits on train weights and scores on val",
+    "confirmation": "thesis test-file state weights (raw states) / pw02 300-sequence confirmation subsample (b); sealed until the pw02 full run; on raw states the effective confirmation unit is the training seed"
+  },
+  "selection_rule": "No selection: every pw02-gated run of the listed cells is scored; metric thresholds fixed in advance.",
+  "stopping_rule": "competence_stop if the oracle or random-init null metric-validity checks fail; technical_stop if pw02 checkpoints are missing or hashes mismatch; changes after freeze need an amendment directory.",
+  "controls": [
+    "fact oracle codes (36 facts + N(0, 0.1^2) noise, padded with 28 N(0,1) dims): positive control for M1",
+    "block oracle codes (5 block-variable indices + N(0, 0.1^2) noise, padded with 27 N(0,1) dims): positive control for block-MIG",
+    "randomly initialized A2 encoders (seeds 1-3) null",
+    "label-permutation null per metric",
+    "plain autoencoder and PCA codes as non-variational baselines",
+    "trivial all-positive F1 per fact (prevalence floor)"
+  ],
+  "depends_on": {
+    "pw02a_active_units_amended": "full_001 checkpoints, operands, au_per_run.json / au_table.json (sha256 checked against the pw02a MANIFEST.json); pilot_001 for the pilot; model code src/pwlib/models.py"
+  },
+  "compute": {
+    "device": "cpu",
+    "precision": "float32 models, float64 metrics",
+    "threads": 1,
+    "parallel_workers": 8,
+    "estimate_cpu_minutes": 240,
+    "cap_cpu_hours": 8,
+    "basis": "2026-10-14 scratch smoke: 189 models with 3 permutations = 12.8 min wall, 6,100 CPU-s; scaled to 100/20 permutations and 10 DCI permutations"
+  },
+  "pilot_required": true,
+  "files": [
+    "experiments/pw03a_fact_alignment_amended/PROTOCOL.md",
+    "experiments/pw03a_fact_alignment_amended/analyze_alignment.py",
+    "experiments/pw03a_fact_alignment_amended/audit.py",
+    "experiments/pw02a_active_units_amended/sweep_grid.json",
+    "experiments/pw03_fact_alignment/PROTOCOL.md",
+    "src/pwlib/__init__.py",
+    "src/pwlib/blocksworld.py",
+    "src/pwlib/data.py",
+    "src/pwlib/models.py",
+    "src/pwlib/training.py",
+    "src/pwlib/metrics.py",
+    "src/pwlib/alignment.py",
+    "src/pwlib/sweep.py",
+    "src/pwlib/runio.py",
+    "tests/test_amendment_pw02a.py"
+  ],
+  "storage": {
+    "expected_bytes": 300000000,
+    "max_bytes": 500000000,
+    "retain": [
+      "per-model F1, MI and DCI importance matrices",
+      "fitted signs and thresholds",
+      "raw-state codes (866 rows per model) and weights",
+      "permutation-null distributions",
+      "results.json, MANIFEST.json, AUDIT.json"
+    ],
+    "regenerate": [
+      {
+        "artifacts": "per-example codes on the activation substrate (b)",
+        "inputs": "pw02 retained checkpoints + pw02 activation cache (regenerable, sha256 in the pw02 manifest)",
+        "command": "uv run python experiments/pw03a_fact_alignment_amended/analyze_alignment.py --run-id <run> --recompute-codes-only",
+        "validation": "sha256 of recomputed code arrays equals the pw03 manifest entry",
+        "expiry": "after the pw03 audit and the final report are complete"
+      }
+    ]
+  },
+  "amends": {
+    "experiment": "pw03_fact_alignment",
+    "freeze_sha256": "da7e85212a6c7895a10509f781fd0d940aeb21865da2477bd93cdac59d854821",
+    "pilot_triggered": true,
+    "decided_before_confirmation_opened": true,
+    "trigger": "pw02 pilot competence stop (A3) and convergence-check failure; pw02a amendment"
+  },
+  "amendment_changes": [
+    "input: pw02a amended sweep",
+    "H3.2 three-valued: a comparator cell with zero gated seeds scores untested (bug fix; hypothesis unchanged); untested H3.2 = status inconclusive, outcome untested",
+    "H3.3 untested when a side has no gated seeds",
+    "H3.1 descriptive over 6 beta=1 cells (6 of 6)"
+  ]
+}

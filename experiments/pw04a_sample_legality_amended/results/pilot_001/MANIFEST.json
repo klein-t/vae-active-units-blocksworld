@@ -1,0 +1,74 @@
+{
+ "files": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 604,
+   "sha256": "75f1cc5ac59730e31322c8c4709a4bfa8d2499bf1b69be363c83dde64f01303a"
+  },
+  {
+   "path": "raw/samples_b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101.npz",
+   "bytes": 48753,
+   "sha256": "5c1bfd3b3a077be9b91b69c34e40dcc0c61ed36684a0bc7351cdf839bd813c1b"
+  },
+  {
+   "path": "raw/samples_b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101.npz",
+   "bytes": 56087,
+   "sha256": "3ea799c1e26a5d3c658d8bf24534344a0581be85d217385549c7e6b7901384bd"
+  },
+  {
+   "path": "raw/samples_b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101.npz",
+   "bytes": 51963,
+   "sha256": "68788edd5520e050db32aa113a8f43505d8dfe8928a7599f9f24272c01a6bdc6"
+  },
+  {
+   "path": "raw/samples_b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101.npz",
+   "bytes": 62195,
+   "sha256": "22c49e6682408c6ab18f89fd2fb97f74d5a130a24d7ab74c84ea555d5cad3ac3"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A1-b1-lr0.0003_s101.npz",
+   "bytes": 214212,
+   "sha256": "43b2a219a3747682234ff88a7751abd93cc7baef85d777490734beb69a4c3f4c"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A2-b0.25-lr0.0003_s101.npz",
+   "bytes": 190326,
+   "sha256": "a7301ab96551c98462e6e1d2843ecaba378307f3c1fdf479b52f4aff5cf67f55"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A2-b0.25-lr0.003_s101.npz",
+   "bytes": 182756,
+   "sha256": "357370959c2ee9fbd840a5a874e1f54539dacc0d6b49c8a3ec6dae0ddddb5a14"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A2-b1-lr0.0003_s101.npz",
+   "bytes": 198889,
+   "sha256": "a17d4466cac71cefecec082e9faab84876b96b7a2a35f93e3e186cef70d7dafe"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A2-b1-lr0.003_s101.npz",
+   "bytes": 191966,
+   "sha256": "2b2d5f97c0175e15e87c5f17491907e3f9ea46883fe732853cf593043d79013b"
+  },
+  {
+   "path": "raw/samples_bw-gauss_vae-A4-b1-lr0.0003_s101.npz",
+   "bytes": 193034,
+   "sha256": "4c151a8755e8cddd78bcf3b49bc5feb6d5df3d42f8ffa5f3ad495c1c560753ab"
+  },
+  {
+   "path": "raw/samples_code10-gauss_vae-A2-b1-lr0.0003_s101.npz",
+   "bytes": 185382,
+   "sha256": "2561393bb4c71dbbb130915897b8b2b9cdea84c42fede9902117e3e3f91ac2be"
+  },
+  {
+   "path": "raw/samples_prod5-gauss_vae-A2-b1-lr0.0003_s101.npz",
+   "bytes": 209156,
+   "sha256": "5ef6b40b19d24a8d66f4b22712552535e94c3b38f17984777c3c818e66dec216"
+  },
+  {
+   "path": "results.json",
+   "bytes": 26091,
+   "sha256": "f8ef358db770d799f0a935fe7abdd974b03fcfe6a65902aaa4e12dd0c2fb32df"
+  }
+ ]
+}

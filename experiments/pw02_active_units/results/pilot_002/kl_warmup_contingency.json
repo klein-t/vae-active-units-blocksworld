@@ -1,0 +1,17 @@
+{
+ "trigger_run": "pilot_001",
+ "a3_raw_state_competence": {
+  "bw-gauss_vae-A3-b1-lr0.0003_s101": false,
+  "code10-gauss_vae-A3-b1-lr0.0003_s101": false,
+  "prod5-gauss_vae-A3-b1-lr0.0003_s101": false
+ },
+ "failed": [
+  "bw-gauss_vae-A3-b1-lr0.0003_s101",
+  "code10-gauss_vae-A3-b1-lr0.0003_s101",
+  "prod5-gauss_vae-A3-b1-lr0.0003_s101"
+ ],
+ "kl_warmup_applied": {
+  "schedule": "linear",
+  "fraction": 0.1
+ }
+}

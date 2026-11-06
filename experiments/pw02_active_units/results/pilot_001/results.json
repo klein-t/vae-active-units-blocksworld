@@ -1,0 +1,186 @@
+{
+ "experiment_id": "pw02_active_units",
+ "run_id": "pilot_001",
+ "freeze_sha256": "a155908143a6800ba434c432707f7e83430bc3808a32e684f0d7f77a90b14342",
+ "status": "competence_stop",
+ "outcome": "untested",
+ "interpretation": "Pilot (seed 101, development data only): gates computable; convergence, AU < latent size, wall-clock and log-gamma behaviour recorded in metrics.pilot_checks. No hypothesis is tested.",
+ "confirmation_accessed": false,
+ "claims_changed": false,
+ "gates": {
+  "task": true,
+  "numerical": true,
+  "competence": false
+ },
+ "criteria": {},
+ "secondary": {},
+ "metrics": {
+  "eval_set": "dev",
+  "n_runs": 23,
+  "technical_failures": [],
+  "missing_runs": [],
+  "competence_required_cells": {
+   "bw-gauss_vae-A1-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A2-b1-lr0.003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A3-b1-lr0.0003": {
+    "n": 1,
+    "passing": 0
+   },
+   "bw-gauss_vae-A4-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "code10-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "code10-gauss_vae-A3-b1-lr0.0003": {
+    "n": 1,
+    "passing": 0
+   },
+   "prod5-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "prod5-gauss_vae-A3-b1-lr0.0003": {
+    "n": 1,
+    "passing": 0
+   },
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   }
+  },
+  "competence_pass_rate": 0.6521739130434783,
+  "targets": {
+   "pw01": {
+    "bits_log2_legal": 9.758223214726724,
+    "bits_min_binary_code": 10,
+    "bits_entropy_empirical": 9.345781901121171,
+    "factors_per_block_categorical": 5,
+    "affine_dim_legal_states": 25,
+    "binary_facts_total": 36,
+    "i3d_hypercube_range": [
+     11.87000000000001,
+     21.250000000000018
+    ]
+   },
+   "b": {
+    "w64": {
+     "K_pca99": 39,
+     "K_probe": 25
+    },
+    "w128": {
+     "K_pca99": 88,
+     "K_probe": 26
+    },
+    "w128s2": {
+     "K_pca99": 91,
+     "K_probe": 27
+    },
+    "w128s3": {
+     "K_pca99": 93,
+     "K_probe": 27
+    },
+    "w256": {
+     "K_pca99": 208,
+     "K_probe": 31
+    }
+   }
+  },
+  "polarized_fraction": 0.7894736842105263,
+  "censored_runs": [],
+  "asperti_not_converged_units": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 4,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 1,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": 0,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": 0,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": 0,
+   "bw-gauss_vae-A3-b1-lr0.0003_s101": 0,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": 0,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": 0,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "code10-gauss_vae-A3-b1-lr0.0003_s101": 1,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "prod5-gauss_vae-A3-b1-lr0.0003_s101": 0
+  },
+  "log_gamma_at_floor": [],
+  "convergence": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": true,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": false,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": true,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": false,
+   "b_raw_w128-topk_sae-k5-lr0.0003_s101": true,
+   "bw-cat_vae-A2-b1-lr0.0003_s101": false,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": true,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": true,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": true,
+   "bw-gauss_vae-A3-b1-lr0.0003_s101": true,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": true,
+   "bw-plain_ae-A2-lr0.0003_s101": false,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": true,
+   "bw-topk_sae-k5-lr0.0003_s101": false,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "code10-gauss_vae-A3-b1-lr0.0003_s101": false,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "prod5-gauss_vae-A3-b1-lr0.0003_s101": true
+  },
+  "wall_seconds_per_run": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 161.2504780292511,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 165.23443508148193,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 171.30254292488098,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 172.10186004638672,
+   "b_raw_w128-topk_sae-k5-lr0.0003_s101": 126.40927314758301,
+   "bw-cat_vae-A2-b1-lr0.0003_s101": 151.79424405097961,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": 28.596823930740356,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": 123.06951189041138,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": 121.59234499931335,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": 124.81944704055786,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": 121.49802112579346,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": 124.34168028831482,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": 122.68399286270142,
+   "bw-gauss_vae-A3-b1-lr0.0003_s101": 231.1464500427246,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": 591.7770147323608,
+   "bw-plain_ae-A2-lr0.0003_s101": 71.21262311935425,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": 1338.8153409957886,
+   "bw-topk_sae-k5-lr0.0003_s101": 49.105387926101685,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": 121.51626706123352,
+   "code10-gauss_vae-A3-b1-lr0.0003_s101": 231.937331199646,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": 123.2627820968628,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": 121.52163195610046,
+   "prod5-gauss_vae-A3-b1-lr0.0003_s101": 233.93405604362488
+  },
+  "pilot_checks": {
+   "au_below_latent_bw": true,
+   "converged_all": false,
+   "log_gamma": {
+    "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0.0,
+    "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": -7.799490928649902,
+    "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0.0,
+    "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": -3.183216094970703
+   }
+  }
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "rates": {
+  "bw-gauss_vae-A1-b1-lr0.0003_s101": 0.16765,
+  "bw-gauss_vae-A2-b0.25-lr0.0003_s101": 0.3758,
+  "bw-gauss_vae-A2-b0.25-lr0.003_s101": 0.4876,
+  "bw-gauss_vae-A2-b1-lr0.0003_s101": 0.43525,
+  "code10-gauss_vae-A2-b1-lr0.0003_s101": 0.0,
+  "bw-gauss_vae-A2-b1-lr0.003_s101": 0.4964,
+  "bw-gauss_vae-A4-b1-lr0.0003_s101": 0.5024,
+  "prod5-gauss_vae-A2-b1-lr0.0003_s101": 0.0
+ },
+ "b2": 0.5399518614568181,
+ "criteria": {},
+ "mismatches": [],
+ "checks": {
+  "rates_match": true,
+  "b2_match": true,
+  "criteria_match": true,
+  "negative_random": true,
+  "negative_column_permuted": true
+ }
+}

@@ -1,0 +1,47 @@
+# Python / env
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Model weights and raw arrays (retained locally, never committed)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+*.h5
+*.zst
+*.tar
+*.tar.gz
+checkpoints/
+**/checkpoints/
+
+# Raw run evidence: per-run raw arrays live under results/<run_id>/raw/
+experiments/*/results/*/raw/*
+experiments/*/results/*/models/
+
+# Exceptions: the raw arrays report/make_figures.py reads (shipped so the figures can be redrawn)
+!experiments/pw01_state_space_ground_truth/results/analysis_001/legal_states_866.npy
+!experiments/pw02a_active_units_amended/results/full_001/raw/bw-gauss_vae-A2-b1-lr0.0003_s1.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/bw-gauss_vae-A2-b1-lr0.0003_s2.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/bw-gauss_vae-A2-b1-lr0.0003_s3.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/bw-gauss_vae-A2-b1-lr0.0003_s4.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/bw-gauss_vae-A2-b1-lr0.0003_s5.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/code10-gauss_vae-A2-b1-lr0.0003_s1.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/code10-gauss_vae-A2-b1-lr0.0003_s2.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/code10-gauss_vae-A2-b1-lr0.0003_s3.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/prod5-gauss_vae-A2-b1-lr0.0003_s1.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/prod5-gauss_vae-A2-b1-lr0.0003_s2.npz
+!experiments/pw02a_active_units_amended/results/full_001/raw/prod5-gauss_vae-A2-b1-lr0.0003_s3.npz
+!experiments/pw03a_fact_alignment_amended/results/full_001/raw/scores_bw-gauss_vae-A2-b1-lr0.0003_s1.npz
+!experiments/pw04a_sample_legality_amended/descriptive/results/pw02a_full_001/raw/samples_bw-gauss_vae-A2-b1-lr0.0003_s1.npz
+
+# Blocksworld data and transformer checkpoints from the earlier thesis work (not included)
+data/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/

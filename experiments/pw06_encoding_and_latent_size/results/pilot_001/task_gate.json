@@ -1,0 +1,70 @@
+{
+ "splits_disjoint": true,
+ "train_distinct_states": 866,
+ "n_train_866": true,
+ "position_counts": {
+  "train": 652451,
+  "val": 163006
+ },
+ "encodings": {
+  "e10a": {
+   "unique": true,
+   "invertible": true,
+   "in_range": true
+  },
+  "e10b": {
+   "unique": true,
+   "invertible": true,
+   "in_range": true
+  },
+  "e30": {
+   "shape_ok": true,
+   "unique": true,
+   "position_facts": true
+  },
+  "code10c1": {
+   "states": 1024,
+   "copies_ok": true,
+   "zero_cols": 30,
+   "zero_cols_constant": true
+  },
+  "code10c2": {
+   "states": 1024,
+   "copies_ok": true,
+   "zero_cols": 20,
+   "zero_cols_constant": true
+  },
+  "code10c3": {
+   "states": 1024,
+   "copies_ok": true,
+   "zero_cols": 10,
+   "zero_cols_constant": true
+  },
+  "code10c4": {
+   "states": 1024,
+   "copies_ok": true,
+   "zero_cols": 0,
+   "zero_cols_constant": true
+  },
+  "pass": true
+ },
+ "model_free": {
+  "H_nats": 6.47759506058304,
+  "H_bits": 9.345194270789996,
+  "zero_rate_distortion_e36_nats": 15.662329391822063,
+  "tc_e10_nats": {
+   "0": 0.4001233636422459,
+   "1": 0.3986242284214283,
+   "2": 0.39098635827293826,
+   "3": 0.41305983752395736
+  },
+  "matches_design": {
+   "H_bits": true,
+   "H_nats": true,
+   "zero_rate": true,
+   "tc_range": true
+  },
+  "pass": true
+ },
+ "pass": true
+}

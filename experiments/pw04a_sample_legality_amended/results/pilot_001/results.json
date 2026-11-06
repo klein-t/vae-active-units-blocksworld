@@ -1,0 +1,948 @@
+{
+ "experiment_id": "pw04a_sample_legality_amended",
+ "run_id": "pilot_001",
+ "freeze_sha256": "cbc0fae0c474b4d5ef77d35776473855e2d31f9c12a0e09c45a0899b90dd0f88",
+ "status": "competence_stop",
+ "outcome": "untested",
+ "interpretation": "Pilot on the pw02 pilot run (val-weight evaluation distribution); no hypothesis tested.",
+ "confirmation_accessed": false,
+ "claims_changed": false,
+ "gates": {
+  "task": true,
+  "numerical": true,
+  "competence": false
+ },
+ "criteria": {},
+ "secondary": {
+  "h43_prior_hole_gap": false,
+  "h44_categorical_vs_gaussian_legality": {
+   "cat": [],
+   "gauss": [],
+   "separated": null
+  },
+  "h45_prod5_and_code10_controls": {
+   "prod5_bw_legal": [],
+   "prod5_within_0p03_of_uniform": false,
+   "code10_codeword_valid": [
+    0.9524
+   ]
+  }
+ },
+ "metrics": {
+  "baselines": {
+   "exact": {
+    "B0": 1.2601958587765694e-08,
+    "B1": 0.0002543257156852045,
+    "B2": 0.539951861456818,
+    "B2_uniform": 0.1113683127572007
+   },
+   "monte_carlo": {
+    "B0": 0.0,
+    "B1": 0.000277,
+    "B2": 0.539972
+   },
+   "agree_3se": {
+    "B0": true,
+    "B1": true,
+    "B2": true
+   }
+  },
+  "block_marginals_train": [
+   [
+    0.5068411267666078,
+    0.09896681896418277,
+    0.0970003877685834,
+    0.10055467766928095,
+    0.09878596247074492,
+    0.09785102636060028
+   ],
+   [
+    0.5038125468425981,
+    0.09874611273490272,
+    0.10043206309745867,
+    0.10158004202614453,
+    0.09744026754499573,
+    0.09798896775390031
+   ],
+   [
+    0.5133810814911772,
+    0.09804261162907249,
+    0.09728853201236565,
+    0.09790007218932907,
+    0.09577117668606527,
+    0.09761652599199021
+   ],
+   [
+    0.5071706534283801,
+    0.09968411420934294,
+    0.09511978677325962,
+    0.09956609768396404,
+    0.09651912557418107,
+    0.10194022233087237
+   ],
+   [
+    0.5064073777187866,
+    0.0994266236085162,
+    0.10007648083917413,
+    0.09871852445624268,
+    0.09595203317950315,
+    0.09941896019777731
+   ]
+  ],
+  "task_checks": {
+   "pw02_ok": true,
+   "eval_states_legal": true,
+   "table_reproduced": true,
+   "random_rejected": true
+  },
+  "competence_cells": {
+   "bw-gauss_vae-A1-b1-lr0.0003": {
+    "planned": 1,
+    "passing": 0
+   },
+   "bw-gauss_vae-A2-b1-lr0.0003": {
+    "planned": 1,
+    "passing": 0
+   },
+   "bw-gauss_vae-A2-b1-lr0.003": {
+    "planned": 1,
+    "passing": 0
+   },
+   "bw-gauss_vae-A4-b1-lr0.0003": {
+    "planned": 1,
+    "passing": 0
+   }
+  },
+  "h41": {
+   "n_runs": 0,
+   "min_rate": null,
+   "B2": 0.539951861456818
+  },
+  "h42": {
+   "pooled_rho": null,
+   "ci95": [
+    null,
+    null
+   ],
+   "strata": [],
+   "nonfinite_reps": 2000
+  },
+  "h42_rows": [
+   {
+    "cell_id": "bw-gauss_vae-A2-b0.25-lr0.0003",
+    "beta": 0.25,
+    "au": 16,
+    "legal": 0.3758
+   },
+   {
+    "cell_id": "bw-gauss_vae-A2-b0.25-lr0.003",
+    "beta": 0.25,
+    "au": 12,
+    "legal": 0.4876
+   }
+  ],
+  "per_model": {
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": {
+    "name": "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101",
+    "cell_id": "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "b_raw_w128",
+    "probe_read_prior": {
+     "rate": 0.14715,
+     "wilson95": [
+      0.14230812482234798,
+      0.15212739502244502
+     ],
+     "any_violated": {
+      "V1_place": 0.711965761857302,
+      "V2_two_on_one": 0.17676027437415723,
+      "V3_hand": 0.32033769127044615,
+      "V4_clear": 0.6024506067890015,
+      "V5_cycle": 0.04520138359617752,
+      "V6_held_supports": 0.012135780031658557
+     },
+     "first_violated": {
+      "V1_place": 0.711965761857302,
+      "V2_two_on_one": 0.06173418537843701,
+      "V3_hand": 0.098082898516738,
+      "V4_clear": 0.12452365597701823,
+      "V5_cycle": 0.0019933165269390867,
+      "V6_held_supports": 0.0017001817435656915
+     }
+    },
+    "seconds": 0.4059021472930908
+   },
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": {
+    "name": "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101",
+    "cell_id": "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "b_lin_w128",
+    "probe_read_prior": {
+     "rate": 0.36255,
+     "wilson95": [
+      0.355914438505937,
+      0.36923835220588613
+     ],
+     "any_violated": {
+      "V1_place": 0.5995764373676367,
+      "V2_two_on_one": 0.23845007451564829,
+      "V3_hand": 0.27492352341360105,
+      "V4_clear": 0.36136167542552355,
+      "V5_cycle": 0.08275158835987136,
+      "V6_held_supports": 0.06204408188877559
+     },
+     "first_violated": {
+      "V1_place": 0.5995764373676367,
+      "V2_two_on_one": 0.1371872303710095,
+      "V3_hand": 0.1226762883363401,
+      "V4_clear": 0.1018903443407326,
+      "V5_cycle": 0.01615813004941564,
+      "V6_held_supports": 0.02251156953486548
+     }
+    },
+    "seconds": 0.424271821975708
+   },
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": {
+    "name": "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101",
+    "cell_id": "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "b_lin_w128",
+    "probe_read_prior": {
+     "rate": 0.6888,
+     "wilson95": [
+      0.6823477386956704,
+      0.6951797484895443
+     ],
+     "any_violated": {
+      "V1_place": 0.5766388174807198,
+      "V2_two_on_one": 0.1449228791773779,
+      "V3_hand": 0.1629177377892031,
+      "V4_clear": 0.3001285347043702,
+      "V5_cycle": 0.0811375321336761,
+      "V6_held_supports": 0.04000642673521851
+     },
+     "first_violated": {
+      "V1_place": 0.5766388174807198,
+      "V2_two_on_one": 0.1005784061696658,
+      "V3_hand": 0.09415167095115681,
+      "V4_clear": 0.1597043701799486,
+      "V5_cycle": 0.043059125964010285,
+      "V6_held_supports": 0.025867609254498714
+     }
+    },
+    "seconds": 0.4687678813934326
+   },
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": {
+    "name": "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101",
+    "cell_id": "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "b_raw_w128",
+    "probe_read_prior": {
+     "rate": 0.4755,
+     "wilson95": [
+      0.46858417264088,
+      0.4824252371258691
+     ],
+     "any_violated": {
+      "V1_place": 0.5735938989513822,
+      "V2_two_on_one": 0.09065776930409915,
+      "V3_hand": 0.26539561487130603,
+      "V4_clear": 0.46177311725452813,
+      "V5_cycle": 0.0449952335557674,
+      "V6_held_supports": 0.012106768350810296
+     },
+     "first_violated": {
+      "V1_place": 0.5735938989513822,
+      "V2_two_on_one": 0.0551954242135367,
+      "V3_hand": 0.15681601525262154,
+      "V4_clear": 0.19580552907530982,
+      "V5_cycle": 0.012488083889418494,
+      "V6_held_supports": 0.006101048617731172
+     }
+    },
+    "seconds": 0.5167942047119141
+   },
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": {
+    "name": "bw-gauss_vae-A1-b1-lr0.0003_s101",
+    "cell_id": "bw-gauss_vae-A1-b1-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.16765,
+     "wilson95": [
+      0.16253681125811575,
+      0.17289083510837694
+     ],
+     "any_violated": {
+      "V1_place": 0.7367693878776956,
+      "V2_two_on_one": 0.055865921787709494,
+      "V3_hand": 0.2448489217276386,
+      "V4_clear": 0.679341623115276,
+      "V5_cycle": 0.031357001261488555,
+      "V6_held_supports": 0.02715203940649967
+     },
+     "first_violated": {
+      "V1_place": 0.7367693878776956,
+      "V2_two_on_one": 0.027692677359283956,
+      "V3_hand": 0.062173364570192825,
+      "V4_clear": 0.1634528743917823,
+      "V5_cycle": 0.00444524538955968,
+      "V6_held_supports": 0.0054664504114855525
+     },
+     "distinct_legal": 655,
+     "tv_to_eval": 0.31657859196120847
+    },
+    "prior_stochastic": {
+     "rate": 0.0768,
+     "wilson95": [
+      0.0731904297655396,
+      0.08057210955234734
+     ],
+     "any_violated": {
+      "V1_place": 0.8162370017331022,
+      "V2_two_on_one": 0.09515814558058926,
+      "V3_hand": 0.2842829289428076,
+      "V4_clear": 0.7566616117850953,
+      "V5_cycle": 0.03487868284228769,
+      "V6_held_supports": 0.055405112651646445
+     },
+     "first_violated": {
+      "V1_place": 0.8162370017331022,
+      "V2_two_on_one": 0.018576689774696706,
+      "V3_hand": 0.046414644714038125,
+      "V4_clear": 0.11405979202772963,
+      "V5_cycle": 0.001841421143847487,
+      "V6_held_supports": 0.0028704506065857886
+     },
+     "distinct_legal": 481,
+     "tv_to_eval": 0.36960168931665094
+    },
+    "aggpost_mode": {
+     "rate": 0.62975,
+     "wilson95": [
+      0.6230335441968078,
+      0.6364166224466332
+     ],
+     "any_violated": {
+      "V1_place": 0.6195813639432816,
+      "V2_two_on_one": 0.04213369345037137,
+      "V3_hand": 0.15530047265361244,
+      "V4_clear": 0.537204591492235,
+      "V5_cycle": 0.022822417285617826,
+      "V6_held_supports": 0.02012153950033761
+     },
+     "first_violated": {
+      "V1_place": 0.6195813639432816,
+      "V2_two_on_one": 0.02525320729237002,
+      "V3_hand": 0.08426738690074274,
+      "V4_clear": 0.25847400405131665,
+      "V5_cycle": 0.004726536124240378,
+      "V6_held_supports": 0.007697501688048616
+     },
+     "distinct_legal": 860,
+     "tv_to_eval": 0.10686303668089052
+    },
+    "competence": false,
+    "seconds": 0.9124758243560791
+   },
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": {
+    "name": "bw-gauss_vae-A2-b0.25-lr0.0003_s101",
+    "cell_id": "bw-gauss_vae-A2-b0.25-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.3758,
+     "wilson95": [
+      0.36911212205304006,
+      0.3825355797032964
+     ],
+     "any_violated": {
+      "V1_place": 0.6582024991989747,
+      "V2_two_on_one": 0.08771227170778596,
+      "V3_hand": 0.17670618391541174,
+      "V4_clear": 0.5967638577379045,
+      "V5_cycle": 0.0387696251201538,
+      "V6_held_supports": 0.0468599807753925
+     },
+     "first_violated": {
+      "V1_place": 0.6582024991989747,
+      "V2_two_on_one": 0.041573213713553346,
+      "V3_hand": 0.06520346042934956,
+      "V4_clear": 0.21419416853572573,
+      "V5_cycle": 0.012095482217238065,
+      "V6_held_supports": 0.008731175905158603
+     },
+     "distinct_legal": 796,
+     "tv_to_eval": 0.29004035263850814
+    },
+    "prior_stochastic": {
+     "rate": 0.2701,
+     "wilson95": [
+      0.2639910126907999,
+      0.27629728548779703
+     ],
+     "any_violated": {
+      "V1_place": 0.7224962323605973,
+      "V2_two_on_one": 0.10693245650089053,
+      "V3_hand": 0.20900123304562268,
+      "V4_clear": 0.6533771749554733,
+      "V5_cycle": 0.034936292642827785,
+      "V6_held_supports": 0.055829565693930674
+     },
+     "first_violated": {
+      "V1_place": 0.7224962323605973,
+      "V2_two_on_one": 0.030826140567200986,
+      "V3_hand": 0.05706261131661872,
+      "V4_clear": 0.17879161528976573,
+      "V5_cycle": 0.006370735717221537,
+      "V6_held_supports": 0.004452664748595698
+     },
+     "distinct_legal": 736,
+     "tv_to_eval": 0.31627280167303656
+    },
+    "aggpost_mode": {
+     "rate": 0.9538,
+     "wilson95": [
+      0.9508025669778124,
+      0.9566231410976669
+     ],
+     "any_violated": {
+      "V1_place": 0.6309523809523809,
+      "V2_two_on_one": 0.045454545454545456,
+      "V3_hand": 0.11796536796536797,
+      "V4_clear": 0.5227272727272727,
+      "V5_cycle": 0.020562770562770564,
+      "V6_held_supports": 0.023809523809523808
+     },
+     "first_violated": {
+      "V1_place": 0.6309523809523809,
+      "V2_two_on_one": 0.027056277056277056,
+      "V3_hand": 0.05519480519480519,
+      "V4_clear": 0.27164502164502163,
+      "V5_cycle": 0.008658008658008658,
+      "V6_held_supports": 0.006493506493506494
+     },
+     "distinct_legal": 866,
+     "tv_to_eval": 0.07542210347750888
+    },
+    "competence": true,
+    "seconds": 1.0222201347351074
+   },
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": {
+    "name": "bw-gauss_vae-A2-b0.25-lr0.003_s101",
+    "cell_id": "bw-gauss_vae-A2-b0.25-lr0.003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.4876,
+     "wilson95": [
+      0.4806756581955721,
+      0.4945291042986192
+     ],
+     "any_violated": {
+      "V1_place": 0.642271662763466,
+      "V2_two_on_one": 0.06723263075722093,
+      "V3_hand": 0.20179547228727557,
+      "V4_clear": 0.6141686182669789,
+      "V5_cycle": 0.0351288056206089,
+      "V6_held_supports": 0.04381342701014832
+     },
+     "first_violated": {
+      "V1_place": 0.642271662763466,
+      "V2_two_on_one": 0.029469164715066356,
+      "V3_hand": 0.07377049180327869,
+      "V4_clear": 0.23136221701795473,
+      "V5_cycle": 0.014246682279469165,
+      "V6_held_supports": 0.008879781420765027
+     },
+     "distinct_legal": 795,
+     "tv_to_eval": 0.25957037852736303
+    },
+    "prior_stochastic": {
+     "rate": 0.3758,
+     "wilson95": [
+      0.36911212205304006,
+      0.3825355797032964
+     ],
+     "any_violated": {
+      "V1_place": 0.7045017622556873,
+      "V2_two_on_one": 0.09219801345722525,
+      "V3_hand": 0.24775712912528036,
+      "V4_clear": 0.6617270105735341,
+      "V5_cycle": 0.03300224287087472,
+      "V6_held_supports": 0.06135853892983018
+     },
+     "first_violated": {
+      "V1_place": 0.7045017622556873,
+      "V2_two_on_one": 0.024911887215636013,
+      "V3_hand": 0.06608458827298942,
+      "V4_clear": 0.19072412688240947,
+      "V5_cycle": 0.008490868311438641,
+      "V6_held_supports": 0.005286767061839154
+     },
+     "distinct_legal": 770,
+     "tv_to_eval": 0.27737591090411773
+    },
+    "aggpost_mode": {
+     "rate": 0.97035,
+     "wilson95": [
+      0.9679073994330467,
+      0.9726119522489758
+     ],
+     "any_violated": {
+      "V1_place": 0.5986509274873525,
+      "V2_two_on_one": 0.05396290050590219,
+      "V3_hand": 0.14502529510961215,
+      "V4_clear": 0.5885328836424958,
+      "V5_cycle": 0.025295109612141653,
+      "V6_held_supports": 0.021922428330522766
+     },
+     "first_violated": {
+      "V1_place": 0.5986509274873525,
+      "V2_two_on_one": 0.023608768971332208,
+      "V3_hand": 0.06070826306913996,
+      "V4_clear": 0.2984822934232715,
+      "V5_cycle": 0.011804384485666104,
+      "V6_held_supports": 0.006745362563237774
+     },
+     "distinct_legal": 866,
+     "tv_to_eval": 0.07709252344037065
+    },
+    "competence": true,
+    "seconds": 1.0360031127929688
+   },
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": {
+    "name": "bw-gauss_vae-A2-b1-lr0.0003_s101",
+    "cell_id": "bw-gauss_vae-A2-b1-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.43525,
+     "wilson95": [
+      0.4283919143054529,
+      0.44213295436381267
+     ],
+     "any_violated": {
+      "V1_place": 0.6387782204515272,
+      "V2_two_on_one": 0.07711376715360779,
+      "V3_hand": 0.13359893758300131,
+      "V4_clear": 0.582647189021691,
+      "V5_cycle": 0.043116423196104474,
+      "V6_held_supports": 0.03373173970783533
+     },
+     "first_violated": {
+      "V1_place": 0.6387782204515272,
+      "V2_two_on_one": 0.04081451969898185,
+      "V3_hand": 0.05347498893315626,
+      "V4_clear": 0.24524125719344844,
+      "V5_cycle": 0.013899955732625055,
+      "V6_held_supports": 0.007791057990261177
+     },
+     "distinct_legal": 818,
+     "tv_to_eval": 0.2420902144442053
+    },
+    "prior_stochastic": {
+     "rate": 0.22015,
+     "wilson95": [
+      0.21446158123839199,
+      0.22594590134220977
+     ],
+     "any_violated": {
+      "V1_place": 0.7595691479130602,
+      "V2_two_on_one": 0.10405847278322754,
+      "V3_hand": 0.20035904340578317,
+      "V4_clear": 0.706033211515035,
+      "V5_cycle": 0.0415464512406232,
+      "V6_held_supports": 0.049945502340193626
+     },
+     "first_violated": {
+      "V1_place": 0.7595691479130602,
+      "V2_two_on_one": 0.021542604346989805,
+      "V3_hand": 0.04520100019234468,
+      "V4_clear": 0.1672116432647304,
+      "V5_cycle": 0.0038468936333910368,
+      "V6_held_supports": 0.002628710649483875
+     },
+     "distinct_legal": 698,
+     "tv_to_eval": 0.286952015847596
+    },
+    "aggpost_mode": {
+     "rate": 0.8215,
+     "wilson95": [
+      0.8161313265508956,
+      0.826745194265029
+     ],
+     "any_violated": {
+      "V1_place": 0.6159663865546219,
+      "V2_two_on_one": 0.04341736694677871,
+      "V3_hand": 0.10252100840336134,
+      "V4_clear": 0.5403361344537815,
+      "V5_cycle": 0.02689075630252101,
+      "V6_held_supports": 0.018487394957983194
+     },
+     "first_violated": {
+      "V1_place": 0.6159663865546219,
+      "V2_two_on_one": 0.02661064425770308,
+      "V3_hand": 0.049019607843137254,
+      "V4_clear": 0.292436974789916,
+      "V5_cycle": 0.008963585434173669,
+      "V6_held_supports": 0.0070028011204481795
+     },
+     "distinct_legal": 864,
+     "tv_to_eval": 0.08742983811841959
+    },
+    "competence": false,
+    "seconds": 1.054792881011963
+   },
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": {
+    "name": "code10-gauss_vae-A2-b1-lr0.0003_s101",
+    "cell_id": "code10-gauss_vae-A2-b1-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "code10",
+    "prior_mode": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 0.9999,
+      "V2_two_on_one": 0.9633,
+      "V3_hand": 0.8832,
+      "V4_clear": 0.9553,
+      "V5_cycle": 0.9223,
+      "V6_held_supports": 0.9262
+     },
+     "first_violated": {
+      "V1_place": 0.9999,
+      "V2_two_on_one": 5e-05,
+      "V3_hand": 0.0,
+      "V4_clear": 5e-05,
+      "V5_cycle": 0.0,
+      "V6_held_supports": 0.0
+     },
+     "codeword_valid": 0.9524,
+     "in_support": 0.9524
+    },
+    "prior_stochastic": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 0.9997,
+      "V2_two_on_one": 0.9711,
+      "V3_hand": 0.8873,
+      "V4_clear": 0.95845,
+      "V5_cycle": 0.93085,
+      "V6_held_supports": 0.92785
+     },
+     "first_violated": {
+      "V1_place": 0.9997,
+      "V2_two_on_one": 0.0001,
+      "V3_hand": 0.00015,
+      "V4_clear": 5e-05,
+      "V5_cycle": 0.0,
+      "V6_held_supports": 0.0
+     },
+     "codeword_valid": 0.2389,
+     "in_support": 0.2389
+    },
+    "aggpost_mode": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 1.0,
+      "V2_two_on_one": 0.9625,
+      "V3_hand": 0.8772,
+      "V4_clear": 0.95465,
+      "V5_cycle": 0.91925,
+      "V6_held_supports": 0.9266
+     },
+     "first_violated": {
+      "V1_place": 1.0,
+      "V2_two_on_one": 0.0,
+      "V3_hand": 0.0,
+      "V4_clear": 0.0,
+      "V5_cycle": 0.0,
+      "V6_held_supports": 0.0
+     },
+     "codeword_valid": 0.986,
+     "in_support": 0.986
+    },
+    "competence": true,
+    "seconds": 0.7145736217498779
+   },
+   "bw-gauss_vae-A2-b1-lr0.003_s101": {
+    "name": "bw-gauss_vae-A2-b1-lr0.003_s101",
+    "cell_id": "bw-gauss_vae-A2-b1-lr0.003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.4964,
+     "wilson95": [
+      0.48947201716248784,
+      0.5033293654971162
+     ],
+     "any_violated": {
+      "V1_place": 0.6675933280381255,
+      "V2_two_on_one": 0.09025019857029389,
+      "V3_hand": 0.11755361397934869,
+      "V4_clear": 0.5750595710881652,
+      "V5_cycle": 0.054110405083399524,
+      "V6_held_supports": 0.030381254964257347
+     },
+     "first_violated": {
+      "V1_place": 0.6675933280381255,
+      "V2_two_on_one": 0.03951548848292295,
+      "V3_hand": 0.04527402700555997,
+      "V4_clear": 0.22269658459094518,
+      "V5_cycle": 0.02084988085782367,
+      "V6_held_supports": 0.004070691024622717
+     },
+     "distinct_legal": 832,
+     "tv_to_eval": 0.2130203383406451
+    },
+    "prior_stochastic": {
+     "rate": 0.29625,
+     "wilson95": [
+      0.2899615410657067,
+      0.3026167136271559
+     ],
+     "any_violated": {
+      "V1_place": 0.7625577264653641,
+      "V2_two_on_one": 0.13932504440497337,
+      "V3_hand": 0.18543516873889876,
+      "V4_clear": 0.6542806394316163,
+      "V5_cycle": 0.05136767317939609,
+      "V6_held_supports": 0.06095914742451154
+     },
+     "first_violated": {
+      "V1_place": 0.7625577264653641,
+      "V2_two_on_one": 0.026571936056838365,
+      "V3_hand": 0.04184724689165187,
+      "V4_clear": 0.1585790408525755,
+      "V5_cycle": 0.0076021314387211365,
+      "V6_held_supports": 0.002841918294849023
+     },
+     "distinct_legal": 779,
+     "tv_to_eval": 0.23683292028648892
+    },
+    "aggpost_mode": {
+     "rate": 0.8832,
+     "wilson95": [
+      0.8786749598165122,
+      0.8875778637500891
+     ],
+     "any_violated": {
+      "V1_place": 0.6374143835616438,
+      "V2_two_on_one": 0.08818493150684932,
+      "V3_hand": 0.11258561643835617,
+      "V4_clear": 0.516695205479452,
+      "V5_cycle": 0.032534246575342464,
+      "V6_held_supports": 0.02868150684931507
+     },
+     "first_violated": {
+      "V1_place": 0.6374143835616438,
+      "V2_two_on_one": 0.03595890410958904,
+      "V3_hand": 0.05565068493150685,
+      "V4_clear": 0.2555650684931507,
+      "V5_cycle": 0.011558219178082191,
+      "V6_held_supports": 0.003852739726027397
+     },
+     "distinct_legal": 865,
+     "tv_to_eval": 0.08222642541987873
+    },
+    "competence": false,
+    "seconds": 1.0032551288604736
+   },
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": {
+    "name": "bw-gauss_vae-A4-b1-lr0.0003_s101",
+    "cell_id": "bw-gauss_vae-A4-b1-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "bw",
+    "prior_mode": {
+     "rate": 0.5024,
+     "wilson95": [
+      0.49547076518795086,
+      0.5093283130389799
+     ],
+     "any_violated": {
+      "V1_place": 0.6526326366559485,
+      "V2_two_on_one": 0.05134646302250804,
+      "V3_hand": 0.15464228295819935,
+      "V4_clear": 0.5949557877813505,
+      "V5_cycle": 0.02592443729903537,
+      "V6_held_supports": 0.02592443729903537
+     },
+     "first_violated": {
+      "V1_place": 0.6526326366559485,
+      "V2_two_on_one": 0.024216237942122187,
+      "V3_hand": 0.06440916398713827,
+      "V4_clear": 0.2424638263665595,
+      "V5_cycle": 0.010952572347266881,
+      "V6_held_supports": 0.00532556270096463
+     },
+     "distinct_legal": 815,
+     "tv_to_eval": 0.2301232759612381
+    },
+    "prior_stochastic": {
+     "rate": 0.2493,
+     "wilson95": [
+      0.24335299777022135,
+      0.25534328910830945
+     ],
+     "any_violated": {
+      "V1_place": 0.7716131610496869,
+      "V2_two_on_one": 0.08638603969628347,
+      "V3_hand": 0.21673105101904888,
+      "V4_clear": 0.7121353403490076,
+      "V5_cycle": 0.024976688424137472,
+      "V6_held_supports": 0.048354868789130145
+     },
+     "first_violated": {
+      "V1_place": 0.7716131610496869,
+      "V2_two_on_one": 0.014719595044625017,
+      "V3_hand": 0.045823897695484214,
+      "V4_clear": 0.1638470760623418,
+      "V5_cycle": 0.0021979485813240977,
+      "V6_held_supports": 0.001798321566537898
+     },
+     "distinct_legal": 719,
+     "tv_to_eval": 0.2788251357386439
+    },
+    "aggpost_mode": {
+     "rate": 0.86075,
+     "wilson95": [
+      0.8558825845028716,
+      0.8654788614826489
+     ],
+     "any_violated": {
+      "V1_place": 0.6017953321364452,
+      "V2_two_on_one": 0.04201077199281867,
+      "V3_hand": 0.11813285457809695,
+      "V4_clear": 0.5651705565529623,
+      "V5_cycle": 0.02836624775583483,
+      "V6_held_supports": 0.02154398563734291
+     },
+     "first_violated": {
+      "V1_place": 0.6017953321364452,
+      "V2_two_on_one": 0.024416517055655295,
+      "V3_hand": 0.06175942549371634,
+      "V4_clear": 0.2976660682226212,
+      "V5_cycle": 0.00969479353680431,
+      "V6_held_supports": 0.00466786355475763
+     },
+     "distinct_legal": 866,
+     "tv_to_eval": 0.08646163421392103
+    },
+    "competence": false,
+    "seconds": 1.093008279800415
+   },
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": {
+    "name": "prod5-gauss_vae-A2-b1-lr0.0003_s101",
+    "cell_id": "prod5-gauss_vae-A2-b1-lr0.0003",
+    "seed": 101,
+    "family": "gauss_vae",
+    "substrate": "prod5",
+    "prior_mode": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 0.3935,
+      "V2_two_on_one": 0.502,
+      "V3_hand": 0.61065,
+      "V4_clear": 0.99075,
+      "V5_cycle": 0.30065,
+      "V6_held_supports": 0.3423
+     },
+     "first_violated": {
+      "V1_place": 0.3935,
+      "V2_two_on_one": 0.34945,
+      "V3_hand": 0.14975,
+      "V4_clear": 0.1035,
+      "V5_cycle": 0.0038,
+      "V6_held_supports": 0.0
+     },
+     "bw_legal_position_bits": 0.07005,
+     "in_support": 0.6065
+    },
+    "prior_stochastic": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 0.7992,
+      "V2_two_on_one": 0.5478,
+      "V3_hand": 0.60275,
+      "V4_clear": 0.96245,
+      "V5_cycle": 0.3341,
+      "V6_held_supports": 0.378
+     },
+     "first_violated": {
+      "V1_place": 0.7992,
+      "V2_two_on_one": 0.1173,
+      "V3_hand": 0.04875,
+      "V4_clear": 0.03345,
+      "V5_cycle": 0.0013,
+      "V6_held_supports": 0.0
+     },
+     "bw_legal_position_bits": 0.02205,
+     "in_support": 0.2008
+    },
+    "aggpost_mode": {
+     "rate": 0.0,
+     "wilson95": [
+      0.0,
+      0.00019203605610462553
+     ],
+     "any_violated": {
+      "V1_place": 0.2037,
+      "V2_two_on_one": 0.54455,
+      "V3_hand": 0.6025,
+      "V4_clear": 0.9856,
+      "V5_cycle": 0.34725,
+      "V6_held_supports": 0.37045
+     },
+     "first_violated": {
+      "V1_place": 0.2037,
+      "V2_two_on_one": 0.4597,
+      "V3_hand": 0.1941,
+      "V4_clear": 0.1378,
+      "V5_cycle": 0.0047,
+      "V6_held_supports": 0.0
+     },
+     "bw_legal_position_bits": 0.08965,
+     "in_support": 0.7963
+    },
+    "competence": false,
+    "seconds": 1.5364971160888672
+   }
+  },
+  "wall_seconds": 4.5619542598724365,
+  "eval_set": "val",
+  "pw02_run": "pilot_001",
+  "pw02_results_sha256": "9b750c60fa6a5617759e42e38fb33afaf92bfdfc7d7b7d1e9164f818212f47c6",
+  "smoke_bootstrap": null
+ }
+}

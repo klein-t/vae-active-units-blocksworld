@@ -1,0 +1,800 @@
+{
+ "pilot": true,
+ "smoke_seqs": 0,
+ "sources": {
+  "w64": {
+   "checkpoint": "d4_w64_s1",
+   "depth": 4,
+   "width": 64,
+   "hook": "blocks.3.hook_resid_post",
+   "ignored_missing_keys": [],
+   "positions": {
+    "train": 149890,
+    "val": 24936
+   },
+   "sequences": {
+    "train": 3000,
+    "val": 500
+   },
+   "exp46_head": {
+    "train": {
+     "vs_next_bitwise": 0.9353207166737089,
+     "vs_current_bitwise": 0.9142534154676393
+    },
+    "val": {
+     "vs_next_bitwise": 0.9352898976936513,
+     "vs_current_bitwise": 0.9142393416033936
+    }
+   },
+   "gate": {
+    "current_probe_val": {
+     "bitwise": 0.9998429312373008,
+     "exact": 0.9948267564966313
+    },
+    "next_probe_val": {
+     "bitwise": 0.9351150055252557,
+     "exact": 0.1141321783766442
+    },
+    "current_beats_next": true,
+    "pass": true
+   },
+   "numerical": {
+    "b_lin_distinct_rows_train": 866,
+    "b_lin_affine_dim_train": 25,
+    "b_lin_ok": true
+   },
+   "targets": {
+    "K_pca99": 39,
+    "K_probe": 25,
+    "K_probe_scan": [
+     {
+      "q": 1,
+      "val_bitwise": 0.8161560260934659
+     },
+     {
+      "q": 2,
+      "val_bitwise": 0.8301195504937083
+     },
+     {
+      "q": 3,
+      "val_bitwise": 0.8429847075179125
+     },
+     {
+      "q": 4,
+      "val_bitwise": 0.8574595408690693
+     },
+     {
+      "q": 5,
+      "val_bitwise": 0.870254518233344
+     },
+     {
+      "q": 6,
+      "val_bitwise": 0.880887293694079
+     },
+     {
+      "q": 7,
+      "val_bitwise": 0.8970375271806937
+     },
+     {
+      "q": 8,
+      "val_bitwise": 0.9062299486685916
+     },
+     {
+      "q": 9,
+      "val_bitwise": 0.9171356450290522
+     },
+     {
+      "q": 10,
+      "val_bitwise": 0.9276737336470253
+     },
+     {
+      "q": 11,
+      "val_bitwise": 0.9385148201618365
+     },
+     {
+      "q": 12,
+      "val_bitwise": 0.9469029604676862
+     },
+     {
+      "q": 13,
+      "val_bitwise": 0.9534597458382348
+     },
+     {
+      "q": 14,
+      "val_bitwise": 0.9597046216090971
+     },
+     {
+      "q": 15,
+      "val_bitwise": 0.9639755551990874
+     },
+     {
+      "q": 16,
+      "val_bitwise": 0.9680493173635618
+     },
+     {
+      "q": 17,
+      "val_bitwise": 0.9685227515773714
+     },
+     {
+      "q": 18,
+      "val_bitwise": 0.9696278027305457
+     },
+     {
+      "q": 19,
+      "val_bitwise": 0.9698450254874701
+     },
+     {
+      "q": 20,
+      "val_bitwise": 0.9708553897978826
+     },
+     {
+      "q": 21,
+      "val_bitwise": 0.9755351477560332
+     },
+     {
+      "q": 22,
+      "val_bitwise": 0.9825074412718783
+     },
+     {
+      "q": 23,
+      "val_bitwise": 0.9879491498235483
+     },
+     {
+      "q": 24,
+      "val_bitwise": 0.9932705503867679
+     },
+     {
+      "q": 25,
+      "val_bitwise": 0.9960665971553845
+     }
+    ],
+    "probe_fit_n": 20000
+   },
+   "seconds": 12.562437772750854
+  },
+  "w128": {
+   "checkpoint": "d4_w128_s1",
+   "depth": 4,
+   "width": 128,
+   "hook": "blocks.3.hook_resid_post",
+   "ignored_missing_keys": [],
+   "positions": {
+    "train": 149890,
+    "val": 24936
+   },
+   "sequences": {
+    "train": 3000,
+    "val": 500
+   },
+   "exp46_head": {
+    "train": {
+     "vs_next_bitwise": 0.9430491619780431,
+     "vs_current_bitwise": 0.9063333481590203
+    },
+    "val": {
+     "vs_next_bitwise": 0.9431500196057463,
+     "vs_current_bitwise": 0.9063524845827541
+    }
+   },
+   "gate": {
+    "current_probe_val": {
+     "bitwise": 0.9990876644209176,
+     "exact": 0.9714469040744306
+    },
+    "next_probe_val": {
+     "bitwise": 0.9423301429437136,
+     "exact": 0.2086541546358678
+    },
+    "current_beats_next": true,
+    "pass": true
+   },
+   "numerical": {
+    "b_lin_distinct_rows_train": 866,
+    "b_lin_affine_dim_train": 25,
+    "b_lin_ok": true
+   },
+   "targets": {
+    "K_pca99": 88,
+    "K_probe": 26,
+    "K_probe_scan": [
+     {
+      "q": 1,
+      "val_bitwise": 0.8113949488468256
+     },
+     {
+      "q": 2,
+      "val_bitwise": 0.8270271896053898
+     },
+     {
+      "q": 3,
+      "val_bitwise": 0.8427028749153388
+     },
+     {
+      "q": 4,
+      "val_bitwise": 0.8592151463301607
+     },
+     {
+      "q": 5,
+      "val_bitwise": 0.8728701030192849
+     },
+     {
+      "q": 6,
+      "val_bitwise": 0.8869416818165615
+     },
+     {
+      "q": 7,
+      "val_bitwise": 0.8952173118739529
+     },
+     {
+      "q": 8,
+      "val_bitwise": 0.9047227569243931
+     },
+     {
+      "q": 9,
+      "val_bitwise": 0.9138015542009768
+     },
+     {
+      "q": 10,
+      "val_bitwise": 0.9231499304887177
+     },
+     {
+      "q": 11,
+      "val_bitwise": 0.9316283017859053
+     },
+     {
+      "q": 12,
+      "val_bitwise": 0.9397301536377571
+     },
+     {
+      "q": 13,
+      "val_bitwise": 0.9469686842761915
+     },
+     {
+      "q": 14,
+      "val_bitwise": 0.9551941860050619
+     },
+     {
+      "q": 15,
+      "val_bitwise": 0.9608052169108473
+     },
+     {
+      "q": 16,
+      "val_bitwise": 0.9653769204719638
+     },
+     {
+      "q": 17,
+      "val_bitwise": 0.9659249901971269
+     },
+     {
+      "q": 18,
+      "val_bitwise": 0.9668005650019605
+     },
+     {
+      "q": 19,
+      "val_bitwise": 0.968449230028874
+     },
+     {
+      "q": 20,
+      "val_bitwise": 0.9702939525184472
+     },
+     {
+      "q": 21,
+      "val_bitwise": 0.9717175970484441
+     },
+     {
+      "q": 22,
+      "val_bitwise": 0.9759651374184579
+     },
+     {
+      "q": 23,
+      "val_bitwise": 0.979181148183795
+     },
+     {
+      "q": 24,
+      "val_bitwise": 0.9852321944177094
+     },
+     {
+      "q": 25,
+      "val_bitwise": 0.99129549424304
+     },
+     {
+      "q": 26,
+      "val_bitwise": 0.994116048194489
+     }
+    ],
+    "probe_fit_n": 20000
+   },
+   "seconds": 15.80358624458313
+  },
+  "w128s2": {
+   "checkpoint": "d4_w128_s2",
+   "depth": 4,
+   "width": 128,
+   "hook": "blocks.3.hook_resid_post",
+   "ignored_missing_keys": [],
+   "positions": {
+    "train": 149890,
+    "val": 24936
+   },
+   "sequences": {
+    "train": 3000,
+    "val": 500
+   },
+   "exp46_head": {
+    "train": {
+     "vs_next_bitwise": 0.9467198167545089,
+     "vs_current_bitwise": 0.9037319960563672
+    },
+    "val": {
+     "vs_next_bitwise": 0.9464818825081096,
+     "vs_current_bitwise": 0.9038828289309522
+    }
+   },
+   "gate": {
+    "current_probe_val": {
+     "bitwise": 0.9989350515096425,
+     "exact": 0.9674366377927495
+    },
+    "next_probe_val": {
+     "bitwise": 0.9457243877660143,
+     "exact": 0.24410490856592879
+    },
+    "current_beats_next": true,
+    "pass": true
+   },
+   "numerical": {
+    "b_lin_distinct_rows_train": 866,
+    "b_lin_affine_dim_train": 25,
+    "b_lin_ok": true
+   },
+   "targets": {
+    "K_pca99": 91,
+    "K_probe": 27,
+    "K_probe_scan": [
+     {
+      "q": 1,
+      "val_bitwise": 0.8058351602324172
+     },
+     {
+      "q": 2,
+      "val_bitwise": 0.8255500748583039
+     },
+     {
+      "q": 3,
+      "val_bitwise": 0.8426817096210744
+     },
+     {
+      "q": 4,
+      "val_bitwise": 0.8564380369300966
+     },
+     {
+      "q": 5,
+      "val_bitwise": 0.8731051491819056
+     },
+     {
+      "q": 6,
+      "val_bitwise": 0.886473817417032
+     },
+     {
+      "q": 7,
+      "val_bitwise": 0.8945979485260044
+     },
+     {
+      "q": 8,
+      "val_bitwise": 0.9022698107154316
+     },
+     {
+      "q": 9,
+      "val_bitwise": 0.912327781342459
+     },
+     {
+      "q": 10,
+      "val_bitwise": 0.9215057213132285
+     },
+     {
+      "q": 11,
+      "val_bitwise": 0.9306123676612127
+     },
+     {
+      "q": 12,
+      "val_bitwise": 0.9377996560082701
+     },
+     {
+      "q": 13,
+      "val_bitwise": 0.9465208712080705
+     },
+     {
+      "q": 14,
+      "val_bitwise": 0.9546338626884825
+     },
+     {
+      "q": 15,
+      "val_bitwise": 0.9601713720457705
+     },
+     {
+      "q": 16,
+      "val_bitwise": 0.9654838609061419
+     },
+     {
+      "q": 17,
+      "val_bitwise": 0.9659795743770719
+     },
+     {
+      "q": 18,
+      "val_bitwise": 0.9670623462731258
+     },
+     {
+      "q": 19,
+      "val_bitwise": 0.967463372901294
+     },
+     {
+      "q": 20,
+      "val_bitwise": 0.9684904466545468
+     },
+     {
+      "q": 21,
+      "val_bitwise": 0.9699864987701851
+     },
+     {
+      "q": 22,
+      "val_bitwise": 0.9728103946102021
+     },
+     {
+      "q": 23,
+      "val_bitwise": 0.9790764356753289
+     },
+     {
+      "q": 24,
+      "val_bitwise": 0.9829942430399601
+     },
+     {
+      "q": 25,
+      "val_bitwise": 0.9883835953373971
+     },
+     {
+      "q": 26,
+      "val_bitwise": 0.9924796367589919
+     },
+     {
+      "q": 27,
+      "val_bitwise": 0.9943978807970627
+     }
+    ],
+    "probe_fit_n": 20000
+   },
+   "seconds": 15.963259220123291
+  },
+  "w128s3": {
+   "checkpoint": "d4_w128_s3",
+   "depth": 4,
+   "width": 128,
+   "hook": "blocks.3.hook_resid_post",
+   "ignored_missing_keys": [],
+   "positions": {
+    "train": 149890,
+    "val": 24936
+   },
+   "sequences": {
+    "train": 3000,
+    "val": 500
+   },
+   "exp46_head": {
+    "train": {
+     "vs_next_bitwise": 0.9498917724850076,
+     "vs_current_bitwise": 0.901493687963766
+    },
+    "val": {
+     "vs_next_bitwise": 0.9494962659965066,
+     "vs_current_bitwise": 0.9016170284818023
+    }
+   },
+   "gate": {
+    "current_probe_val": {
+     "bitwise": 0.9983758421559191,
+     "exact": 0.949510747513635
+    },
+    "next_probe_val": {
+     "bitwise": 0.9489415124942074,
+     "exact": 0.28111966634584534
+    },
+    "current_beats_next": true,
+    "pass": true
+   },
+   "numerical": {
+    "b_lin_distinct_rows_train": 866,
+    "b_lin_affine_dim_train": 25,
+    "b_lin_ok": true
+   },
+   "targets": {
+    "K_pca99": 93,
+    "K_probe": 27,
+    "K_probe_scan": [
+     {
+      "q": 1,
+      "val_bitwise": 0.8068744875770862
+     },
+     {
+      "q": 2,
+      "val_bitwise": 0.8264557266602502
+     },
+     {
+      "q": 3,
+      "val_bitwise": 0.8437700513314084
+     },
+     {
+      "q": 4,
+      "val_bitwise": 0.859625084661177
+     },
+     {
+      "q": 5,
+      "val_bitwise": 0.8760549228246534
+     },
+     {
+      "q": 6,
+      "val_bitwise": 0.8863802445371262
+     },
+     {
+      "q": 7,
+      "val_bitwise": 0.8938549353010373
+     },
+     {
+      "q": 8,
+      "val_bitwise": 0.9040933679107404
+     },
+     {
+      "q": 9,
+      "val_bitwise": 0.9131008715645386
+     },
+     {
+      "q": 10,
+      "val_bitwise": 0.9232657826257441
+     },
+     {
+      "q": 11,
+      "val_bitwise": 0.9318366128399814
+     },
+     {
+      "q": 12,
+      "val_bitwise": 0.9387933108758422
+     },
+     {
+      "q": 13,
+      "val_bitwise": 0.945953864114355
+     },
+     {
+      "q": 14,
+      "val_bitwise": 0.9528459523045664
+     },
+     {
+      "q": 15,
+      "val_bitwise": 0.9598572345203722
+     },
+     {
+      "q": 16,
+      "val_bitwise": 0.9646105140270202
+     },
+     {
+      "q": 17,
+      "val_bitwise": 0.9669854828360603
+     },
+     {
+      "q": 18,
+      "val_bitwise": 0.9675792250383203
+     },
+     {
+      "q": 19,
+      "val_bitwise": 0.9682810216376145
+     },
+     {
+      "q": 20,
+      "val_bitwise": 0.9715995169857057
+     },
+     {
+      "q": 21,
+      "val_bitwise": 0.9739187876519445
+     },
+     {
+      "q": 22,
+      "val_bitwise": 0.9780281966278116
+     },
+     {
+      "q": 23,
+      "val_bitwise": 0.9809345257191744
+     },
+     {
+      "q": 24,
+      "val_bitwise": 0.9867616654190283
+     },
+     {
+      "q": 25,
+      "val_bitwise": 0.9918368801910669
+     },
+     {
+      "q": 26,
+      "val_bitwise": 0.9927447599187252
+     },
+     {
+      "q": 27,
+      "val_bitwise": 0.9937751755605461
+     }
+    ],
+    "probe_fit_n": 20000
+   },
+   "seconds": 15.949281692504883
+  },
+  "w256": {
+   "checkpoint": "d4_w256_s1",
+   "depth": 4,
+   "width": 256,
+   "hook": "blocks.3.hook_resid_post",
+   "ignored_missing_keys": [],
+   "positions": {
+    "train": 149890,
+    "val": 24936
+   },
+   "sequences": {
+    "train": 3000,
+    "val": 500
+   },
+   "exp46_head": {
+    "train": {
+     "vs_next_bitwise": 0.9660093327699573,
+     "vs_current_bitwise": 0.8913727474221836
+    },
+    "val": {
+     "vs_next_bitwise": 0.96638060100524,
+     "vs_current_bitwise": 0.8914944480091256
+    }
+   },
+   "gate": {
+    "current_probe_val": {
+     "bitwise": 0.9980082344134317,
+     "exact": 0.9403272377285852
+    },
+    "next_probe_val": {
+     "bitwise": 0.9644801803728656,
+     "exact": 0.4653512993262753
+    },
+    "current_beats_next": true,
+    "pass": true
+   },
+   "numerical": {
+    "b_lin_distinct_rows_train": 866,
+    "b_lin_affine_dim_train": 25,
+    "b_lin_ok": true
+   },
+   "targets": {
+    "K_pca99": 208,
+    "K_probe": 31,
+    "K_probe_scan": [
+     {
+      "q": 1,
+      "val_bitwise": 0.8086713096638506
+     },
+     {
+      "q": 2,
+      "val_bitwise": 0.8265971999429651
+     },
+     {
+      "q": 3,
+      "val_bitwise": 0.8424533472355897
+     },
+     {
+      "q": 4,
+      "val_bitwise": 0.8560704291876091
+     },
+     {
+      "q": 5,
+      "val_bitwise": 0.8749922022600078
+     },
+     {
+      "q": 6,
+      "val_bitwise": 0.8829269596834564
+     },
+     {
+      "q": 7,
+      "val_bitwise": 0.8894369586140519
+     },
+     {
+      "q": 8,
+      "val_bitwise": 0.8941066909064984
+     },
+     {
+      "q": 9,
+      "val_bitwise": 0.906594214522511
+     },
+     {
+      "q": 10,
+      "val_bitwise": 0.9183855113535094
+     },
+     {
+      "q": 11,
+      "val_bitwise": 0.9271913877303675
+     },
+     {
+      "q": 12,
+      "val_bitwise": 0.9345947848714933
+     },
+     {
+      "q": 13,
+      "val_bitwise": 0.9407015292482087
+     },
+     {
+      "q": 14,
+      "val_bitwise": 0.9473017591701423
+     },
+     {
+      "q": 15,
+      "val_bitwise": 0.9548321480768546
+     },
+     {
+      "q": 16,
+      "val_bitwise": 0.9599240722917335
+     },
+     {
+      "q": 17,
+      "val_bitwise": 0.96350991872527
+     },
+     {
+      "q": 18,
+      "val_bitwise": 0.9701547071614444
+     },
+     {
+      "q": 19,
+      "val_bitwise": 0.9734253021067265
+     },
+     {
+      "q": 20,
+      "val_bitwise": 0.9794763483406409
+     },
+     {
+      "q": 21,
+      "val_bitwise": 0.9808498645421168
+     },
+     {
+      "q": 22,
+      "val_bitwise": 0.9813567176416069
+     },
+     {
+      "q": 23,
+      "val_bitwise": 0.9817666559726232
+     },
+     {
+      "q": 24,
+      "val_bitwise": 0.9820585142409012
+     },
+     {
+      "q": 25,
+      "val_bitwise": 0.9825687092289594
+     },
+     {
+      "q": 26,
+      "val_bitwise": 0.9840513937903255
+     },
+     {
+      "q": 27,
+      "val_bitwise": 0.9860008287883649
+     },
+     {
+      "q": 28,
+      "val_bitwise": 0.9884259259259259
+     },
+     {
+      "q": 29,
+      "val_bitwise": 0.9901169215413681
+     },
+     {
+      "q": 30,
+      "val_bitwise": 0.9921098010907924
+     },
+     {
+      "q": 31,
+      "val_bitwise": 0.9943254732114213
+     }
+    ],
+    "probe_fit_n": 20000
+   },
+   "seconds": 22.286157846450806
+  }
+ }
+}

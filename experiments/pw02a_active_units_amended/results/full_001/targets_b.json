@@ -1,0 +1,29 @@
+{
+ "definitions": {
+  "K_pca99": "PCs explaining 99% of the variance of standardized train activations",
+  "K_probe": "smallest q whose 36 top-q-PC probes reach val bitwise accuracy within 0.005 of all-dims probes (probes fit on 20,000 train positions)"
+ },
+ "values": {
+  "w64": {
+   "K_pca99": 39,
+   "K_probe": 25
+  },
+  "w128": {
+   "K_pca99": 88,
+   "K_probe": 26
+  },
+  "w128s2": {
+   "K_pca99": 91,
+   "K_probe": 27
+  },
+  "w128s3": {
+   "K_pca99": 93,
+   "K_probe": 27
+  },
+  "w256": {
+   "K_pca99": 208,
+   "K_probe": 31
+  }
+ },
+ "smoke_seqs": 0
+}

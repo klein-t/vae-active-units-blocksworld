@@ -1,0 +1,94 @@
+{
+ "files": [
+  {
+   "path": "models/bw-gauss_vae-A2-b1-lr0.0003-L64_s101.pt",
+   "bytes": 805411,
+   "sha256": "efb443c44bac3548c736cee21a2fc6d9f7c9fd4c0ca7ba33c4bb8a7fe9a92eaa"
+  },
+  {
+   "path": "models/bw-gauss_vae-A2-b1-lr0.0003_s101.pt",
+   "bytes": 706775,
+   "sha256": "a3b3875e7fc4698b80c3f06006c008d48ffc68e96197a1df38c4c9b249874c7d"
+  },
+  {
+   "path": "models/code10c2-gauss_vae-A2-b1-lr0.0003_s101.pt",
+   "bytes": 715081,
+   "sha256": "85fde2971664128533d65c06ffff27093e9c79cdc8d52889089c6ae51458e02b"
+  },
+  {
+   "path": "models/e10a-plain_ae-A2-lr0.0003_s101.pt",
+   "bytes": 620465,
+   "sha256": "8d94cd6da657a2f8c2f4ab24c58fe4e2731289bf6d55d5560c53feef9c24834f"
+  },
+  {
+   "path": "pilot_health.json",
+   "bytes": 1589,
+   "sha256": "b4d2ffc71e5cf3d74f3ef0484ddbc32f7275cfa37c1db3ac90cf884263943e4e"
+  },
+  {
+   "path": "raw/bw-gauss_vae-A2-b1-lr0.0003-L64_s101.npz",
+   "bytes": 853472,
+   "sha256": "d5d9d19ea89e481ee069e43844b67d7e9988db5f0e0c028f4d608b6c32ceac29"
+  },
+  {
+   "path": "raw/bw-gauss_vae-A2-b1-lr0.0003_s101.npz",
+   "bytes": 435387,
+   "sha256": "3ee110d44fef39289445f12f6afdbd85b872adafc65c54ff4a3972b85ee03fd6"
+  },
+  {
+   "path": "raw/code10c2-gauss_vae-A2-b1-lr0.0003_s101.npz",
+   "bytes": 249168,
+   "sha256": "f3475d61f1979b0747a8e7eade4ab29749c15dd2c05b09d539003e718ac25efd"
+  },
+  {
+   "path": "raw/data_context.npz",
+   "bytes": 255014,
+   "sha256": "8c2bcb15ea084fc99075a88167711b1ed3779f01adbeca64e1de4246b3e379e6"
+  },
+  {
+   "path": "raw/e10a-plain_ae-A2-lr0.0003_s101.npz",
+   "bytes": 216779,
+   "sha256": "db5f490f37e8f0ab080565757e9d386a3939a7130d4298a016df4dfd213bbe99"
+  },
+  {
+   "path": "run_stdout.log",
+   "bytes": 211,
+   "sha256": "4d72d0752b474f6fc824fe9f7ce5095d1aa062f01168b21be65f62ee1b1fb974"
+  },
+  {
+   "path": "runs/bw-gauss_vae-A2-b1-lr0.0003-L64_s101.json",
+   "bytes": 12609,
+   "sha256": "6b0760de4d8547be914b7f09aab46e83b7f4fb6a72b8f351a7fc522d1f433cf0"
+  },
+  {
+   "path": "runs/bw-gauss_vae-A2-b1-lr0.0003_s101.json",
+   "bytes": 12602,
+   "sha256": "a2e318759955d04e6b6ca1c7bc43f781eab59cc6fbe6a31166140062ff86b51f"
+  },
+  {
+   "path": "runs/code10c2-gauss_vae-A2-b1-lr0.0003_s101.json",
+   "bytes": 12302,
+   "sha256": "f4ff9effc85ab753dbdfea240baf44dfd637b0d7de66803f733eed1bce6987b4"
+  },
+  {
+   "path": "runs/e10a-plain_ae-A2-lr0.0003_s101.json",
+   "bytes": 9819,
+   "sha256": "aa8366ddf82e1a5decd5545080452cc4a7d54a9b19bc95449e8aaecb0f5a1909"
+  },
+  {
+   "path": "runs_index.json",
+   "bytes": 1708,
+   "sha256": "dcf914da0cf5b9b4af1757b8a0345668950360a28b73bdb095730904b97247a5"
+  },
+  {
+   "path": "sweep_grid_used.json",
+   "bytes": 5991,
+   "sha256": "3ba297b6e506f9947bc0deede8624d13af3c6d164f6773db35dd16fb71fe620c"
+  },
+  {
+   "path": "task_gate.json",
+   "bytes": 1276,
+   "sha256": "5dd35c5acb5e355f6f406e0f3286be07d47375d66b0c4d4b21584cc6c8a5aaaf"
+  }
+ ]
+}

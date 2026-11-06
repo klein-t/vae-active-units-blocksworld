@@ -1,0 +1,344 @@
+{
+ "note": "pw06 grid (DESIGN.md). Training block = pw02a sweep_grid.json training without the 80% snapshot (no learned-gamma cell; convergence uses the dev-objective rule). E36-L32 keeps the pw02a reference cell id, so its run RNG seeds (sha256(cell_id|seed)) equal pw02a's and the computation is the same. Other cell ids are new, so their seeds are independent.",
+ "architectures": {
+  "A2": {
+   "hidden": [
+    256,
+    256
+   ],
+   "activation": "relu",
+   "note": "encoder hidden widths; decoder mirrors"
+  }
+ },
+ "training": {
+  "optimizer": "adam",
+  "steps": 60000,
+  "batch_size": 512,
+  "lr_schedule": "constant",
+  "kl_warmup": {
+   "schedule": "linear",
+   "fraction": 0.1
+  },
+  "grad_clip_norm": 10.0,
+  "logvar_clamp": [
+   -12.0,
+   6.0
+  ],
+  "log_gamma_floor": -9.0,
+  "eval_every_steps": 1000
+ },
+ "families": {
+  "gauss_vae": "beta-VAE: N(0,I) prior, diagonal Gaussian posterior; decoder Bernoulli (bw, code10, prod5, indep) or Gaussian with scalar variance gamma (b_*; gamma learned as log-parameter init 0 with floor, or fixed 1)",
+  "plain_ae": "deterministic autoencoder, same MLP and latent size as the gauss_vae reference, no KL term; Bernoulli/BCE (bw) or MSE (b_*)"
+ },
+ "seeds": {
+  "pilot": [
+   101
+  ],
+  "confirmation": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "plain_ae": [
+   1,
+   2,
+   3
+  ]
+ },
+ "pilot_cells": [
+  "bw-gauss_vae-A2-b1-lr0.0003",
+  "bw-gauss_vae-A2-b1-lr0.0003-L64",
+  "e10a-plain_ae-A2-lr0.0003",
+  "code10c2-gauss_vae-A2-b1-lr0.0003"
+ ],
+ "cells": [
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003",
+   "label": "E36-L32",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q1,Q2 reference; pipeline gate"
+  },
+  {
+   "substrate": "e30",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "e30-gauss_vae-A2-b1-lr0.0003",
+   "label": "E30-L32",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q1 (S2)"
+  },
+  {
+   "substrate": "e10a",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "e10a-gauss_vae-A2-b1-lr0.0003",
+   "label": "E10a-L32",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q1 (P1)"
+  },
+  {
+   "substrate": "e10b",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "e10b-gauss_vae-A2-b1-lr0.0003",
+   "label": "E10b-L32",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q1 (P1)"
+  },
+  {
+   "substrate": "e10a",
+   "family": "plain_ae",
+   "arch": "A2",
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "e10a-plain_ae-A2-lr0.0003",
+   "label": "E10a-AE",
+   "seeds": [
+    1,
+    2,
+    3
+   ],
+   "uses": "Q1 capacity check"
+  },
+  {
+   "substrate": "e10a",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 0.25,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "e10a-gauss_vae-A2-b0.25-lr0.0003",
+   "label": "E10a-b0.25",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q1 descriptive"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 8,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L8",
+   "label": "E36-L8",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 10,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L10",
+   "label": "E36-L10",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 12,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L12",
+   "label": "E36-L12",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 16,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L16",
+   "label": "E36-L16",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 24,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L24",
+   "label": "E36-L24",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "bw",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 64,
+   "cell_id": "bw-gauss_vae-A2-b1-lr0.0003-L64",
+   "label": "E36-L64",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q2 (P3, S1, descriptive)"
+  },
+  {
+   "substrate": "code10c1",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "code10c1-gauss_vae-A2-b1-lr0.0003",
+   "label": "code10-c1",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q3 (P2)"
+  },
+  {
+   "substrate": "code10c2",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "code10c2-gauss_vae-A2-b1-lr0.0003",
+   "label": "code10-c2",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q3 (P2)"
+  },
+  {
+   "substrate": "code10c3",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "code10c3-gauss_vae-A2-b1-lr0.0003",
+   "label": "code10-c3",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q3 (P2)"
+  },
+  {
+   "substrate": "code10c4",
+   "family": "gauss_vae",
+   "arch": "A2",
+   "beta": 1.0,
+   "lr": 0.0003,
+   "latent": 32,
+   "cell_id": "code10c4-gauss_vae-A2-b1-lr0.0003",
+   "label": "code10-c4",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "uses": "Q3 (P2)"
+  }
+ ]
+}

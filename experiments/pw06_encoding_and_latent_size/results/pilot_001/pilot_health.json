@@ -1,0 +1,69 @@
+{
+ "pass_complete_and_finite": true,
+ "wall_seconds_total": 116.24936175346375,
+ "workers": 4,
+ "threads_per_worker": 1,
+ "device": "cpu",
+ "runs": {
+  "bw-gauss_vae-A2-b1-lr0.0003_s101": {
+   "status": "ok",
+   "attempts": 1,
+   "steps": 60000,
+   "finite": true,
+   "kl_nonnegative": true,
+   "wall_seconds": 92.9574499130249,
+   "final_dev_objective": 9.412543848663915,
+   "converged": true,
+   "dev_exact": 1.0,
+   "dev_bitwise": 1.0,
+   "threads": 1,
+   "torch": "2.14.1",
+   "same_as_pw02a_pilot": {
+    "curve_identical": true,
+    "max_abs_diff": 0.0
+   }
+  },
+  "bw-gauss_vae-A2-b1-lr0.0003-L64_s101": {
+   "status": "ok",
+   "attempts": 1,
+   "steps": 60000,
+   "finite": true,
+   "kl_nonnegative": true,
+   "wall_seconds": 111.2987859249115,
+   "final_dev_objective": 9.559634427463342,
+   "converged": true,
+   "dev_exact": 1.0,
+   "dev_bitwise": 1.0,
+   "threads": 1,
+   "torch": "2.14.1"
+  },
+  "e10a-plain_ae-A2-lr0.0003_s101": {
+   "status": "ok",
+   "attempts": 1,
+   "steps": 60000,
+   "finite": true,
+   "kl_nonnegative": true,
+   "wall_seconds": 63.98712491989136,
+   "final_dev_objective": 2.6692846934245905e-08,
+   "converged": true,
+   "dev_exact": 1.0,
+   "dev_bitwise": 1.0,
+   "threads": 1,
+   "torch": "2.14.1"
+  },
+  "code10c2-gauss_vae-A2-b1-lr0.0003_s101": {
+   "status": "ok",
+   "attempts": 1,
+   "steps": 60000,
+   "finite": true,
+   "kl_nonnegative": true,
+   "wall_seconds": 96.60990118980408,
+   "final_dev_objective": 9.231312837917358,
+   "converged": true,
+   "dev_exact": 1.0,
+   "dev_bitwise": 1.0,
+   "threads": 1,
+   "torch": "2.14.1"
+  }
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "pw02a_active_units_amended": {
+  "freeze_sha256": "a18b6c05b10e596338432313b149c69c6a4e98bebcf791ec1304f38bc0ebd56d",
+  "n_frozen_files": 20,
+  "frozen_file_problems": [],
+  "runs": {
+   "full_001": {
+    "kind": "full",
+    "started_at": "2026-10-21T20:02:49.407626+00:00",
+    "run_freeze_matches": true,
+    "results_freeze_matches": true,
+    "started_after_freeze": true,
+    "manifest_files": 650,
+    "manifest_mismatches": [],
+    "confirmation_accessed": true
+   },
+   "pilot_001": {
+    "kind": "pilot",
+    "started_at": "2026-10-21T19:20:32.498167+00:00",
+    "run_freeze_matches": true,
+    "results_freeze_matches": true,
+    "started_after_freeze": true,
+    "manifest_files": 80,
+    "manifest_mismatches": [],
+    "confirmation_accessed": false
+   }
+  },
+  "external_inputs_checked": 12,
+  "external_input_mismatches": []
+ },
+ "pw03a_fact_alignment_amended": {
+  "freeze_sha256": "7b489eb177185ed043b440af00603fe11208f239f6032ffc37b790d40b0e0f33",
+  "n_frozen_files": 16,
+  "frozen_file_problems": [],
+  "runs": {
+   "full_001": {
+    "kind": "full",
+    "started_at": "2026-10-22T00:11:42.109188+00:00",
+    "run_freeze_matches": true,
+    "results_freeze_matches": true,
+    "started_after_freeze": true,
+    "manifest_files": 170,
+    "manifest_mismatches": [],
+    "confirmation_accessed": true
+   },
+   "pilot_001": {
+    "kind": "pilot",
+    "started_at": "2026-10-21T19:58:14.663492+00:00",
+    "run_freeze_matches": true,
+    "results_freeze_matches": true,
+    "started_after_freeze": true,
+    "manifest_files": 22,
+    "manifest_mismatches": [],
+    "confirmation_accessed": false
+   }
+  },
+  "external_inputs_checked": 0,
+  "external_input_mismatches": []
+ },
+ "pw04a_sample_legality_amended": {
+  "freeze_sha256": "cbc0fae0c474b4d5ef77d35776473855e2d31f9c12a0e09c45a0899b90dd0f88",
+  "n_frozen_files": 16,
+  "frozen_file_problems": [],
+  "runs": {
+   "pilot_001": {
+    "kind": "pilot",
+    "started_at": "2026-10-21T19:58:14.726268+00:00",
+    "run_freeze_matches": true,
+    "results_freeze_matches": true,
+    "started_after_freeze": true,
+    "manifest_files": 14,
+    "manifest_mismatches": [],
+    "confirmation_accessed": false
+   }
+  },
+  "external_inputs_checked": 0,
+  "external_input_mismatches": []
+ },
+ "confirmation_sealing": {
+  "pw02a_pilot_data_context_has_w_test": false,
+  "pw02a_pilot_activation_files_with_conf_arrays": [],
+  "pw02a_pilot_run_npz_with_conf_arrays": [],
+  "pw02a_pilot_runs_with_conf_metrics": [],
+  "pw03a_fact_alignment_amended_pilot_eval_set": null,
+  "pw03a_fact_alignment_amended_pilot_pw02_run": "pilot_001",
+  "pw03a_fact_alignment_amended_pilot_confirmation_accessed": false,
+  "pw04a_sample_legality_amended_pilot_eval_set": "val",
+  "pw04a_sample_legality_amended_pilot_pw02_run": "pilot_001",
+  "pw04a_sample_legality_amended_pilot_confirmation_accessed": false
+ },
+ "pw04a_descriptive": {
+  "working_copy_equals_frozen": true,
+  "frozen_hash_in_freeze": true,
+  "results_header": "descriptive-unregistered"
+ }
+}

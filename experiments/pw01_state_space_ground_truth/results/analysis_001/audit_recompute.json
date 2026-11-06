@@ -1,0 +1,33 @@
+{
+  "generative_count": 866,
+  "generative_arm_empty": 501,
+  "generative_equals_run_set": true,
+  "positions": 1020005,
+  "illegal": 0,
+  "parity_violations": 0,
+  "distinct": 866,
+  "entropy_all": 9.345781901121171,
+  "table_matches_recount": true,
+  "entropy_even": 8.473270230984308,
+  "entropy_odd": 8.215817892955755,
+  "entropy_given_parity": 8.345856936256194,
+  "sum_marginal_entropies": 10.711290499778123,
+  "total_correlation": 1.3655085986569517,
+  "affine_dim": 25,
+  "rank": 26,
+  "affine_dim_arm_empty": 20,
+  "negative_control_column_permuted_accepted_of_5000": 0,
+  "negative_control_tc_independent_pair": 8.881784197001252e-16,
+  "checks": {
+    "count": true,
+    "set": true,
+    "data": true,
+    "coverage": true,
+    "parity": true,
+    "entropy": true,
+    "total_correlation": true,
+    "table": true,
+    "linear": true,
+    "negative_controls": true
+  }
+}

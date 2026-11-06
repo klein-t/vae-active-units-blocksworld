@@ -1,0 +1,89 @@
+{
+  "experiment_id": "pw04_sample_legality",
+  "status": "frozen",
+  "claim": "P4: fraction of exactly legal Blocksworld states among decoded prior samples, per model family and beta, against exact factorized baselines and the models' own aggregate posterior, and its relation to the number of active units",
+  "hypothesis": "H4.1: every gated (pw02 competence and pw04 aggregate-posterior competence) beta=1 Gaussian beta-VAE on raw states produces mode-decoded prior samples that are legal more often than the exact per-block product baseline B2. H4.2: within beta strata, prior-sample legality decreases with the number of active units (pooled stratified Spearman rho, cluster-bootstrap 95% CI upper bound < 0).",
+  "required_criteria": [
+    "h41_prior_legality_above_product_baseline",
+    "h42_legality_decreases_with_au"
+  ],
+  "secondary_criteria": [
+    "h43_prior_hole_gap",
+    "h44_categorical_vs_gaussian_legality",
+    "h45_prod5_and_code10_controls"
+  ],
+  "legality": "pwlib.blocksworld.is_legal (pw01) with independent membership check in pw01 legal_states_866.npy; violation taxonomy V1-V5 in PROTOCOL.md; V6 (held block supporting a block) added to complete the taxonomy; prod5 samples are also scored by Blocksworld legality of their 30 position bits with clear/hand_empty derived",
+  "gates": [
+    "task",
+    "numerical",
+    "competence"
+  ],
+  "gate_thresholds": {
+    "aggregate_posterior_legality_min": 0.95,
+    "seeds_passing_per_beta1_cell_min": "majority of planned seeds (>= 3 of 5)",
+    "monte_carlo_baseline_agreement_se": 3
+  },
+  "sampling": {
+    "unit": "independent training seed of the pw02 sweep (no new training); 20,000 prior samples per model, sampling seed = training seed + 1000",
+    "seeds": "pw02 per-cell seeds: 5 for bw-gauss_vae cells, 3 otherwise",
+    "pilot_seeds": [
+      101
+    ],
+    "justification": "Inherits pw02 seeds (H4.1/H4.2 use the 5-seed bw-gauss_vae cells: 40 runs per beta stratum); N = 20,000 samples bounds the per-model rate to about +-0.7 points (Wilson 95%), well below between-model differences of interest."
+  },
+  "uncertainty": "Wilson 95% interval per model rate; per-seed values reported; H4.2 pooled stratified Spearman with cluster bootstrap over cells within beta strata (2,000 replicates); exact baselines cross-checked by Monte Carlo.",
+  "splits": {
+    "development": "pilot analyzes the pw02 pilot run (seed 101) with val-split state weights for the aggregate-posterior reference",
+    "confirmation": "pw02 full run (seeds 1-5 for bw-gauss_vae cells, 1-3 otherwise) with thesis test-file state weights; sealed until the pw02 full run"
+  },
+  "selection_rule": "No selection: all pw02-gated runs of the listed generative cells; sample size, decoding rule and thresholds fixed in advance.",
+  "stopping_rule": "competence_stop if any beta=1 cell has fewer than a majority of its planned seeds (3 of 5) with aggregate-posterior legality >= 0.95; technical_stop on missing checkpoints, hash mismatch or checker/table disagreement; changes after freeze need an amendment directory.",
+  "controls": [
+    "B0 uniform random bits (exact)",
+    "B1 independent bits with data marginals (exact)",
+    "B2 per-block product with data marginals (exact, by enumeration of 7,776 combinations)",
+    "aggregate-posterior samples of each model (upper reference)",
+    "prod5-trained VAEs (per-block coding without cross-block constraints)",
+    "code10-trained VAEs (codeword validity as constraint-learning reference)"
+  ],
+  "depends_on": {
+    "pw01_state_space_ground_truth": "run analysis_001: src/pwlib/blocksworld.py checker (pinned in files) and results/analysis_001/legal_states_866.npy (sha256 e1173a49582f5ebccefbfa65d997ee2fa6933fa8d08f01a3e1b216cb9a8a88ca)",
+    "pw02_active_units": "full run checkpoints and au_table.json (sha256 checked against the pw02 MANIFEST.json); pilot run (seed 101) for the pw04 pilot; model code src/pwlib/models.py"
+  },
+  "compute": {
+    "device": "cpu",
+    "precision": "float32",
+    "threads": 1,
+    "parallel_workers": 8,
+    "estimate_cpu_minutes": 10,
+    "cap_cpu_hours": 1,
+    "basis": "2026-10-14 scratch smoke: 228 runs, 27 s wall, about 3 CPU-min"
+  },
+  "pilot_required": true,
+  "files": [
+    "experiments/pw04_sample_legality/PROTOCOL.md",
+    "experiments/pw04_sample_legality/analyze_legality.py",
+    "experiments/pw04_sample_legality/audit.py",
+    "experiments/pw02_active_units/sweep_grid.json",
+    "src/pwlib/__init__.py",
+    "src/pwlib/blocksworld.py",
+    "src/pwlib/data.py",
+    "src/pwlib/models.py",
+    "src/pwlib/training.py",
+    "src/pwlib/metrics.py",
+    "src/pwlib/legality.py",
+    "src/pwlib/sweep.py",
+    "src/pwlib/runio.py"
+  ],
+  "storage": {
+    "expected_bytes": 40000000,
+    "max_bytes": 300000000,
+    "retain": [
+      "per-model sampled bit vectors (packed) for prior and aggregate-posterior samples",
+      "legality flags and violation codes",
+      "exact and Monte Carlo baseline computations",
+      "results.json, MANIFEST.json, AUDIT.json"
+    ],
+    "regenerate": []
+  }
+}

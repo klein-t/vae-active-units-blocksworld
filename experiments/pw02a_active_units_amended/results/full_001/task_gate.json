@@ -1,0 +1,41 @@
+{
+ "splits_disjoint": true,
+ "sos_at_position_0": true,
+ "train_distinct_states": 866,
+ "all_train_states_legal": true,
+ "n_train_866": true,
+ "code10": {
+  "states": 1024,
+  "bits": 10.0
+ },
+ "prod5": {
+  "states": 7776,
+  "bits": 12.92481250360578
+ },
+ "controls_ok": true,
+ "pw01_targets": {
+  "bits_log2_legal": 9.758223214726724,
+  "bits_min_binary_code": 10,
+  "bits_entropy_empirical": 9.345781901121171,
+  "factors_per_block_categorical": 5,
+  "affine_dim_legal_states": 25,
+  "binary_facts_total": 36,
+  "i3d_hypercube_range": [
+   11.87000000000001,
+   21.250000000000018
+  ]
+ },
+ "pca_count_866": 25,
+ "numerical_pca_25": true,
+ "position_counts": {
+  "train": 652451,
+  "val": 163006,
+  "test": 204548
+ },
+ "entropy_bits": {
+  "train": 9.346668224308694,
+  "val": 9.324411517561398,
+  "test": 9.33540780461147
+ },
+ "pass": true
+}

@@ -1,0 +1,24 @@
+{
+ "cov30_recomputed": {
+  "bw-gauss_vae-A2-b1-lr0.0003_s3": 0.8333333333333334,
+  "bw-gauss_vae-A2-b1-lr0.0003_s1": 0.7666666666666667,
+  "bw-gauss_vae-A2-b1-lr0.0003_s2": 0.8333333333333334,
+  "bw-gauss_vae-A2-b1-lr0.0003_s4": 0.7666666666666667,
+  "bw-gauss_vae-A2-b1-lr0.0003_s5": 0.8333333333333334,
+  "bw-tc_vae-A2-b2-lr0.0003_s2": 0.7333333333333333,
+  "bw-tc_vae-A2-b2-lr0.0003_s3": 0.7,
+  "bw-tc_vae-A2-b2-lr0.0003_s1": 0.6666666666666666,
+  "bw-topk_sae-k5-lr0.0003_s1": 0.8,
+  "bw-topk_sae-k5-lr0.0003_s2": 0.8333333333333334,
+  "bw-topk_sae-k5-lr0.0003_s3": 0.8333333333333334
+ },
+ "mismatches": [],
+ "h32_recomputed": false,
+ "negative_permuted_oracle_cov30": 0.0,
+ "checks": {
+  "cov30_match": true,
+  "criterion_match": true,
+  "full_search_reproduced": true,
+  "negative_permuted_oracle": true
+ }
+}

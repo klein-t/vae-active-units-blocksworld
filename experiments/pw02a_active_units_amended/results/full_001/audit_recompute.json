@@ -1,0 +1,16 @@
+{
+ "n_au_checked": 186,
+ "mismatches": [],
+ "criteria_recomputed": {
+  "h22_information_account": false,
+  "h23_architecture_dependence": true,
+  "h24_learned_gamma_more_units": false
+ },
+ "checks": {
+  "au_counts_match": true,
+  "competence_match": true,
+  "criteria_match": true,
+  "negative_constant_mu": true,
+  "negative_duplicate_units": true
+ }
+}

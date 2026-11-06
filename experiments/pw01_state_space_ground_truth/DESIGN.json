@@ -1,0 +1,43 @@
+{
+  "experiment_id": "pw01_state_space_ground_truth",
+  "claim": "P1: fix the expected factor count beforehand. Exact model-free ground truth (legal-state set, data audit, candidate dimension targets) that later VAE experiments (P2-P4) compare against.",
+  "hypothesis": "With the thesis 36-fact encoding, 5-block Blocksworld has exactly 866 legal states (501 arm-empty + 365 holding), counted identically by brute force with an explicit checker, BFS over STRIPS actions and the Lah formula; the thesis train+test Y arrays contain only legal states at valid (non-PAD) positions, cover all 866, and hand_empty equals the parity of the step index at every valid position.",
+  "required_criteria": ["count_agreement", "data_all_legal", "data_cover_all_legal", "hand_empty_equals_step_parity"],
+  "gates": ["task", "numerical"],
+  "sampling": {
+    "unit": "none (exact enumeration over the full legal-state set and every valid position of the fixed data files)",
+    "seeds": [],
+    "justification": "Exact, deterministic, model-free computation; no stochastic training, so no seeds (proportionality rule). The only random draw is the fixed-seed (0) random-vector negative control for the checker."
+  },
+  "uncertainty": "None for exact counts, entropies of the fixed data files, ranks and total correlation (they are population quantities of the given finite files). Claims are scoped to this encoding and these files. I3D estimates are exploratory and scale-dependent; reported as a curve over radii, not a single value.",
+  "splits": {
+    "development": "Not applicable: no model or parameter is selected.",
+    "confirmation": "Not applicable: the full thesis train and test arrays are read once in a single analysis run (confirmation_accessed=true)."
+  },
+  "selection_rule": "No selection. All candidate dimension definitions and I3D radii are fixed in this design before the run.",
+  "stopping_rule": "Task gate (input hashes, fact order, PAD/SOS layout, Y zero at PAD, every data transition matches STRIPS, 1,020,005 valid positions) or numerical gate (three counts agree, checker rejects every single-bit flip and agrees with the enumerated set on 200,000 random vectors) failing = technical_stop, no retry under this freeze; a fix requires an amendment.",
+  "controls": ["single-bit flips of all 866 legal states (negative)", "200,000 random 36-bit vectors (negative)", "column-permuted legal states in the audit (negative)", "full {0,1}^d hypercubes, d=8 and 10, for the I3D hypercube volume model (positive)", "independent generative tower enumeration in the audit (positive)"],
+  "compute": {"device": "cpu", "precision": "numpy int8/float64", "threads": 1},
+  "pilot_required": false,
+  "inputs": {
+    "blocksworld_metadata.json": "7e379d480dbb57dfd4ac284c35156224d37d6e9c10c85abf28cc0d8295488a93",
+    "blocksworld_train_X.npy": "6a8d71fd22fde8a25e146619f0f5a09f45dc55cea4483377719cf5dd53a05716",
+    "blocksworld_train_Y.npy": "34421f110850147fd91f12b4795388b235125563d25cbf0a467c756594591093",
+    "blocksworld_test_X.npy": "21a223dcf19ba8add03c7e18ab738541dbf3d4a901e1154d8d040e899cf93845",
+    "blocksworld_test_Y.npy": "54aac4bc4800b08f6acf0bdf7f8d3dcb5e05ba25967105857811c44808401512"
+  },
+  "files": [
+    "experiments/pw01_state_space_ground_truth/PROTOCOL.md",
+    "experiments/pw01_state_space_ground_truth/run_ground_truth.py",
+    "experiments/pw01_state_space_ground_truth/audit.py",
+    "src/pwlib/__init__.py",
+    "src/pwlib/blocksworld.py",
+    "tests/test_blocksworld.py"
+  ],
+  "storage": {
+    "expected_bytes": 400000,
+    "max_bytes": 5000000,
+    "retain": ["legal_states_866.npy", "state_frequency_table.csv (per-state score operands)", "dimension_candidates.json", "results.json", "audit_recompute.json", "checker module copy"],
+    "regenerate": []
+  }
+}

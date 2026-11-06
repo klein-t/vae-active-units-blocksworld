@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw02_active_units",
+  "run_id": "pilot_002",
+  "kind": "pilot",
+  "freeze_sha256": "a155908143a6800ba434c432707f7e83430bc3808a32e684f0d7f77a90b14342",
+  "pilot_run": "pilot_001",
+  "started_at": "2026-10-21T18:52:58.092576+00:00"
+}

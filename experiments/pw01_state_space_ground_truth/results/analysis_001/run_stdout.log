@@ -1,0 +1,14 @@
+{
+  "gates": {
+    "task": true,
+    "numerical": true
+  },
+  "criteria": {
+    "count_agreement": true,
+    "data_all_legal": true,
+    "data_cover_all_legal": true,
+    "hand_empty_equals_step_parity": true
+  },
+  "outcome": "supported",
+  "runtime_seconds": 2.9
+}

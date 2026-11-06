@@ -1,0 +1,4 @@
+{
+  "paths": [],
+  "reason": "Pilot on pw02a pilot_001 ended in competence_stop (aggregate-posterior legality below 0.95 in every beta=1 cell): no hypothesis tested, no claim changed. Under the frozen rule pw04a cannot start a full run."
+}

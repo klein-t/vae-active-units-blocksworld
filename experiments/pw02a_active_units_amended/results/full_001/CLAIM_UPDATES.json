@@ -1,0 +1,4 @@
+{
+  "paths": [],
+  "reason": "No live claim document exists yet (no report draft under docs/). The full-run verdicts (H2.2 unsupported, H2.3 supported, H2.4 unsupported; outcome mixed) are recorded in the pw02a README and docs/EXPERIMENT_LOG.md; they are the first P2 results and revise no earlier claim."
+}

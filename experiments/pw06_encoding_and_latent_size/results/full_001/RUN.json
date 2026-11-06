@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw06_encoding_and_latent_size",
+  "run_id": "full_001",
+  "kind": "full",
+  "freeze_sha256": "904ea2366846496c08b6c68668861d0f93677f06cf232c546967104349a1b129",
+  "pilot_run": "pilot_001",
+  "registration_commit": "ebb472e",
+  "started_at": "2026-10-27T14:39:11.840196+00:00"
+}

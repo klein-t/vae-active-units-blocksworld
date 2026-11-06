@@ -1,0 +1,167 @@
+{
+ "experiment_id": "pw02a_active_units_amended",
+ "run_id": "pilot_001",
+ "freeze_sha256": "a18b6c05b10e596338432313b149c69c6a4e98bebcf791ec1304f38bc0ebd56d",
+ "status": "completed",
+ "outcome": "pilot_only",
+ "interpretation": "Pilot (seed 101, development data only): gates computable; convergence, AU < latent size, wall-clock and log-gamma behaviour recorded in metrics.pilot_checks. No hypothesis is tested.",
+ "confirmation_accessed": false,
+ "claims_changed": false,
+ "gates": {
+  "task": true,
+  "numerical": true,
+  "competence": true
+ },
+ "criteria": {},
+ "secondary": {},
+ "metrics": {
+  "eval_set": "dev",
+  "n_runs": 20,
+  "technical_failures": [],
+  "missing_runs": [],
+  "competence_required_cells": {
+   "bw-gauss_vae-A1-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A2-b1-lr0.003": {
+    "n": 1,
+    "passing": 1
+   },
+   "bw-gauss_vae-A4-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "code10-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "prod5-gauss_vae-A2-b1-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   },
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003": {
+    "n": 1,
+    "passing": 1
+   }
+  },
+  "competence_pass_rate": 0.75,
+  "targets": {
+   "pw01": {
+    "bits_log2_legal": 9.758223214726724,
+    "bits_min_binary_code": 10,
+    "bits_entropy_empirical": 9.345781901121171,
+    "factors_per_block_categorical": 5,
+    "affine_dim_legal_states": 25,
+    "binary_facts_total": 36,
+    "i3d_hypercube_range": [
+     11.87000000000001,
+     21.250000000000018
+    ]
+   },
+   "b": {
+    "w64": {
+     "K_pca99": 39,
+     "K_probe": 25
+    },
+    "w128": {
+     "K_pca99": 88,
+     "K_probe": 26
+    },
+    "w128s2": {
+     "K_pca99": 91,
+     "K_probe": 27
+    },
+    "w128s3": {
+     "K_pca99": 93,
+     "K_probe": 27
+    },
+    "w256": {
+     "K_pca99": 208,
+     "K_probe": 31
+    }
+   }
+  },
+  "polarized_fraction": 0.8125,
+  "censored_runs": [],
+  "asperti_not_converged_units": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 22,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 1,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": 1,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": 0,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": 0,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": 0,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": 0,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": 0,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": 0,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": 0
+  },
+  "log_gamma_at_floor": [
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101"
+  ],
+  "convergence": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": true,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": true,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": true,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": true,
+   "b_raw_w128-topk_sae-k5-lr0.0003_s101": true,
+   "bw-cat_vae-A2-b1-lr0.0003_s101": false,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": true,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": true,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": true,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": true,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": true,
+   "bw-plain_ae-A2-lr0.0003_s101": true,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": true,
+   "bw-topk_sae-k5-lr0.0003_s101": true,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": true,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": true
+  },
+  "wall_seconds_per_run": {
+   "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 163.88757920265198,
+   "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 159.799232006073,
+   "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 158.63984894752502,
+   "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": 165.2516222000122,
+   "b_raw_w128-topk_sae-k5-lr0.0003_s101": 116.5904700756073,
+   "bw-cat_vae-A2-b1-lr0.0003_s101": 169.6269130706787,
+   "bw-gauss_vae-A1-b1-lr0.0003_s101": 44.78452920913696,
+   "bw-gauss_vae-A2-b0.25-lr0.0003_s101": 117.68996787071228,
+   "bw-gauss_vae-A2-b0.25-lr0.003_s101": 133.1569221019745,
+   "bw-gauss_vae-A2-b1-lr0.0003_s101": 136.58189296722412,
+   "bw-gauss_vae-A2-b1-lr0.003_s101": 140.47551107406616,
+   "bw-gauss_vae-A2-b4-lr0.0003_s101": 139.95427179336548,
+   "bw-gauss_vae-A2-b4-lr0.003_s101": 137.10279417037964,
+   "bw-gauss_vae-A4-b1-lr0.0003_s101": 685.9768648147583,
+   "bw-plain_ae-A2-lr0.0003_s101": 86.14040398597717,
+   "bw-tc_vae-A2-b6-lr0.0003_s101": 2184.6216666698456,
+   "bw-topk_sae-k5-lr0.0003_s101": 51.057790994644165,
+   "code10-gauss_vae-A2-b1-lr0.0003_s101": 139.4870409965515,
+   "indep-gauss_vae-A2-b1-lr0.0003_s101": 109.64127707481384,
+   "prod5-gauss_vae-A2-b1-lr0.0003_s101": 128.77082800865173
+  },
+  "pilot_checks": {
+   "au_below_latent_bw": true,
+   "converged_all": false,
+   "log_gamma": {
+    "b_lin_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0.0,
+    "b_lin_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": -9.002230644226074,
+    "b_raw_w128-gauss_vae-A2-b1-gfixed-lr0.0003_s101": 0.0,
+    "b_raw_w128-gauss_vae-A2-b1-glearned-lr0.0003_s101": -3.353170394897461
+   }
+  }
+ }
+}

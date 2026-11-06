@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pw03a_fact_alignment_amended",
+  "run_id": "pilot_001",
+  "kind": "pilot",
+  "freeze_sha256": "7b489eb177185ed043b440af00603fe11208f239f6032ffc37b790d40b0e0f33",
+  "pilot_run": null,
+  "started_at": "2026-10-21T19:58:14.663492+00:00"
+}

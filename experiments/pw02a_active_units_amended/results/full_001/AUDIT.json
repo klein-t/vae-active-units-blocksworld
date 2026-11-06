@@ -1,0 +1,31 @@
+{
+ "run_id": "full_001",
+ "results_sha256": "1de8105db98b56f044479cb32981d537b74a0d94b3f948758cf9280406b33476",
+ "status": "pass",
+ "method": "Separate script: explicit-loop weighted AU recount from retained posterior means, competence recomputed from stored reconstruction/probe bits, required criteria re-derived from the recounted AU; negative controls (constant mean -> 0 units; duplicated unit counted per copy).",
+ "limitations": "Same author and session wrote the run, analysis and audit (not independent replication); indep-control competence and TC diagnostics not recomputed.",
+ "checks": {
+  "au_counts_match": true,
+  "competence_match": true,
+  "criteria_match": true,
+  "negative_constant_mu": true,
+  "negative_duplicate_units": true
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 354,
+   "sha256": "058edc24a2a3dc1c1f7e145acc23f0502b11a91164ea2e4476c131316698b700"
+  },
+  {
+   "path": "results.json",
+   "bytes": 42818,
+   "sha256": "1de8105db98b56f044479cb32981d537b74a0d94b3f948758cf9280406b33476"
+  },
+  {
+   "path": "au_table.json",
+   "bytes": 282445,
+   "sha256": "59cd30885ee16f89996b5f76a893da12bb27b18acef1b72ca40733d91c9a29e7"
+  }
+ ]
+}

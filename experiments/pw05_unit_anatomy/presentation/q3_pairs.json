@@ -1,0 +1,622 @@
+{
+ "pair_types_per_cell": {
+  "bw-gauss_vae-A1-b1-lr0.0003": {
+   "on(X,Y)|on(Y,X)": 6
+  },
+  "bw-gauss_vae-A1-b1-lr0.003": {
+   "on(X,Y)|on(Y,X)": 47,
+   "holding|holding": 2,
+   "on(X,Y)|holding(X)": 1
+  },
+  "bw-gauss_vae-A2-b1-lr0.0003": {
+   "on(X,Y)|holding(Z)": 2,
+   "on(X,Y)|on(Y,X)": 44,
+   "on(X,Y)|holding(Y)": 2,
+   "holding|holding": 6,
+   "on(X,Y)|holding(X)": 1
+  },
+  "bw-gauss_vae-A2-b1-lr0.003": {
+   "clear|on": 1,
+   "on(X,Y)|on_table(X)": 6,
+   "on(X,Y)|on(X,Z)": 2,
+   "on(X,Y)|on(Y,X)": 3,
+   "holding|holding": 1,
+   "holding|on_table": 1
+  },
+  "bw-gauss_vae-A4-b1-lr0.0003": {
+   "on(X,Y)|on(Y,X)": 48,
+   "holding|holding": 4,
+   "on(X,Y)|holding(Z)": 3
+  },
+  "bw-gauss_vae-A4-b1-lr0.003": {
+   "on(X,Y)|on(Y,X)": 35,
+   "holding|holding": 3,
+   "on(X,Y)|holding(Z)": 1
+  },
+  "prod5-gauss_vae-A1-b1-lr0.0003": {
+   "on(X,Y)|on(X,Z)": 6,
+   "on(X,Y)|on_table(X)": 4,
+   "on(X,Y)|holding(X)": 3
+  },
+  "prod5-gauss_vae-A2-b1-lr0.0003": {
+   "on(X,Y)|holding(X)": 6,
+   "on(X,Y)|on(X,Z)": 16,
+   "holding|on_table": 3,
+   "on(X,Y)|on_table(X)": 6
+  },
+  "prod5-gauss_vae-A4-b1-lr0.0003": {
+   "on(X,Y)|on(X,Z)": 13,
+   "on(X,Y)|holding(X)": 7,
+   "on(X,Y)|on_table(X)": 7,
+   "on(X,Y)|holding(Z)": 3
+  }
+ },
+ "named_pairs_per_run": {
+  "bw-gauss_vae-A1-b1-lr0.0003_s1": [
+   "on(A,D)+/on(D,A)-"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s2": [
+   "on(A,C)+/on(C,A)-",
+   "on(B,E)-/on(E,B)+",
+   "on(C,E)-/on(E,C)+"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s3": [
+   "on(C,D)-/on(D,C)+"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s5": [
+   "on(B,C)+/on(C,B)-"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s1": [
+   "on(C,D)-/on(D,C)+",
+   "on(B,C)+/on(C,B)-",
+   "on(A,D)+/on(D,A)-",
+   "on(A,C)-/on(C,A)+",
+   "on(A,B)+/on(B,A)-",
+   "on(D,E)+/on(E,D)-",
+   "on(B,E)+/on(E,B)-",
+   "on(C,E)-/on(E,C)+",
+   "holding(C)-/holding(E)+",
+   "on(A,E)-/on(E,A)+",
+   "on(B,D)+/on(D,B)-"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s2": [
+   "on(B,D)-/on(D,B)+",
+   "on(A,E)-/on(E,A)+",
+   "on(D,E)-/on(E,D)+",
+   "on(A,D)-/on(D,A)+",
+   "holding(A)-/holding(C)+",
+   "on(B,E)-/on(E,B)+",
+   "on(C,E)-/on(E,C)+",
+   "on(A,C)-/on(C,A)+",
+   "on(B,C)+/on(C,B)-",
+   "on(C,D)-/on(D,C)+"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s3": [
+   "on(A,D)+/on(D,A)-",
+   "on(C,D)-/on(D,C)+",
+   "on(A,E)+/on(E,A)-",
+   "on(B,E)+/on(E,B)-",
+   "on(A,B)+/on(B,A)-",
+   "on(C,E)-/on(E,C)+",
+   "on(D,E)-/on(E,D)+",
+   "on(B,C)-/on(C,B)+",
+   "on(A,C)-/on(C,A)+"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s4": [
+   "on(B,E)+/on(E,B)-",
+   "on(A,D)-/on(D,A)+",
+   "on(B,C)+/on(C,B)-",
+   "on(A,C)-/on(C,A)+",
+   "on(A,B)+/on(B,A)-",
+   "on(C,E)-/on(E,C)+",
+   "on(A,E)-/on(E,A)+",
+   "on(D,E)-/on(E,D)+",
+   "on(B,D)+/on(D,B)-",
+   "on(C,D)-/on(D,C)+"
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s5": [
+   "on(D,E)+/on(E,D)-",
+   "on(A,B)+/on(B,A)-",
+   "on(E,A)-/holding(E)+",
+   "on(A,C)-/on(C,A)+",
+   "on(B,D)-/on(D,B)+",
+   "on(C,D)+/on(D,C)-",
+   "on(B,C)-/on(C,B)+",
+   "on(B,E)+/on(E,B)-",
+   "on(A,D)-/on(D,A)+",
+   "on(C,E)-/on(E,C)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s1": [
+   "on(C,D)-/holding(B)+",
+   "on(B,D)+/on(D,B)-",
+   "on(D,C)-/holding(C)+",
+   "on(D,E)+/on(E,D)-",
+   "on(B,E)-/on(E,B)+",
+   "on(C,E)-/on(E,C)+",
+   "holding(A)-/holding(D)+",
+   "on(B,C)+/on(C,B)-",
+   "on(A,E)+/on(E,A)-",
+   "on(A,C)-/on(C,A)+",
+   "on(A,B)-/on(B,A)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s2": [
+   "on(B,D)-/on(D,B)+",
+   "on(C,E)-/on(E,C)+",
+   "on(D,C)+/holding(E)-",
+   "holding(C)+/holding(D)-",
+   "on(B,C)-/on(C,B)+",
+   "on(A,D)-/on(D,A)+",
+   "on(B,E)+/on(E,B)-",
+   "on(D,E)-/on(E,D)+",
+   "on(A,B)+/on(B,A)-",
+   "on(A,E)-/on(E,A)+",
+   "on(A,C)+/on(C,A)-"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s3": [
+   "on(A,B)-/on(B,A)+",
+   "on(C,D)+/on(D,C)-",
+   "on(A,D)-/holding(A)+",
+   "on(B,D)+/on(D,B)-",
+   "on(D,E)+/on(E,D)-",
+   "on(A,E)+/on(E,A)-",
+   "on(B,E)+/on(E,B)-",
+   "holding(B)+/holding(C)-",
+   "on(A,C)+/on(C,A)-",
+   "holding(D)-/holding(E)+",
+   "on(C,E)-/on(E,C)+",
+   "on(B,C)-/on(C,B)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s4": [
+   "on(C,E)+/on(E,C)-",
+   "holding(C)+/holding(D)-",
+   "on(D,E)+/on(E,D)-",
+   "on(B,D)-/on(D,B)+",
+   "on(A,D)-/on(D,A)+",
+   "on(C,D)-/on(D,C)+",
+   "on(A,E)-/on(E,A)+",
+   "on(A,C)+/on(C,A)-",
+   "on(B,E)-/on(E,B)+",
+   "holding(A)-/holding(B)+",
+   "on(B,C)-/on(C,B)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s5": [
+   "on(D,E)-/on(E,D)+",
+   "on(A,D)-/on(D,A)+",
+   "on(C,E)+/on(E,C)-",
+   "on(C,D)-/on(D,C)+",
+   "on(A,E)-/on(E,A)+",
+   "on(A,B)-/holding(B)+",
+   "on(A,C)-/on(C,A)+",
+   "on(B,D)-/on(D,B)+",
+   "on(B,E)+/on(E,B)-",
+   "on(B,C)+/on(C,B)-"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s1": [
+   "on(E,A)+/clear(A)-",
+   "on_table(D)-/on(D,E)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s2": [
+   "on_table(D)-/on(D,C)+",
+   "on(B,C)-/on(B,D)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s3": [
+   "on_table(E)+/on(E,D)-"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s4": [
+   "on(A,E)-/on(E,A)+",
+   "on(A,C)+/on(C,A)-",
+   "on_table(D)+/on(D,A)-",
+   "holding(A)-/holding(C)+"
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s5": [
+   "on(A,C)+/on(C,A)-",
+   "on_table(D)+/on(D,C)-",
+   "on_table(B)+/on(B,C)-",
+   "on(C,D)-/on(C,E)+",
+   "on_table(C)-/holding(C)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s1": [
+   "on(A,D)-/on(D,A)+",
+   "on(D,E)-/on(E,D)+",
+   "on(C,D)+/on(D,C)-",
+   "on(A,C)-/on(C,A)+",
+   "on(B,E)+/on(E,B)-",
+   "on(A,E)-/on(E,A)+",
+   "on(A,B)-/on(B,A)+",
+   "on(B,D)+/on(D,B)-",
+   "on(C,E)+/on(E,C)-",
+   "holding(B)+/holding(E)-",
+   "on(B,C)-/on(C,B)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s2": [
+   "on(A,D)+/on(D,A)-",
+   "on(A,E)+/on(E,A)-",
+   "on(B,E)+/on(E,B)-",
+   "on(C,D)+/on(D,C)-",
+   "holding(A)-/holding(C)+",
+   "on(A,C)-/on(C,A)+",
+   "on(C,E)+/on(E,C)-",
+   "on(A,B)+/on(B,A)-",
+   "on(B,D)-/on(D,B)+",
+   "on(B,C)-/on(C,B)+",
+   "on(D,E)-/on(E,D)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s3": [
+   "on(C,D)-/on(D,C)+",
+   "on(B,C)+/on(C,B)-",
+   "holding(C)-/holding(D)+",
+   "on(A,C)+/on(C,A)-",
+   "on(A,E)-/on(E,A)+",
+   "on(A,B)+/on(B,A)-",
+   "on(D,E)-/on(E,D)+",
+   "on(B,E)-/on(E,B)+",
+   "on(A,D)+/on(D,A)-",
+   "on(B,D)+/on(D,B)-",
+   "on(C,E)-/on(E,C)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s4": [
+   "on(C,E)+/on(E,C)-",
+   "on(A,E)-/on(E,A)+",
+   "on(A,C)+/on(C,A)-",
+   "on(C,D)-/on(D,C)+",
+   "on(B,D)+/on(D,B)-",
+   "on(B,E)+/holding(C)-",
+   "on(B,C)-/on(C,B)+",
+   "on(D,E)-/on(E,D)+",
+   "on(A,B)-/on(B,A)+",
+   "holding(A)-/holding(E)+",
+   "on(A,D)-/on(D,A)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s5": [
+   "on(A,E)+/holding(B)-",
+   "on(B,D)-/on(D,B)+",
+   "on(A,D)-/on(D,A)+",
+   "on(B,C)-/on(C,B)+",
+   "on(E,A)-/holding(D)+",
+   "on(C,D)+/on(D,C)-",
+   "on(B,E)-/on(E,B)+",
+   "on(C,E)-/on(E,C)+",
+   "on(A,B)-/on(B,A)+",
+   "on(D,E)+/on(E,D)-",
+   "on(A,C)-/on(C,A)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s1": [
+   "on(A,E)-/on(E,A)+",
+   "on(C,D)+/on(D,C)-",
+   "on(B,C)-/on(C,B)+",
+   "on(A,C)+/on(C,A)-",
+   "on(A,D)+/on(D,A)-",
+   "on(D,E)-/on(E,D)+",
+   "on(C,E)-/on(E,C)+",
+   "on(B,D)-/on(D,B)+",
+   "on(B,E)-/on(E,B)+",
+   "on(A,B)-/on(B,A)+"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s2": [
+   "on(B,C)+/on(C,B)-",
+   "on(B,E)+/on(E,B)-",
+   "on(A,D)+/on(D,A)-",
+   "on(A,B)-/on(B,A)+",
+   "on(C,D)+/on(D,C)-"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s3": [
+   "holding(A)-/holding(D)+",
+   "on(A,D)-/on(D,A)+",
+   "on(C,D)-/on(D,C)+",
+   "on(B,D)-/on(D,B)+",
+   "on(C,E)+/on(E,C)-",
+   "on(D,E)+/on(E,D)-"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s4": [
+   "on(B,C)-/on(C,B)+",
+   "on(A,C)-/on(C,A)+",
+   "on(B,D)-/on(D,B)+",
+   "on(D,E)-/on(E,D)+",
+   "on(A,E)+/on(E,A)-",
+   "on(B,E)+/on(E,B)-",
+   "on(A,B)+/on(B,A)-",
+   "on(A,D)+/on(D,A)-",
+   "holding(A)+/holding(D)-"
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s5": [
+   "on(C,D)-/on(D,C)+",
+   "on(C,E)-/on(E,C)+",
+   "on(B,E)+/on(E,B)-",
+   "on(A,E)-/on(E,A)+",
+   "on(C,A)-/holding(D)+",
+   "holding(A)-/holding(E)+",
+   "on(B,C)+/on(C,B)-",
+   "on(A,B)+/on(B,A)-",
+   "on(B,D)+/on(D,B)-"
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s1": [
+   "on(A,B)+/on(A,C)-"
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s2": [
+   "on(E,A)+/on(E,D)-",
+   "on(A,B)-/on(A,C)+",
+   "on_table(B)+/on(B,C)-",
+   "on(B,A)+/on(B,E)-",
+   "on(E,B)+/on(E,C)-"
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s3": [
+   "on_table(D)+/on(D,C)-",
+   "on(B,C)+/holding(B)-",
+   "on(C,A)+/on(C,D)-",
+   "on_table(B)-/on(B,A)+",
+   "on(D,B)+/holding(D)-",
+   "on_table(A)+/on(A,C)-",
+   "on(E,C)+/holding(E)-"
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s1": [
+   "on(B,A)-/holding(B)+",
+   "on(A,B)+/on(A,D)-",
+   "on(C,E)+/holding(C)-",
+   "on_table(A)+/holding(A)-",
+   "on_table(D)+/on(D,E)-",
+   "on(A,C)+/on(A,E)-",
+   "on(D,B)-/on(D,C)+",
+   "on(C,A)+/on(C,D)-",
+   "on(B,C)-/on(B,D)+",
+   "on_table(E)-/holding(E)+",
+   "on_table(B)+/on(B,E)-",
+   "on(E,A)+/on(E,B)-"
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s2": [
+   "on(C,B)+/on(C,E)-",
+   "on(E,A)+/on(E,B)-",
+   "on_table(D)+/on(D,C)-",
+   "on(E,C)+/holding(E)-",
+   "on(A,B)-/on(A,C)+",
+   "on(B,C)-/on(B,E)+"
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s3": [
+   "on(D,B)-/on(D,E)+",
+   "on(C,D)+/holding(C)-",
+   "on_table(D)-/holding(D)+",
+   "on_table(C)-/on(C,E)+",
+   "on(E,A)+/on(E,D)-",
+   "on(B,D)+/on(B,E)-",
+   "on(C,A)-/on(C,B)+",
+   "on_table(B)+/on(B,C)-",
+   "on(E,C)-/holding(E)+",
+   "on(D,A)-/on(D,C)+",
+   "on(A,B)+/on(A,C)-",
+   "on_table(A)+/on(A,D)-",
+   "on(A,E)-/holding(A)+"
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s1": [
+   "on(C,B)-/on(C,D)+",
+   "on(E,C)-/holding(E)+",
+   "on_table(E)+/on(E,A)-",
+   "on(B,C)+/on(B,D)-",
+   "on(A,D)-/holding(A)+",
+   "on(E,B)-/on(E,D)+",
+   "on(B,A)+/on(B,E)-",
+   "on(A,B)-/on(A,E)+",
+   "on(D,B)+/on(D,C)-",
+   "on_table(D)+/on(D,E)-"
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s2": [
+   "on(A,D)+/on(A,E)-",
+   "on(C,A)+/holding(B)-",
+   "on(D,A)+/on(D,C)-",
+   "on(C,B)-/on(C,E)+",
+   "on(A,B)-/on(A,C)+",
+   "on(E,B)+/holding(D)-",
+   "on_table(B)+/on(B,A)-",
+   "on(C,D)+/holding(C)-",
+   "on(E,A)+/holding(D)-",
+   "on(B,C)-/on(B,E)+",
+   "on_table(E)+/on(E,C)-"
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s3": [
+   "on(D,E)-/holding(D)+",
+   "on(D,B)+/on(D,C)-",
+   "on_table(E)+/on(E,C)-",
+   "on(C,D)+/holding(C)-",
+   "on_table(B)+/on(B,A)-",
+   "on_table(A)+/on(A,D)-",
+   "on(B,C)-/holding(B)+",
+   "on(E,B)-/holding(E)+",
+   "on(C,A)+/on(C,E)-"
+  ]
+ },
+ "reversed_units_per_run": {
+  "bw-gauss_vae-A1-b1-lr0.0003_s1": [
+   15,
+   1,
+   1
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s2": [
+   16,
+   3,
+   3
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s3": [
+   16,
+   1,
+   1
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s4": [
+   16,
+   0,
+   0
+  ],
+  "bw-gauss_vae-A1-b1-lr0.0003_s5": [
+   16,
+   1,
+   1
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s1": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s2": [
+   16,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s3": [
+   16,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s4": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A1-b1-lr0.003_s5": [
+   15,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s1": [
+   15,
+   8,
+   8
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s2": [
+   15,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s3": [
+   14,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s4": [
+   15,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A2-b1-lr0.0003_s5": [
+   15,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s1": [
+   9,
+   0,
+   0
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s2": [
+   11,
+   0,
+   0
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s3": [
+   9,
+   0,
+   0
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s4": [
+   10,
+   2,
+   2
+  ],
+  "bw-gauss_vae-A2-b1-lr0.003_s5": [
+   10,
+   1,
+   1
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s1": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s2": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s3": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s4": [
+   15,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A4-b1-lr0.0003_s5": [
+   16,
+   9,
+   9
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s1": [
+   15,
+   10,
+   10
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s2": [
+   15,
+   5,
+   5
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s3": [
+   15,
+   5,
+   5
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s4": [
+   14,
+   8,
+   8
+  ],
+  "bw-gauss_vae-A4-b1-lr0.003_s5": [
+   15,
+   7,
+   7
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s1": [
+   15,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s2": [
+   17,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A1-b1-lr0.0003_s3": [
+   16,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s1": [
+   16,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s2": [
+   19,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A2-b1-lr0.0003_s3": [
+   17,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s1": [
+   23,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s2": [
+   23,
+   0,
+   0
+  ],
+  "prod5-gauss_vae-A4-b1-lr0.0003_s3": [
+   22,
+   0,
+   0
+  ]
+ }
+}

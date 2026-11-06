@@ -1,0 +1,25 @@
+{
+ "run_id": "analysis_001",
+ "results_sha256": "f360f73b74b9f18360d6d07a140375b9b4b67528bdf8cd88b2431ca981310cc5",
+ "status": "pass",
+ "method": "Separate script recomputing headline numbers by different code paths: rate in float64, H(X), distortion with another MC seed and hand-written Bernoulli NLL (4 SE), beta*, Q7 count, MI by explicit joint tables with hand-written 20-bin discretization, units per block, F1 fact counts from stored pw03a matrices, b_lin eigenvalue counts by SVD, Q6 funnel per sample with the pw01 checker and hand-written cross-block code, independence prediction by Monte Carlo (4 SE), one model's samples regenerated with the frozen pw04a sampler (byte comparison). Negative controls: uniform random bits through the funnel; permuted block labels for MI.",
+ "limitations": "Same author and session (not independent replication); same retained operands as the analysis; per-cell summaries, null percentiles, signs and pair classes not recomputed.",
+ "checks": {
+  "no_mismatches": true,
+  "regenerated_samples_identical": true,
+  "negative_random_bits_illegal": true,
+  "negative_permuted_mi_below_unit_mi": true
+ },
+ "evidence": [
+  {
+   "path": "audit_recompute.json",
+   "bytes": 47328,
+   "sha256": "76f26b3ab66fc6efad954e7c90d73348f9488c5266e30f4131387ae155373797"
+  },
+  {
+   "path": "results.json",
+   "bytes": 773588,
+   "sha256": "f360f73b74b9f18360d6d07a140375b9b4b67528bdf8cd88b2431ca981310cc5"
+  }
+ ]
+}

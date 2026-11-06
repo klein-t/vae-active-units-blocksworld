@@ -1,0 +1,244 @@
+{
+  "experiment_id": "pw01_state_space_ground_truth",
+  "run_id": "analysis_001",
+  "freeze_sha256": "45e2b4784bbe4feef4d2079aa0dca80383ecb4eadf31b6f0a175f703e40d88f8",
+  "status": "completed",
+  "outcome": "supported",
+  "interpretation": "Exact, model-free and scoped to 5-block Blocksworld with this 36-fact encoding and the thesis data files: 866 legal states (501 arm-empty + 365 holding) by brute force, BFS and the Lah formula; the data contain 0 illegal states and cover 866/866 legal states over 1020005 valid positions; hand_empty equals step parity at every valid position (0 violations). Empirical H = 9.346 bits vs log2 866 = 9.758; H(state | parity) = 8.346. Per-block categorical variables are dependent: total correlation 1.366 bits. Dimension candidates are definitions, not a claim about what a VAE should find.",
+  "confirmation_accessed": true,
+  "claims_changed": false,
+  "gates": {
+    "task": true,
+    "numerical": true
+  },
+  "criteria": {
+    "count_agreement": true,
+    "data_all_legal": true,
+    "data_cover_all_legal": true,
+    "hand_empty_equals_step_parity": true
+  },
+  "metrics": {
+    "n_legal": 866,
+    "n_arm_empty": 501,
+    "n_holding": 365,
+    "lah5": 501,
+    "lah4": 73,
+    "n_illegal_positions_in_data": 0,
+    "legal_states_covered": 866,
+    "hand_empty_parity_violations": 0,
+    "positions_even_k": 515204,
+    "positions_odd_k": 504801,
+    "entropy_bits": {
+      "all": 9.345781901121171,
+      "train": 9.345194270789994,
+      "test": 9.33540780461147,
+      "even_k": 8.473270230984308,
+      "odd_k": 8.215817892955755,
+      "k_le_30": 9.051086759102041,
+      "k_gt_30": 9.64591252664335
+    },
+    "entropy_bits_given_parity": 8.345856936256194,
+    "log2_legal": 9.758223214726724,
+    "log2_arm_empty": 8.968666793195208,
+    "log2_holding": 8.51175265376738,
+    "parity_support": {
+      "even_k": 501,
+      "odd_k": 365,
+      "even_k_all_arm_empty": true,
+      "odd_k_all_holding": true
+    },
+    "factorisation": {
+      "definition": "Block x in {T (table), H (hand), on(x, y) for the 4 other y}: 5 variables x 6 values",
+      "n_vars": 5,
+      "cardinality": 6,
+      "product_space": 7776,
+      "product_bits": 12.92481250360578,
+      "legal_fraction_of_product": 0.11136831275720165,
+      "arm_empty_view": {
+        "definition": "Given hand empty, each block has 5 values (T or on one of 4 blocks)",
+        "product_space": 3125,
+        "product_bits": 11.60964047443681,
+        "legal_fraction_of_product": 0.16032
+      },
+      "empirical_all": {
+        "marginal_entropies_bits": {
+          "A": 2.147755278400732,
+          "B": 2.142082475346136,
+          "C": 2.1359639313686243,
+          "D": 2.1392654610768296,
+          "E": 2.1462233535858006
+        },
+        "sum_marginal_entropies_bits": 10.711290499778123,
+        "joint_entropy_bits": 9.345781901121171,
+        "total_correlation_bits": 1.3655085986569517,
+        "pairwise_mutual_information_bits": {
+          "A,B": 0.11458600619810166,
+          "A,C": 0.11427897621730487,
+          "A,D": 0.11395781143921369,
+          "A,E": 0.11522499819325027,
+          "B,C": 0.11389861694224201,
+          "B,D": 0.11416043641453477,
+          "B,E": 0.11426867944137342,
+          "C,D": 0.11294916059111859,
+          "C,E": 0.11364992073968683,
+          "D,E": 0.11503414426531844
+        },
+        "mean_pairwise_mi_bits": 0.11420087504421446
+      },
+      "empirical_even_k": {
+        "marginal_entropies_bits": {
+          "A": 1.899625878905416,
+          "B": 1.894670720730508,
+          "C": 1.8875871130194775,
+          "D": 1.8901492469612422,
+          "E": 1.898437540228612
+        },
+        "sum_marginal_entropies_bits": 9.470470499845256,
+        "joint_entropy_bits": 8.473270230984308,
+        "total_correlation_bits": 0.9972002688609471,
+        "pairwise_mutual_information_bits": {
+          "A,B": 0.08154497838722374,
+          "A,C": 0.08109868489432426,
+          "A,D": 0.08141886053367342,
+          "A,E": 0.0819549000251163,
+          "B,C": 0.08062705433124151,
+          "B,D": 0.08091292235252556,
+          "B,E": 0.08151739027431537,
+          "C,D": 0.08052353366359899,
+          "C,E": 0.08100192354363189,
+          "D,E": 0.08114559366979712
+        },
+        "mean_pairwise_mi_bits": 0.08117458416754482
+      },
+      "empirical_odd_k": {
+        "marginal_entropies_bits": {
+          "A": 2.1798744223736257,
+          "B": 2.1749777957052916,
+          "C": 2.169390427010338,
+          "D": 2.171658565629803,
+          "E": 2.1788517798613496
+        },
+        "sum_marginal_entropies_bits": 10.874752990580408,
+        "joint_entropy_bits": 8.215817892955755,
+        "total_correlation_bits": 2.658935097624653,
+        "pairwise_mutual_information_bits": {
+          "A,B": 0.19908163349637853,
+          "A,C": 0.19910611691410107,
+          "A,D": 0.1983223768391289,
+          "A,E": 0.2005572203725281,
+          "B,C": 0.19883880068092719,
+          "B,D": 0.19932386740419616,
+          "B,E": 0.19846145812262161,
+          "C,D": 0.1971763812355034,
+          "C,E": 0.19733645957696577,
+          "D,E": 0.20130876356587812
+        },
+        "mean_pairwise_mi_bits": 0.19895130782082288
+      },
+      "uniform_over_legal": {
+        "marginal_entropies_bits": {
+          "A": 2.356308286083936,
+          "B": 2.356308286083936,
+          "C": 2.356308286083936,
+          "D": 2.356308286083936,
+          "E": 2.356308286083936
+        },
+        "sum_marginal_entropies_bits": 11.78154143041968,
+        "joint_entropy_bits": 9.758223214726723,
+        "total_correlation_bits": 2.0233182156929566,
+        "pairwise_mutual_information_bits": {
+          "A,B": 0.16188530630772213,
+          "A,C": 0.16188530630772213,
+          "A,D": 0.16188530630772213,
+          "A,E": 0.16188530630772036,
+          "B,C": 0.16188530630772213,
+          "B,D": 0.16188530630772213,
+          "B,E": 0.16188530630772036,
+          "C,D": 0.16188530630772213,
+          "C,E": 0.16188530630772036,
+          "D,E": 0.16188530630772036
+        },
+        "mean_pairwise_mi_bits": 0.1618853063077214
+      }
+    },
+    "linear": {
+      "rank_all": 26,
+      "affine_dim_all": 25,
+      "rank_all_without_hand_empty_column": 26,
+      "affine_dim_all_without_hand_empty_column": 25,
+      "affine_dim_arm_empty": 20,
+      "affine_dim_holding": 24,
+      "rank_arm_empty": 21,
+      "rank_holding": 25,
+      "nonconstant_facts_all": 36,
+      "nonconstant_facts_arm_empty": 30,
+      "nonconstant_facts_holding": 35
+    },
+    "frequency": {
+      "max": 29807,
+      "min": 241,
+      "median": 858.5,
+      "top10_share": 0.0918417066583007,
+      "legal_states_by_hand_empty_and_n_towers": {
+        "0,1": 120,
+        "0,2": 180,
+        "0,3": 60,
+        "0,4": 5,
+        "1,1": 120,
+        "1,2": 240,
+        "1,3": 120,
+        "1,4": 20,
+        "1,5": 1
+      }
+    },
+    "task": {
+      "input_sha256": {
+        "blocksworld_metadata.json": "7e379d480dbb57dfd4ac284c35156224d37d6e9c10c85abf28cc0d8295488a93",
+        "blocksworld_train_X.npy": "6a8d71fd22fde8a25e146619f0f5a09f45dc55cea4483377719cf5dd53a05716",
+        "blocksworld_train_Y.npy": "34421f110850147fd91f12b4795388b235125563d25cbf0a467c756594591093",
+        "blocksworld_test_X.npy": "21a223dcf19ba8add03c7e18ab738541dbf3d4a901e1154d8d040e899cf93845",
+        "blocksworld_test_Y.npy": "54aac4bc4800b08f6acf0bdf7f8d3dcb5e05ba25967105857811c44808401512"
+      },
+      "fact_order_matches_metadata": true,
+      "pad_token": 52,
+      "y_sum_at_pad_positions": 0,
+      "valid_positions": 1020005,
+      "valid_positions_by_split": {
+        "train": 815457,
+        "test": 204548
+      },
+      "sequence_lengths": {
+        "train": {
+          "min_actions": 40,
+          "max_actions": 60,
+          "n_sequences": 16004
+        },
+        "test": {
+          "min_actions": 14,
+          "max_actions": 60,
+          "n_sequences": 4001
+        }
+      },
+      "transitions_checked": 1000000,
+      "transitions_not_matching_strips": 0
+    },
+    "numerical": {
+      "counts_agree": true,
+      "all_enumerated_pass_checker": true,
+      "single_flip_tests": 31176,
+      "single_flip_accepted": 0,
+      "single_flip_checker_vs_set_mismatch": 0,
+      "random_vectors": 200000,
+      "random_accepted_by_checker": 0,
+      "random_in_legal_set": 0
+    },
+    "runtime_seconds": 2.9,
+    "compute": {
+      "device": "cpu",
+      "precision": "int8/float64 (numpy)",
+      "threads": 1,
+      "python": "3.12.11",
+      "numpy": "2.5.4"
+    }
+  }
+}
